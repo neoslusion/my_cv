@@ -1,5 +1,5 @@
 from docx2pdf import convert
 
-convert("NguyenKiemHung_CV.docx")
-convert("NguyenKiemHung_CV.docx", "NguyenKiemHung_CV.pdf")
+convert("LePhucDuc_CV.docx")
+convert("LePhucDuc_CV.docx", "LePhucDuc_CV.pdf")
 convert("./")
