@@ -49,5 +49,5 @@ jobs:
           prerelease: false
           title: "Latest build"
           files: |
-            NguyenKiemHung_CV.pdf
+            LePhucDuc_CV.pdf
       
