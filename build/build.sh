@@ -17,7 +17,7 @@ echo "Getting PDF file."
 python build/get_via_htmltopdf.py
 #python docs/convert_docx2pdf.py
 
-# libreoffice --headless --convert-to pdf $inputfile
+libreoffice --headless --convert-to pdf $inputfile
 
 # Clean up
 killall python

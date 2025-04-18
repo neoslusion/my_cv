@@ -139,3 +139,6 @@ dist/
 
 # sftp configuration file
 sftp-config.json
+
+# Virtual Environment
+venv
