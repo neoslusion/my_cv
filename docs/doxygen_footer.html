@@ -1,0 +1,22 @@
+        </div> <!-- doc-content -->
+    </div> <!-- contents -->
+    
+    <footer style="text-align: center; margin-top: 2rem; padding: 1rem; color: #6c757d; font-size: 0.9rem;">
+        <p>Generated with Doxygen | Last updated: $datetime</p>
+    </footer>
+    
+    <script>
+        // Clean up Doxygen-generated content
+        $(document).ready(function() {
+            // Move the main content to our custom container
+            const content = $('.contents').find('.textblock, h1, h2, h3, h4, p, ul, ol, dl').parent();
+            if (content.length) {
+                $('#doc-content').html(content.html());
+            }
+            
+            // Hide any remaining Doxygen UI elements
+            $('.header, .tabs, #navrow1, #navrow2, #navrow3, #navrow4').hide();
+        });
+    </script>
+</body>
+</html>

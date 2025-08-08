@@ -1,0 +1,87 @@
+/**
+ * @file LePhucDuc_CV.dox
+ * @brief Curriculum Vitae - Le Phuc Duc
+ * @author Le Phuc Duc
+ * @date 2024
+ */
+
+/**
+ * @page cv_main Le Phuc Duc - Curriculum Vitae
+ * 
+ * @section contact_info Contact Information
+ * - **Name:** LE PHUC DUC
+ * - **Location:** Ho Chi Minh City, Vietnam
+ * - **Phone:** (+84) 373304824
+ * - **Email:** lephucduc2000@gmail.com
+ * - **LinkedIn:** [LinkedIn Profile]
+ * - **Online CV:** [Online CV Link]
+ * 
+ * @section skills Skills
+ * - **Programming Languages:** C, C++, Batch script, Python, CAPL
+ * - **Automotive Industrial:** AUTOSAR Classic, CAN protocol, LIN protocol
+ * - **Tools:** ALM, Vector toolchain (CANoe, VectorCAST, Davinci Configurator & Developer)
+ * 
+ * @section education Education
+ * 
+ * @subsection master_degree Master's Degree
+ * - **Institution:** Ho Chi Minh City University of Technology, Ho Chi Minh City
+ * - **Period:** 2024 – Present
+ * - **Degree:** Master's Degree in Computer Science Engineering
+ * - **GPA:** 7.6/10
+ * 
+ * @subsection bachelor_degree Bachelor's Degree
+ * - **Institution:** Ho Chi Minh City University of Technology, Ho Chi Minh City
+ * - **Period:** 2018 – 2022
+ * - **Degree:** Bachelor's Degree in Automation and Control Engineering
+ * 
+ * @section work_experience Work Experience
+ * 
+ * @subsection bosch_company Bosch Global Software Technologies Company Limited
+ * **Location:** Ho Chi Minh City, Vietnam
+ * 
+ * Bosch Global Software Technologies Vietnam is a subsidiary of Bosch Global, focusing on 
+ * Automotive Embedded Systems. Developing Airbag systems, our goal is to save lives which 
+ * requires great attention to detail and the highest standard of safety in embedded systems.
+ * 
+ * @subsubsection current_role Software Engineering (Feb 2024 – Present)
+ * **Product:** Perfectly Keyless System  
+ * **Customer:** Honda
+ * 
+ * **Responsibilities:**
+ * - Software Developer in Master ECU software development with SaaP approach
+ *   - Proficient in configuring AUTOSAR Basic software, including CommStack, MemStack, CryptoStack and SystemStack
+ *   - Proficient in developing AUTOSAR Application software components and RTE configuration
+ *   - Creating the platform software to integrate Master Mcu SaaP product
+ *   - Support to integrate new SIP from Vector
+ *   - Experienced in Cybersecurity concept in software development
+ * - Support for DevOps activities in project
+ *   - Setup infrastructure, develop and maintain CI/CT pipeline for project
+ *   - Building the framework for clear, functional C document using Doxygen + Sphinx
+ * - Software Developer in SDV program
+ *   - Define approach, architecture and technologies used for internal SDV program
+ *   - Collaborate with ETAS to bring up PK's features into DreamKit
+ *   - Bring up features from Master Mcu's SaaP to SDV internal platform (Diagnostic, Ranging/Localization)
+ *   - Experienced in developing and debugging softwares in Linux environment
+ *   - Building the pipeline and document framework for SDV
+ * 
+ * **Achievements:**
+ * - Acknowledged for contributing to software delivery for Japan customer (Honda, ALAP) for 2 consecutive releases
+ * - Successfully building a platform software to integrate SaaP product which contributed to the validating process of both VnV and Developer team
+ * - Acknowledged for successfully bring up features from PK to SDV platform
+ * 
+ * @subsubsection previous_role Software Engineer (June 2022 – Feb 2024)
+ * **Product:** Perfectly Keyless System for Fleet Management Extended Access  
+ * **Customer:** CV (Commercial Vehicle)
+ * 
+ * **Responsibilities:**
+ * - Software Developer in Master ECU for Perfectly Keyless System's platform project
+ *   - Configuring AUTOSAR Application software components and RTE configuration
+ *   - Support to integrate new SIP from Vector and support to debug problem in SIP package
+ *   - Understanding CCC (Car Connectivity Consortium)
+ * - Proficient in developing Application software components and configuring Basic software for Airbag product
+ * - Established CI/CT pipeline for project (integrating build process, unit test up to system test and reporting)
+ * - Responsible for developing door lock/unlock feature for Master Mcu using LIN
+ * 
+ * **Achievements:**
+ * - Acknowledged for establishing and maintaining CI/CT pipeline and share for other teams
+ */
