@@ -9,6 +9,10 @@ on:
     paths:
       - "docs/**"
       - "build/**"
+      - "Doxyfile"
+
+env:
+  BUILD_METHOD: "doxygen"  # Options: "html" (original) or "doxygen" (new)
 
 jobs:
   build:
@@ -21,6 +25,11 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen
+
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
@@ -32,14 +41,33 @@ jobs:
           tar -xvzf ngrok-v3-stable-linux-amd64.tgz
           ./ngrok config add-authtoken ${{ secrets.ngrok_token }}
 
-      # - name: Install Libreoffice
+      # - name: Install Libreoffice (for original workflow)
       #   run: | 
       #     sudo apt install libreoffice
+      #   if: env.BUILD_METHOD == 'html'
 
-      - name: Build PDF file
+      - name: Build PDF file (Doxygen workflow)
+        run: |
+          chmod +x build/build.sh
+          chmod +x build/build_doxygen.sh
+          sh build/build.sh doxygen
+        if: env.BUILD_METHOD == 'doxygen'
+
+      - name: Build PDF file (Original workflow)
         run: |
           chmod +x build/build.sh
           sh build/build.sh
+        if: env.BUILD_METHOD == 'html'
+
+      - name: Verify PDF output
+        run: |
+          if [ -f "LePhucDuc_CV.pdf" ]; then
+            echo "✅ PDF file generated successfully"
+            ls -lh LePhucDuc_CV.pdf
+          else
+            echo "❌ PDF file not found"
+            exit 1
+          fi
 
       - name: Publish to Release page
         uses: marvinpinto/action-automatic-releases@latest
@@ -47,7 +75,7 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
-          title: "Latest build"
+          title: "Latest CV Build (${{ env.BUILD_METHOD }} workflow)"
           files: |
             LePhucDuc_CV.pdf
       
