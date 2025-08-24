@@ -1,0 +1,102 @@
+PERSONAL_INFO:
+Full Name: LE PHUC DUC
+Phone: (+84) 373304824
+Email: lephucduc2000@gmail.com
+Birth Date: Sept 2000
+Location: Ho Chi Minh City, Vietnam
+LinkedIn: https://linkedin.com/in/lephucduc
+Portfolio: https://neoslusion.github.io/my_cv
+
+PROFESSIONAL_SUMMARY:
+Experienced software engineer with expertise in automotive embedded systems, AUTOSAR development, and project coordination. Skilled in developing high-quality software solutions for automotive customers with strong problem-solving abilities and attention to detail.
+
+TECHNICAL_SKILLS:
+Programming Languages: C, C++, Batch Script, Python, CAPL
+Automotive Technologies: AUTOSAR Classic, CAN Protocol, LIN Protocol
+Development Tools: ALM, Vector Toolchain (CANoe, VectorCAST, Davinci Configurator & Developer)
+Specializations: Embedded Systems, Cybersecurity, DevOps, CI/CD Pipeline
+
+SOFT_SKILLS:
+- Quick to adapt and fast learner
+- Strong analytical and problem-solving abilities
+- Excellent teamwork and independent work capabilities
+- Effective communication and documentation skills
+
+EDUCATION:
+Institution: Ho Chi Minh City University of Technology
+Degree: Master's Degree in Computer Science Engineering
+Location: Ho Chi Minh City, Vietnam
+Duration: 2024 – Present
+GPA: 7.6/10
+
+Institution: Ho Chi Minh City University of Technology
+Degree: Bachelor's Degree in Automation and Control Engineering
+Location: Ho Chi Minh City, Vietnam
+Duration: 2018 – 2022
+GPA: -
+
+WORK_EXPERIENCE:
+Company: Bosch Global Software Technologies Company Limited
+Location: Ho Chi Minh City, Vietnam
+Employment Period: June 2022 – Present
+Company Description: Bosch Global Software Technologies Vietnam is a subsidiary of Bosch Global, focusing on Automotive Embedded Systems. Developing Airbag systems, our goal is to save lives which requires great attention to detail and the highest standard of safety in embedded systems.
+Product Focus: Perfectly Keyless System
+Key Customers: Honda, CV (Commercial Vehicle)
+
+Position: Software Engineering
+Duration: Feb 2024 – Present
+Key Responsibilities:
+• Software Developer in Master ECU software development with SaaP approach
+• Configure AUTOSAR Basic software including CommStack, MemStack, CryptoStack and SystemStack
+• Develop AUTOSAR Application software components and RTE configuration
+• Create platform software to integrate Master MCU SaaP product
+• Integrate new SIP from Vector and provide technical support
+• Apply Cybersecurity concepts in software development
+• Support DevOps activities and maintain CI/CT pipeline infrastructure
+• Build framework for clear, functional C documentation using Doxygen + Sphinx
+• Lead Software Developer role in SDV (Software-Defined Vehicle) program
+• Define approach, architecture and technologies for internal SDV program
+• Collaborate with ETAS to bring PK features into DreamKit
+• Integrate Master MCU SaaP features to SDV platform (Diagnostic, Ranging/Localization)
+• Develop and debug software in Linux environment
+• Build pipeline and documentation framework for SDV
+
+Position: Software Engineer
+Duration: June 2022 – Feb 2024
+Key Responsibilities:
+• Software Developer in Master ECU for Perfectly Keyless System platform project
+• Configure AUTOSAR Application software components and RTE configuration
+• Integrate new SIP from Vector and debug SIP package issues
+• Implement CCC (Car Connectivity Consortium) standards
+• Develop Application software components and configure Basic software for Airbag products
+• Establish CI/CT pipeline integrating build process, unit test, system test and reporting
+• Develop door lock/unlock feature for Master MCU using LIN protocol
+
+KEY_ACHIEVEMENTS:
+• Acknowledged for contributing to software delivery for Japan customer (Honda, ALAP) for 2 consecutive releases
+• Successfully built platform software to integrate SaaP product, contributing to VnV and Developer team validation processes
+• Acknowledged for successfully bringing up features from PK to SDV platform
+• Recognized for establishing and maintaining CI/CT pipeline and sharing knowledge with other teams
+
+CERTIFICATIONS_AWARDS:
+Award: SPOT AWARD
+Issued By: Head of Department, Bosch Vietnam
+Achievements:
+• Successful delivery of software on time for key customers: Vinfast, SAIC, SGMW
+• High willingness to guide new members and associates in problem solving
+
+Award: STEP UP AWARD
+Issued By: Head of Department and Managing Director of Bosch Vietnam
+Topic: Utilize ALM tool as systematic approach for task assignment and team management
+Achievements:
+• Analyzed data on ALM tool and created dashboard to monitor team performance (On Time Delivery, Defect Injection phases, etc.)
+• Highlighted key insights and proposed improvement plans
+
+Certification: SOFT SKILLS CERTIFICATION
+Training Provider: CTS (Corporate Training Solution Vietnam)
+Skills Covered:
+• Communication with high impact
+• Time management
+
+PERSONAL_INTERESTS:
+Music, Soccer, Travelling

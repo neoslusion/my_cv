@@ -1,0 +1,26 @@
+# --- Inputs ---
+OUTPUT_DIRECTORY        = @CMAKE_BINARY_DIR@/docs
+INPUT                   = @CMAKE_SOURCE_DIR@/src @CMAKE_SOURCE_DIR@/include @CMAKE_SOURCE_DIR@/docs
+FILE_PATTERNS           = *.h *.hpp *.c *.cpp *.dox *.md
+RECURSIVE               = YES
+EXTRACT_ALL             = YES
+
+# --- Diagrams (Graphviz/dot) ---
+HAVE_DOT                = YES
+DOT_IMAGE_FORMAT        = pdf       # vector diagrams in LaTeX
+DOT_TRANSPARENT         = YES
+CALL_GRAPH              = NO
+CALLER_GRAPH            = NO
+
+# --- LaTeX / PDF ---
+GENERATE_LATEX          = YES
+LATEX_OUTPUT            = latex
+USE_PDFLATEX            = YES
+LATEX_CMD_NAME          = xelatex   # better UTF-8 handling; keep YES above
+MAKEINDEX_CMD_NAME      = makeindex
+PDF_HYPERLINKS          = YES
+LATEX_BATCHMODE         = YES
+LATEX_SOURCE_CODE       = YES
+COMPACT_LATEX           = NO
+PAPER_TYPE              = a4
+EXTRA_PACKAGES          = amsmath amssymb

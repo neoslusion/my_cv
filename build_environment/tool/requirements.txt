@@ -1,0 +1,9 @@
+requests
+docx2pdf
+gitpython
+markdown
+weasyprint
+jinja2
+python-docx
+pdfkit
+configparser
