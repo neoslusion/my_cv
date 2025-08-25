@@ -1,0 +1,23 @@
+% Simple LaTeX adjustments for CV formatting
+\ProvidesPackage{cv_style}
+
+% Use Times font
+\RequirePackage{times}
+
+% Compact margins
+\RequirePackage[top=2cm, bottom=1.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+% Remove page style
+\pagestyle{empty}
+
+% Tighter spacing
+\RequirePackage{titlesec}
+\titlespacing*{\section}{0pt}{8pt plus 2pt}{4pt plus 1pt}
+\titlespacing*{\subsection}{0pt}{6pt plus 1pt}{3pt plus 1pt}
+
+% Center section titles
+\titleformat{\section}{\centering\normalfont\large\bfseries}{\thesection}{1em}{}
+
+% No paragraph indentation
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt plus 1pt}

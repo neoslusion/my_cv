@@ -1,0 +1,104 @@
+% Custom LaTeX header to match .docx CV format
+\documentclass[11pt,a4paper]{article}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}                    % Times New Roman font
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{array}
+
+% Page geometry to match Word document
+\geometry{
+    a4paper,
+    top=1.8cm,
+    bottom=1.5cm,
+    left=2.5cm,
+    right=2.5cm,
+    headheight=0cm,
+    headsep=0cm,
+    footskip=0.5cm
+}
+
+% Remove headers and footers
+\pagestyle{empty}
+
+% Hyperlink setup (no colored links to match Word)
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+    pdfauthor={Le Phuc Duc},
+    pdftitle={Le Phuc Duc - Software Engineer},
+    pdfsubject={Curriculum Vitae}
+}
+
+% Section formatting to match centered bold headers
+\titleformat{\section}
+{\centering\normalfont\large\bfseries}
+{}{0em}{}
+[\vspace{-0.3em}]
+
+\titleformat{\subsection}
+{\normalfont\normalsize\bfseries}
+{}{0em}{}
+
+% Custom commands to match Word document structure
+\newcommand{\cvheader}[1]{
+    \begin{center}
+        {\fontsize{15pt}{18pt}\selectfont\textbf{#1}}
+    \end{center}
+    \vspace{-0.5em}
+}
+
+\newcommand{\cvcontact}[1]{
+    \begin{center}
+        \rule{\textwidth}{0.5pt}\\
+        \vspace{0.2em}
+        {#1}
+    \end{center}
+    \vspace{0.5em}
+}
+
+\newcommand{\cvsection}[1]{
+    \vspace{0.8em}
+    \begin{center}
+        \textbf{#1}
+    \end{center}
+    \vspace{0.3em}
+}
+
+\newcommand{\cventry}[4]{
+    \noindent
+    \begin{tabularx}{\textwidth}{@{}X@{}r@{}}
+        \textbf{#1} & \textbf{#2} \\
+        #3 & \\
+    \end{tabularx}
+    #4
+    \vspace{0.3em}
+}
+
+\newcommand{\cvskill}[2]{
+    \textbf{#1}: #2\\
+}
+
+% List formatting to match Word bullets
+\setlist[itemize]{
+    leftmargin=1.2em,
+    itemsep=0pt,
+    parsep=0pt,
+    topsep=0pt,
+    partopsep=0pt
+}
+
+% Paragraph settings
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Line spacing
+\renewcommand{\baselinestretch}{1.0}
