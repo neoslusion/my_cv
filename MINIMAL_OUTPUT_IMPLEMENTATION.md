@@ -45,18 +45,27 @@ Successfully removed unnecessary Doxygen-generated content from the PDF output t
 - File listings and indices
 - Standard Doxygen documentation structure
 
-### After (Minimal CV Output)
-- **File Size**: 56KB (clean, minimal content)
+### After (Optimized Minimal CV Output)
+- **File Size**: 56.8KB (compact, optimized layout)
 - **Content**: Direct CV content matching .docx structure
-- **Layout**: Centered headers, proper spacing, Times New Roman font
+- **Layout**: 
+  - Compact margins (1.8cm left/right, 1.5cm top, 1.2cm bottom)
+  - Optimized spacing between sections (reduced by ~40%)
+  - Tighter line spacing (0.95x) for more content per page
+  - Compressed list formatting with negative item spacing
+  - Enhanced text flow with better hyphenation control
+- **Typography**: 
+  - Times New Roman font throughout
+  - Centered headers with optimized font sizes (16pt main title, large section headers)
+  - Professional bullet points with compact indentation
 - **Structure**: 
-  - LE PHUC DUC (centered title)
+  - LE PHUC DUC (centered title, 16pt)
   - Contact information with horizontal rule
-  - SKILLS section
-  - EDUCATION section  
-  - WORK EXPERIENCE section
+  - SKILLS section with tight formatting
+  - EDUCATION section with compact entries
+  - WORK EXPERIENCE section with optimized spacing
 - **No Front Matter**: Removed all auto-generated Doxygen elements
-- **Clean Build**: No LaTeX errors, only harmless makeindex warning
+- **Clean Build**: No LaTeX errors or overflow warnings
 
 ## Technical Implementation
 The solution works by:

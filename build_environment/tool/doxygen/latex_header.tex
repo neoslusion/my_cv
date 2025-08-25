@@ -13,16 +13,16 @@
 \usepackage{tabularx}
 \usepackage{array}
 
-% Page geometry to match Word document
+% Optimized page geometry for compact layout
 \geometry{
     a4paper,
-    top=1.8cm,
-    bottom=1.5cm,
-    left=2.5cm,
-    right=2.5cm,
+    top=1.5cm,
+    bottom=1.2cm,
+    left=1.8cm,
+    right=1.8cm,
     headheight=0cm,
     headsep=0cm,
-    footskip=0.5cm
+    footskip=0.3cm
 }
 
 % Remove headers and footers
@@ -44,29 +44,29 @@
 {\normalfont\normalsize\bfseries}
 {}{0em}{}
 
-% Custom commands to match Word document structure
+% Optimized custom commands for compact layout
 \newcommand{\cvheader}[1]{
     \begin{center}
-        {\fontsize{15pt}{18pt}\selectfont\textbf{#1}}
+        {\fontsize{16pt}{19pt}\selectfont\textbf{#1}}
     \end{center}
-    \vspace{-0.5em}
+    \vspace{-0.2em}
 }
 
 \newcommand{\cvcontact}[1]{
     \begin{center}
         \rule{\textwidth}{0.5pt}\\
-        \vspace{0.2em}
+        \vspace{0.1em}
         {#1}
     \end{center}
-    \vspace{0.5em}
+    \vspace{0.3em}
 }
 
 \newcommand{\cvsection}[1]{
-    \vspace{0.8em}
+    \vspace{0.5em}
     \begin{center}
-        \textbf{#1}
+        \textbf{\large #1}
     \end{center}
-    \vspace{0.3em}
+    \vspace{0.15em}
 }
 
 \newcommand{\cventry}[4]{
@@ -76,34 +76,38 @@
         #3 & \\
     \end{tabularx}
     #4
-    \vspace{0.3em}
+    \vspace{0.15em}
 }
 
 \newcommand{\cvskill}[2]{
     \textbf{#1}: #2\\
 }
 
-% List formatting to match Word bullets
+% Compact list formatting
 \setlist[itemize]{
-    leftmargin=1.2em,
-    itemsep=0pt,
+    leftmargin=1.0em,
+    itemsep=-2pt,
     parsep=0pt,
-    topsep=0pt,
+    topsep=2pt,
     partopsep=0pt
 }
 
-% Paragraph settings
+% Optimized paragraph settings
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0pt}
+\setlength{\parskip}{3pt}
 
-% Line spacing
-\renewcommand{\baselinestretch}{1.0}
+% Compact line spacing and better text flow
+\renewcommand{\baselinestretch}{0.95}
+\tolerance=1000
+\emergencystretch=2em
+\hyphenpenalty=10000
+\exhyphenpenalty=100
 
-% Define all Doxygen commands to create minimal output
-\newcommand{\doxysection}[1]{\begin{center}{\fontsize{15pt}{18pt}\selectfont\textbf{#1}}\end{center}\vspace{0.5em}}
-\newcommand{\doxysubsection}[1]{\vspace{0.8em}\begin{center}\textbf{#1}\end{center}\vspace{0.3em}}
-\newcommand{\doxysubsubsection}[1]{\vspace{0.5em}\textbf{#1}\vspace{0.2em}}
-\newcommand{\DoxyHorRuler}[1]{\vspace{0.3em}\noindent\rule{\textwidth}{0.5pt}\vspace{0.3em}}
+% Define all Doxygen commands with optimized spacing
+\newcommand{\doxysection}[1]{\vspace{0.3em}\begin{center}{\fontsize{16pt}{19pt}\selectfont\textbf{#1}}\end{center}\vspace{0.2em}}
+\newcommand{\doxysubsection}[1]{\vspace{0.5em}\begin{center}\textbf{\large #1}\end{center}\vspace{0.15em}}
+\newcommand{\doxysubsubsection}[1]{\vspace{0.3em}\textbf{#1}\vspace{0.1em}}
+\newcommand{\DoxyHorRuler}[1]{\vspace{0.2em}\noindent\rule{\textwidth}{0.5pt}\vspace{0.2em}}
 \newenvironment{DoxyEnumerate}{\begin{enumerate}}{\end{enumerate}}
 \newenvironment{DoxyItemize}{\begin{itemize}}{\end{itemize}}
 
