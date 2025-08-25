@@ -1,5 +1,5 @@
 % Minimal LaTeX header for clean CV output
-\documentclass[11pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 
 % Essential packages
 \usepackage[utf8]{inputenc}
@@ -13,16 +13,16 @@
 \usepackage{tabularx}
 \usepackage{array}
 
-% Optimized page geometry for compact layout
+% Ultra-compact page geometry
 \geometry{
     a4paper,
-    top=1.5cm,
-    bottom=1.2cm,
-    left=1.8cm,
-    right=1.8cm,
+    top=1.2cm,
+    bottom=1.0cm,
+    left=1.5cm,
+    right=1.5cm,
     headheight=0cm,
     headsep=0cm,
-    footskip=0.3cm
+    footskip=0.2cm
 }
 
 % Remove headers and footers
@@ -44,70 +44,70 @@
 {\normalfont\normalsize\bfseries}
 {}{0em}{}
 
-% Optimized custom commands for compact layout
+% Ultra-compact custom commands
 \newcommand{\cvheader}[1]{
     \begin{center}
-        {\fontsize{16pt}{19pt}\selectfont\textbf{#1}}
+        {\fontsize{14pt}{16pt}\selectfont\textbf{#1}}
     \end{center}
-    \vspace{-0.2em}
+    \vspace{-0.4em}
 }
 
 \newcommand{\cvcontact}[1]{
     \begin{center}
-        \rule{\textwidth}{0.5pt}\\
-        \vspace{0.1em}
-        {#1}
+        \rule{\textwidth}{0.4pt}\\
+        \vspace{0.01em}
+        {\small #1}
     \end{center}
-    \vspace{0.3em}
+    \vspace{0.1em}
 }
 
 \newcommand{\cvsection}[1]{
-    \vspace{0.5em}
+    \vspace{0.1em}
     \begin{center}
-        \textbf{\large #1}
+        \textbf{\normalsize #1}
     \end{center}
-    \vspace{0.15em}
+    \vspace{0.02em}
 }
 
 \newcommand{\cventry}[4]{
     \noindent
     \begin{tabularx}{\textwidth}{@{}X@{}r@{}}
         \textbf{#1} & \textbf{#2} \\
-        #3 & \\
+        {#3} & \\
     \end{tabularx}
-    #4
-    \vspace{0.15em}
+    {#4}
+    \vspace{0.1em}
 }
 
 \newcommand{\cvskill}[2]{
     \textbf{#1}: #2\\
 }
 
-% Compact list formatting
+% Less compact list formatting
 \setlist[itemize]{
-    leftmargin=1.0em,
-    itemsep=-2pt,
+    leftmargin=0.9em,
+    itemsep=-1pt,
     parsep=0pt,
     topsep=2pt,
     partopsep=0pt
 }
 
-% Optimized paragraph settings
+% Less compact paragraph settings
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{3pt}
 
-% Compact line spacing and better text flow
-\renewcommand{\baselinestretch}{0.95}
+% Balanced line spacing and better text flow
+\renewcommand{\baselinestretch}{0.92}
 \tolerance=1000
 \emergencystretch=2em
 \hyphenpenalty=10000
 \exhyphenpenalty=100
 
-% Define all Doxygen commands with optimized spacing
-\newcommand{\doxysection}[1]{\vspace{0.3em}\begin{center}{\fontsize{16pt}{19pt}\selectfont\textbf{#1}}\end{center}\vspace{0.2em}}
-\newcommand{\doxysubsection}[1]{\vspace{0.5em}\begin{center}\textbf{\large #1}\end{center}\vspace{0.15em}}
-\newcommand{\doxysubsubsection}[1]{\vspace{0.3em}\textbf{#1}\vspace{0.1em}}
-\newcommand{\DoxyHorRuler}[1]{\vspace{0.2em}\noindent\rule{\textwidth}{0.5pt}\vspace{0.2em}}
+% Define all Doxygen commands with minimal section spacing
+\newcommand{\doxysection}[1]{\vspace{0.05em}\begin{center}{\fontsize{14pt}{16pt}\selectfont\textbf{#1}}\end{center}\vspace{0.02em}}
+\newcommand{\doxysubsection}[1]{\vspace{0.1em}\begin{center}\textbf{\normalsize #1}\end{center}\vspace{0.02em}}
+\newcommand{\doxysubsubsection}[1]{\vspace{0.1em}\textbf{#1}\vspace{0.02em}}
+\newcommand{\DoxyHorRuler}[1]{\vspace{0.02em}\noindent\rule{\textwidth}{0.4pt}\vspace{0.02em}}
 \newenvironment{DoxyEnumerate}{\begin{enumerate}}{\end{enumerate}}
 \newenvironment{DoxyItemize}{\begin{itemize}}{\end{itemize}}
 

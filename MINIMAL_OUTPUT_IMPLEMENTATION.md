@@ -45,25 +45,35 @@ Successfully removed unnecessary Doxygen-generated content from the PDF output t
 - File listings and indices
 - Standard Doxygen documentation structure
 
-### After (Optimized Minimal CV Output)
-- **File Size**: 56.8KB (compact, optimized layout)
-- **Content**: Direct CV content matching .docx structure
+### After (Ultra-Tight Section Spacing CV Output)
+- **File Size**: 56.5KB (maximally efficient section spacing)
+- **Page Count**: 2 pages (optimal content distribution)
+- **Content**: All CV content with minimal wasted space between sections
 - **Layout**: 
-  - Compact margins (1.8cm left/right, 1.5cm top, 1.2cm bottom)
-  - Optimized spacing between sections (reduced by ~40%)
-  - Tighter line spacing (0.95x) for more content per page
-  - Compressed list formatting with negative item spacing
-  - Enhanced text flow with better hyphenation control
+  - Compact margins (1.5cm left/right, 1.2cm top, 1.0cm bottom)
+  - Ultra-tight section spacing (reduced by ~80% from original)
+  - Balanced line spacing (0.92x) for readability
+  - Optimized list formatting with -1pt item spacing
+  - Enhanced text flow with advanced hyphenation control
 - **Typography**: 
+  - Base font size: 10pt for optimal space utilization
   - Times New Roman font throughout
-  - Centered headers with optimized font sizes (16pt main title, large section headers)
-  - Professional bullet points with compact indentation
+  - Title: 14pt centered headers with minimal spacing
+  - Section headers: \normalsize with ultra-tight spacing (0.1em top, 0.02em bottom)
+  - Body text: Regular size for excellent readability
+  - Thin horizontal rules (0.4pt) with minimal padding
+- **Section Spacing Optimization**: 
+  - **Between sections** (SKILLS → EDUCATION): 0.1em top + 0.02em bottom = 0.12em total
+  - **Contact section**: 0.01em rule gap + 0.1em bottom = 0.11em total
+  - **Entry spacing**: 0.1em between work experience entries
+  - **Horizontal rules**: 0.02em padding top and bottom
+  - **Consistent application**: All sections use identical ultra-tight spacing
 - **Structure**: 
-  - LE PHUC DUC (centered title, 16pt)
-  - Contact information with horizontal rule
-  - SKILLS section with tight formatting
-  - EDUCATION section with compact entries
-  - WORK EXPERIENCE section with optimized spacing
+  - LE PHUC DUC (centered title, 14pt) with minimal spacing
+  - Ultra-compact contact information section
+  - SKILLS section with immediate content start
+  - EDUCATION section with no gap waste
+  - WORK EXPERIENCE section with tight entry spacing
 - **No Front Matter**: Removed all auto-generated Doxygen elements
 - **Clean Build**: No LaTeX errors or overflow warnings
 
