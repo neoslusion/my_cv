@@ -1,4 +1,4 @@
-% Custom LaTeX header to match .docx CV format
+% Minimal LaTeX header for clean CV output
 \documentclass[11pt,a4paper]{article}
 
 % Essential packages
@@ -7,7 +7,6 @@
 \usepackage{times}                    % Times New Roman font
 \usepackage[english]{babel}
 \usepackage{geometry}
-\usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -32,10 +31,7 @@
 % Hyperlink setup (no colored links to match Word)
 \hypersetup{
     colorlinks=false,
-    pdfborder={0 0 0},
-    pdfauthor={Le Phuc Duc},
-    pdftitle={Le Phuc Duc - Software Engineer},
-    pdfsubject={Curriculum Vitae}
+    pdfborder={0 0 0}
 }
 
 % Section formatting to match centered bold headers
@@ -102,3 +98,28 @@
 
 % Line spacing
 \renewcommand{\baselinestretch}{1.0}
+
+% Define all Doxygen commands to create minimal output
+\newcommand{\doxysection}[1]{\begin{center}{\fontsize{15pt}{18pt}\selectfont\textbf{#1}}\end{center}\vspace{0.5em}}
+\newcommand{\doxysubsection}[1]{\vspace{0.8em}\begin{center}\textbf{#1}\end{center}\vspace{0.3em}}
+\newcommand{\doxysubsubsection}[1]{\vspace{0.5em}\textbf{#1}\vspace{0.2em}}
+\newcommand{\DoxyHorRuler}[1]{\vspace{0.3em}\noindent\rule{\textwidth}{0.5pt}\vspace{0.3em}}
+\newenvironment{DoxyEnumerate}{\begin{enumerate}}{\end{enumerate}}
+\newenvironment{DoxyItemize}{\begin{itemize}}{\end{itemize}}
+
+% Define Doxygen line break command
+\newcommand{\+}{}
+
+% Define missing commands that might not exist
+\providecommand{\printindex}{}
+\providecommand{\clearemptydoublepage}{\clearpage}
+
+% Override Doxygen document structure commands to remove front matter
+\renewcommand{\tableofcontents}{}
+\renewcommand{\listoffigures}{}
+\renewcommand{\listoftables}{}
+\renewcommand{\printindex}{}
+\renewcommand{\clearemptydoublepage}{}
+
+% Start document immediately with content
+\begin{document}

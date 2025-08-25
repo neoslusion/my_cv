@@ -1,9 +1,9 @@
 # Doxygen Configuration for CV Generation
 
 # --- Project Info ---
-PROJECT_NAME            = "LE PHUC DUC - SOFTWARE ENGINEER"
-PROJECT_NUMBER          = "Curriculum Vitae"
-PROJECT_BRIEF           = "Experienced software engineer with expertise in automotive embedded systems, AUTOSAR development, and project coordination."
+PROJECT_NAME            = ""
+PROJECT_NUMBER          = ""
+PROJECT_BRIEF           = ""
 
 # --- Inputs ---
 OUTPUT_DIRECTORY        = @CMAKE_BINARY_DIR@/docs
@@ -19,6 +19,7 @@ GENERATE_LATEX          = YES
 GENERATE_RTF            = NO
 GENERATE_MAN            = NO
 GENERATE_XML            = NO
+GENERATE_TREEVIEW       = NO
 
 # --- LaTeX / PDF Configuration ---
 LATEX_OUTPUT            = latex
@@ -31,7 +32,32 @@ LATEX_SOURCE_CODE       = NO
 COMPACT_LATEX           = YES
 PAPER_TYPE              = a4
 EXTRA_PACKAGES          = times geometry titlesec
+LATEX_HEADER            = @CMAKE_CURRENT_SOURCE_DIR@/build_environment/tool/doxygen/latex_header.tex
 LATEX_FOOTER            = 
+LATEX_HIDE_INDICES      = YES
+
+# --- Remove auto-generated content ---
+SHOW_USED_FILES         = NO
+SHOW_FILES              = NO
+SHOW_NAMESPACES         = NO
+GENERATE_TODOLIST       = NO
+GENERATE_TESTLIST       = NO
+GENERATE_BUGLIST        = NO
+GENERATE_DEPRECATEDLIST = NO
+CLASS_DIAGRAMS          = NO
+HIDE_UNDOC_RELATIONS    = YES
+HAVE_DOT                = NO
+UML_LOOK                = NO
+TEMPLATE_RELATIONS      = NO
+INCLUDE_GRAPH           = NO
+INCLUDED_BY_GRAPH       = NO
+CALL_GRAPH              = NO
+CALLER_GRAPH            = NO
+GRAPHICAL_HIERARCHY     = NO
+DIRECTORY_GRAPH         = NO
+COLLABORATION_GRAPH     = NO
+GROUP_GRAPHS            = NO
+DOT_CLEANUP             = YES 
 
 # --- Content Processing ---
 HIDE_UNDOC_MEMBERS      = YES
@@ -44,18 +70,39 @@ HIDE_SCOPE_NAMES        = YES
 SHOW_INCLUDE_FILES      = NO
 SHOW_GROUPED_MEMB_INC   = NO
 BRIEF_MEMBER_DESC       = YES
-REPEAT_BRIEF            = YES
-ABBREVIATE_BRIEF        = "The $name class" \
-                          "The $name widget" \
-                          "The $name file" \
-                          is \
-                          provides \
-                          specifies \
-                          contains \
-                          represents \
-                          a \
-                          an \
-                          the
+REPEAT_BRIEF            = NO
+ALWAYS_DETAILED_SEC     = NO
+INLINE_INHERITED_MEMB   = NO
+FULL_PATH_NAMES         = NO
+STRIP_FROM_PATH         = 
+STRIP_FROM_INC_PATH     = 
+SHORT_NAMES             = NO
+JAVADOC_AUTOBRIEF       = NO
+QT_AUTOBRIEF            = NO
+MULTILINE_CPP_IS_BRIEF  = NO
+INHERIT_DOCS            = NO
+SEPARATE_MEMBER_PAGES   = NO
+TAB_SIZE                = 4
+ALIASES                 = 
+TCL_SUBST               = 
+OPTIMIZE_OUTPUT_FOR_C   = NO
+OPTIMIZE_OUTPUT_JAVA    = NO
+OPTIMIZE_FOR_FORTRAN    = NO
+OPTIMIZE_OUTPUT_VHDL    = NO
+EXTENSION_MAPPING       = 
+MARKDOWN_SUPPORT        = YES
+TOC_INCLUDE_HEADINGS    = 0
+AUTOLINK_SUPPORT        = NO
+BUILTIN_STL_SUPPORT     = NO
+CPP_CLI_SUPPORT         = NO
+SIP_SUPPORT             = NO
+IDL_PROPERTY_SUPPORT    = YES
+DISTRIBUTE_GROUP_DOC    = NO
+GROUP_NESTED_COMPOUNDS  = NO
+SUBGROUPING             = YES
+INLINE_GROUPED_CLASSES  = NO
+INLINE_SIMPLE_STRUCTS   = NO
+TYPEDEF_HIDES_STRUCT    = NO
 
 # --- Diagrams (Graphviz/dot) ---
 HAVE_DOT                = NO
