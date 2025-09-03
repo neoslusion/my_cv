@@ -4,20 +4,20 @@
 % Use Times font
 \RequirePackage{times}
 
-% Compact margins
-\RequirePackage[top=2cm, bottom=1.5cm, left=2.5cm, right=2.5cm]{geometry}
+% Ultra-compact margins (aligned with latex_header.tex)
+\RequirePackage[top=0.8cm, bottom=0.6cm, left=1.0cm, right=1.0cm]{geometry}
 
 % Remove page style
 \pagestyle{empty}
 
-% Tighter spacing
+% Ultra-tight spacing
 \RequirePackage{titlesec}
-\titlespacing*{\section}{0pt}{8pt plus 2pt}{4pt plus 1pt}
-\titlespacing*{\subsection}{0pt}{6pt plus 1pt}{3pt plus 1pt}
+\titlespacing*{\section}{0pt}{4pt plus 1pt}{2pt plus 1pt}
+\titlespacing*{\subsection}{0pt}{3pt plus 1pt}{1pt plus 1pt}
 
 % Center section titles
 \titleformat{\section}{\centering\normalfont\large\bfseries}{\thesection}{1em}{}
 
-% No paragraph indentation
+% Minimal paragraph spacing
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{2pt plus 1pt}
+\setlength{\parskip}{1pt plus 1pt}

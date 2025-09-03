@@ -1,17 +1,19 @@
 /*!
 @mainpage LE PHUC DUC
 
-Ho Chi Minh City, Vietnam | (+84) 373304824| lephucduc2000@gmail.com | [LinkedIn](https://linkedin.com/in/lephucduc) | [Online CV](https://neoslusion.github.io/my_cv)
+Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://linkedin.com/in/lephucduc) | [Online CV](https://neoslusion.github.io/my_cv)
 
 ---
 
 @section skills SKILLS
 
-**Programming language**: C, C++, Batch script, Python, CAPL
+**Programming Languages**: C, C++, Batch Script, Python, CAPL
 
-**Automotive industrial**: AUTOSAR Classic, CAN protocol, LIN protocol
+**Automotive Technologies**: AUTOSAR Classic, CAN Protocol, LIN Protocol, Cybersecurity, SaaP (Software as a Product)
 
-**Tools**: ALM, Vector toolchain (CANoe, VectorCAST, Davinci Configurator & Developer)
+**Development Tools**: ALM, Vector Toolchain (CANoe, VectorCAST, DaVinci Configurator & Developer), Doxygen, Sphinx, CI/CT Pipeline
+
+**Operating Systems**: Linux, Embedded Systems
 
 ---
 
@@ -27,7 +29,7 @@ GPA: 7.6/10
 
 *Bachelor's Degree in Automation and Control Engineering*
 
-GPA: 
+GPA: 7.2/10
 
 ---
 
@@ -35,93 +37,59 @@ GPA:
 
 **Bosch Global Software Technologies Company Limited** | Ho Chi Minh City, Vietnam
 
-*Bosch Global Software Technologies Vietnam is a subsidiary of Bosch Global, focusing on Automotive Embedded Systems. Developing Airbag systems, our goal is to save lives which requires a great attention to detail and the highest standard of safety in embedded systems.*
+*Bosch Global Software Technologies Vietnam is a subsidiary of Bosch Global, focusing on Automotive Embedded Systems. Developing Airbag and Keyless systems with the highest standard of safety in embedded systems.*
 
-**Product**: Perfectly Keyless System  
-**Customer**: Honda
+@subsection current_position Software Engineer | Feb 2024 – Present
 
-@subsection current_position Software Engineering | Feb 2024 – Present
+**Products**: Perfectly Keyless System (Honda), Fleet Management Extended Access (Commercial Vehicle)
 
-1. Responsible for Software Developer in Master ECU software development with SaaP approach.
-   - Proficient in configuring AUTOSAR Basic software, including CommStack, MemStack, CryptoStack and SystemStack.
-   - Proficient in developing AUTOSAR Application software components and RTE configuration.
-   - Creating the platform software to integrate Master Mcu SaaP product.
-     - Support to integrate new SIP from Vector.
-   - Experienced in Cybersecurity concept in software development.
+**Key Responsibilities:**
+- Software development in Master ECU with SaaP (Software as a Product) approach
+- Configure AUTOSAR Basic software: CommStack, MemStack, CryptoStack, and SystemStack
+- Develop AUTOSAR Application software components and RTE configuration
+- Integrate new SIP (Software Integration Package) from Vector
+- Apply Cybersecurity concepts in software development
+- Lead Software Developer role in **SDV (Software-Defined Vehicle) program**
+- Define architecture and technologies for internal SDV program
+- Collaborate with ETAS to integrate PK features into DreamKit
+- Develop and debug software in Linux environment
+- Setup and maintain CI/CT pipeline infrastructure
+- Build documentation framework using Doxygen + Sphinx
 
-2. Support for DevOps activities in project.
-   - Setup infrastructure, develop and maintain CI/CT pipeline for project.
-   - Building the framework for clear, functional C document using Doxygen + Sphinx.
-
-3. Responsible for Software Developer in **SDV program**.
-   - Define approach, architecture and technologies used for internal SDV program.
-   - Collaborate with ETAS to bring up PK's features into DreamKit.
-   - Bring up features from Master Mcu's SaaP to SDV internal platform (Diagnostic, Ranging/Localization).
-   - Experienced in developing and debugging softwares in Linux environment.
-   - Building the pipeline and document framework for SDV.
-
-**Achievement**
-- Acknowledged for contributing to software delivery for Japan customer (Honda, ALAP) for 2 consecutive releases.
-- Successfully building a platform software to integrate SaaP product which contributed to the validating process of both VnV and Developer team.
-- Acknowledged for successfully bring up features from PK to SDV platform.
-
-**Product**: Perfectly Keyless System for Fleet Management Extended Access.  
-**Customer**: CV (Commercial Vehicle)
+**Key Achievements:**
+- Acknowledged for software delivery to Japan customer (Honda, ALAP) for 2 consecutive releases
+- Successfully built platform software to integrate SaaP product for VnV and Developer teams
+- Successfully integrated PK features to SDV platform
 
 @subsection previous_position Software Engineer | June 2022 – Feb 2024
 
-1. Responsible for Software Developer in Master ECU for Perfectly Keyless System's platform project.
-   - Configuring AUTOSAR Application software components and RTE configuration.
-   - Support to integrate new SIP from Vector and support to debug problem in SIP package.
-   - Understanding CCC (Car Connectivity Consortium).
-
-2. Proficient in developing Application software components and configuring Basic software for Airbag product
-
-3. Establised CI/CT pipeline for project (integrating build process, unit test upto system test and reporting).
-
-4. Responsible for developing door lock/unlock feature for Master Mcu using LIN.
-
-**Achievement**
-- Acknowledged for establishing and maintaining CI/CT pipeline and share for other teams.
-
-*/
-- Develop AUTOSAR Application software components and RTE configuration
-- Create platform software to integrate Master MCU SaaP product
-- Integrate new SIP from Vector and provide technical support
-- Apply Cybersecurity concepts in software development
-- Support DevOps activities and maintain CI/CT pipeline infrastructure
-- Build framework for clear, functional C documentation using Doxygen + Sphinx
-- Lead Software Developer role in SDV (Software-Defined Vehicle) program
-- Define approach, architecture and technologies for internal SDV program
-- Collaborate with ETAS to bring PK features into DreamKit
-- Integrate Master MCU SaaP features to SDV platform (Diagnostic, Ranging/Localization)
-- Develop and debug software in Linux environment
-- Build pipeline and documentation framework for SDV
-
-@subsection previous_position Software Engineer (June 2022 – Feb 2024)
+**Products**: Perfectly Keyless System, Airbag Systems
 
 **Key Responsibilities:**
-- Software Developer in Master ECU for Perfectly Keyless System platform project
-- Configure AUTOSAR Application software components and RTE configuration
-- Integrate new SIP from Vector and debug SIP package issues
+- Software development in Master ECU for Perfectly Keyless System platform
+- Configure AUTOSAR Application software components and RTE configuration  
+- Integrate and debug Vector SIP packages
 - Implement CCC (Car Connectivity Consortium) standards
-- Develop Application software components and configure Basic software for Airbag products
-- Establish CI/CT pipeline integrating build process, unit test, system test and reporting
-- Develop door lock/unlock feature for Master MCU using LIN protocol
+- Develop Application software for Airbag products
+- Establish CI/CT pipeline (build process, unit test, system test, reporting)
+- Develop door lock/unlock features using LIN protocol
 
-@section key_achievements Key Achievements
+**Key Achievements:**
+- Established and maintained CI/CT pipeline shared across teams
 
-- Acknowledged for contributing to software delivery for Japan customer (Honda, ALAP) for 2 consecutive releases
-- Successfully built platform software to integrate SaaP product, contributing to VnV and Developer team validation processes
-- Acknowledged for successfully bringing up features from PK to SDV platform
-- Recognized for establishing and maintaining CI/CT pipeline and sharing knowledge with other teams
+@section languages LANGUAGES
 
-@section certifications_awards Certifications & Awards
+**Vietnamese**: Native  
+**English**: Professional working proficiency
+
+---
+
+@section certifications_awards CERTIFICATIONS & AWARDS
 
 @subsection spot_award SPOT AWARD
 **Issued By:** Head of Department, Bosch Vietnam  
 **Achievements:**
-- Successful delivery of software on time for key customers: Vinfast, SAIC, SGMW
+- Successful delivery of software on time for key customers: VinFast, SAIC, SGMW
 - High willingness to guide new members and associates in problem solving
 
 @subsection step_up_award STEP UP AWARD
@@ -137,7 +105,9 @@ GPA:
 - Communication with high impact
 - Time management
 
-@section personal_interests Personal Interests
+---
+
+@section personal_interests PERSONAL INTERESTS
 
 Music, Soccer, Travelling
 

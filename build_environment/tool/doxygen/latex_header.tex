@@ -1,6 +1,12 @@
 % Minimal LaTeX header for clean CV output
 \documentclass[10pt,a4paper]{article}
 
+% Set smaller font size globally
+\renewcommand{\normalsize}{\fontsize{9pt}{10.8pt}\selectfont}
+\renewcommand{\small}{\fontsize{8pt}{9.6pt}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{7pt}{8.4pt}\selectfont}
+\renewcommand{\large}{\fontsize{11pt}{13.2pt}\selectfont}
+
 % Essential packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -12,17 +18,18 @@
 \usepackage{hyperref}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{microtype}                % Better typography and spacing
 
 % Ultra-compact page geometry
 \geometry{
     a4paper,
-    top=1.2cm,
-    bottom=1.0cm,
-    left=1.5cm,
-    right=1.5cm,
+    top=0.8cm,
+    bottom=0.6cm,
+    left=1.0cm,
+    right=1.0cm,
     headheight=0cm,
     headsep=0cm,
-    footskip=0.2cm
+    footskip=0.1cm
 }
 
 % Remove headers and footers
@@ -38,35 +45,36 @@
 \titleformat{\section}
 {\centering\normalfont\large\bfseries}
 {}{0em}{}
-[\vspace{-0.3em}]
+[\vspace{-0.5em}]
 
 \titleformat{\subsection}
 {\normalfont\normalsize\bfseries}
 {}{0em}{}
+[\vspace{-0.2em}]
 
 % Ultra-compact custom commands
 \newcommand{\cvheader}[1]{
     \begin{center}
-        {\fontsize{14pt}{16pt}\selectfont\textbf{#1}}
+        {\fontsize{13pt}{14pt}\selectfont\textbf{#1}}
     \end{center}
-    \vspace{-0.4em}
+    \vspace{-0.6em}
 }
 
 \newcommand{\cvcontact}[1]{
     \begin{center}
         \rule{\textwidth}{0.4pt}\\
-        \vspace{0.01em}
+        \vspace{-0.02em}
         {\small #1}
     \end{center}
-    \vspace{0.1em}
+    \vspace{-0.1em}
 }
 
 \newcommand{\cvsection}[1]{
-    \vspace{0.1em}
+    \vspace{0.05em}
     \begin{center}
         \textbf{\normalsize #1}
     \end{center}
-    \vspace{0.02em}
+    \vspace{-0.05em}
 }
 
 \newcommand{\cventry}[4]{
@@ -76,38 +84,51 @@
         {#3} & \\
     \end{tabularx}
     {#4}
-    \vspace{0.1em}
+    \vspace{0.05em}
 }
 
 \newcommand{\cvskill}[2]{
     \textbf{#1}: #2\\
 }
 
-% Less compact list formatting
+% Ultra-compact list formatting
 \setlist[itemize]{
-    leftmargin=0.9em,
-    itemsep=-1pt,
+    leftmargin=0.6em,
+    itemsep=0pt,
     parsep=0pt,
-    topsep=2pt,
-    partopsep=0pt
+    topsep=1pt,
+    partopsep=0pt,
+    before=\vspace{-0.2em},
+    after=\vspace{-0.1em}
 }
 
-% Less compact paragraph settings
+% Minimized paragraph settings for compactness
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
+\setlength{\parskip}{2pt}
 
-% Balanced line spacing and better text flow
-\renewcommand{\baselinestretch}{0.92}
+% Tighter line spacing for maximum density
+\renewcommand{\baselinestretch}{0.85}
 \tolerance=1000
-\emergencystretch=2em
+\emergencystretch=1em
 \hyphenpenalty=10000
 \exhyphenpenalty=100
 
-% Define all Doxygen commands with minimal section spacing
-\newcommand{\doxysection}[1]{\vspace{0.05em}\begin{center}{\fontsize{14pt}{16pt}\selectfont\textbf{#1}}\end{center}\vspace{0.02em}}
-\newcommand{\doxysubsection}[1]{\vspace{0.1em}\begin{center}\textbf{\normalsize #1}\end{center}\vspace{0.02em}}
-\newcommand{\doxysubsubsection}[1]{\vspace{0.1em}\textbf{#1}\vspace{0.02em}}
-\newcommand{\DoxyHorRuler}[1]{\vspace{0.02em}\noindent\rule{\textwidth}{0.4pt}\vspace{0.02em}}
+% Enable microtype for better character spacing
+\microtypesetup{
+    expansion=true,
+    tracking=true,
+    kerning=true,
+    spacing=true
+}
+
+% Slightly tighter character spacing for more content
+\SetTracking{encoding=*}{-10}
+
+% Define all Doxygen commands with ultra-tight section spacing
+\newcommand{\doxysection}[1]{\vspace{0.05em}\begin{center}{\fontsize{13pt}{14pt}\selectfont\textbf{#1}}\end{center}\vspace{0.02em}}
+\newcommand{\doxysubsection}[1]{\vspace{0.08em}\begin{center}\textbf{\normalsize #1}\end{center}\vspace{0.02em}}
+\newcommand{\doxysubsubsection}[1]{\vspace{0.08em}\textbf{#1}\vspace{0.02em}}
+\newcommand{\DoxyHorRuler}[1]{\vspace{-0.02em}\noindent\rule{\textwidth}{0.4pt}\vspace{-0.02em}}
 \newenvironment{DoxyEnumerate}{\begin{enumerate}}{\end{enumerate}}
 \newenvironment{DoxyItemize}{\begin{itemize}}{\end{itemize}}
 
