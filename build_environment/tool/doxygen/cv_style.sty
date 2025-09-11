@@ -1,23 +1,34 @@
-% Simple LaTeX adjustments for CV formatting
-\ProvidesPackage{cv_style}
+% Professional LaTeX style package for CV formatting
+% Author: Le Phuc Duc
+% Version: 2.0 - Enhanced for Doxygen integration
+\ProvidesPackage{cv_style}[2025/09/11 v2.0 Professional CV styling]
 
-% Use Times font
-\RequirePackage{times}
+% Essential packages for professional formatting
+\RequirePackage{times}      % Times New Roman font
+\RequirePackage{microtype}  % Enhanced typography
+\RequirePackage{enumitem}   % Better list formatting
 
-% Ultra-compact margins (aligned with latex_header.tex)
+% Ultra-compact margins optimized for CV content
 \RequirePackage[top=0.8cm, bottom=0.6cm, left=1.0cm, right=1.0cm]{geometry}
 
-% Remove page style
+% Remove page numbers and headers
 \pagestyle{empty}
 
-% Ultra-tight spacing
+% Professional section and subsection formatting
 \RequirePackage{titlesec}
-\titlespacing*{\section}{0pt}{4pt plus 1pt}{2pt plus 1pt}
-\titlespacing*{\subsection}{0pt}{3pt plus 1pt}{1pt plus 1pt}
+\titlespacing*{\section}{0pt}{6pt plus 2pt}{3pt plus 1pt}
+\titlespacing*{\subsection}{0pt}{4pt plus 1pt}{2pt plus 1pt}
+\titlespacing*{\subsubsection}{0pt}{3pt plus 1pt}{1pt plus 1pt}
 
-% Center section titles
+% Center main section titles, left-align subsections
 \titleformat{\section}{\centering\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\small\bfseries}{\thesubsubsection}{0.5em}{}
 
-% Minimal paragraph spacing
+% Optimized paragraph and list spacing
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{1pt plus 1pt}
+\setlength{\parskip}{2pt plus 1pt}
+
+% Professional list formatting
+\setlist[itemize]{leftmargin=1em, itemsep=1pt, parsep=0pt, topsep=2pt}
+\setlist[enumerate]{leftmargin=1em, itemsep=1pt, parsep=0pt, topsep=2pt}

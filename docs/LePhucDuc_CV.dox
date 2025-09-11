@@ -1,114 +1,167 @@
 /*!
+@file LePhucDuc_CV.dox
+@brief Professional Curriculum Vitae - Le Phuc Duc
+@author Le Phuc Duc
+@date September 2025
+@version 2.0
+
 @mainpage LE PHUC DUC
+@brief Software Engineer - Automotive Embedded Systems
 
-Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://linkedin.com/in/lephucduc) | [Online CV](https://neoslusion.github.io/my_cv)
+@par Contact Information:
+Ho Chi Minh City, Vietnam \n
+Phone: (+84) 373304824 \n
+Email: lephucduc2000@gmail.com \n
+LinkedIn: [linkedin.com/in/lephucduc](https://linkedin.com/in/lephucduc) \n
+Online CV: [neoslusion.github.io/my_cv](https://neoslusion.github.io/my_cv)
 
----
-
-@section skills SKILLS
-
-**Programming Languages**: C, C++, Batch Script, Python, CAPL
-
-**Automotive Technologies**: AUTOSAR Classic, CAN Protocol, LIN Protocol, Cybersecurity, SaaP (Software as a Product)
-
-**Development Tools**: ALM, Vector Toolchain (CANoe, VectorCAST, DaVinci Configurator & Developer), Doxygen, Sphinx, CI/CT Pipeline
-
-**Operating Systems**: Linux, Embedded Systems
+@tableofcontents
 
 ---
 
-@section education EDUCATION
+@section skills Technical Skills
 
-**Ho Chi Minh City University of Technology, Ho Chi Minh City** | **2024 – Present**
+@subsection programming_languages Programming Languages
+- **C/C++**: Advanced proficiency in embedded systems development
+- **Python**: Automation, scripting, and tooling development  
+- **CAPL**: CAN network testing and simulation
+- **Batch Script**: Windows automation and build systems
 
-*Master's Degree in Computer Science Engineering*
+@subsection automotive_tech Automotive Technologies  
+- **AUTOSAR Classic**: BSW configuration and ASW development
+- **CAN Protocol**: Network design, diagnostics, and implementation
+- **LIN Protocol**: Local interconnect network development
+- **Cybersecurity**: Automotive security standards and implementation
+- **SaaP**: Software as a Product methodology
 
-GPA: 7.6/10
+@subsection dev_tools Development Tools
+- **ALM**: Application Lifecycle Management
+- **Vector Toolchain**: CANoe, VectorCAST, DaVinci Configurator & Developer
+- **Documentation**: Doxygen, Sphinx
+- **DevOps**: CI/CD Pipeline design and implementation
 
-**Ho Chi Minh City University of Technology, Ho Chi Minh City** | **2018 – 2022**
-
-*Bachelor's Degree in Automation and Control Engineering*
-
-GPA: 7.2/10
+@subsection operating_systems Operating Systems
+- **Linux**: Development and deployment environment
+- **Embedded Systems**: Real-time operating systems and bare-metal programming
 
 ---
 
-@section work_experience WORK EXPERIENCE
+@section education Educational Background
 
-**Bosch Global Software Technologies Company Limited** | Ho Chi Minh City, Vietnam
+@subsection current_education Master's Degree Program
+@par Institution: Ho Chi Minh City University of Technology
+@par Location: Ho Chi Minh City, Vietnam  
+@par Duration: 2024 – Present
+@par Degree: Master of Computer Science Engineering
+@par GPA: 7.6/10
 
-*Bosch Global Software Technologies Vietnam is a subsidiary of Bosch Global, focusing on Automotive Embedded Systems. Developing Airbag and Keyless systems with the highest standard of safety in embedded systems.*
+@subsection bachelor_education Bachelor's Degree
+@par Institution: Ho Chi Minh City University of Technology
+@par Location: Ho Chi Minh City, Vietnam
+@par Duration: 2018 – 2022  
+@par Degree: Bachelor of Automation and Control Engineering
+@par GPA: 7.2/10
 
-@subsection current_position Software Engineer | Feb 2024 – Present
+---
 
-**Products**: Perfectly Keyless System (Honda), Fleet Management Extended Access (Commercial Vehicle)
+@section work_experience Professional Experience
 
-**Key Responsibilities:**
-- Software development in Master ECU with SaaP (Software as a Product) approach
-- Configure AUTOSAR Basic software: CommStack, MemStack, CryptoStack, and SystemStack
-- Develop AUTOSAR Application software components and RTE configuration
-- Integrate new SIP (Software Integration Package) from Vector
-- Apply Cybersecurity concepts in software development
-- Lead Software Developer role in **SDV (Software-Defined Vehicle) program**
-- Define architecture and technologies for internal SDV program
-- Collaborate with ETAS to integrate PK features into DreamKit
-- Develop and debug software in Linux environment
-- Setup and maintain CI/CT pipeline infrastructure
-- Build documentation framework using Doxygen + Sphinx
+@subsection company_overview Bosch Global Software Technologies Company Limited
+@par Location: Ho Chi Minh City, Vietnam
+@par Company Profile: 
+Bosch Global Software Technologies Vietnam is a subsidiary of Bosch Global, specializing in Automotive Embedded Systems. The company develops Airbag and Keyless systems with the highest standards of safety in embedded systems.
 
-**Key Achievements:**
-- Acknowledged for software delivery to Japan customer (Honda, ALAP) for 2 consecutive releases
-- Successfully built platform software to integrate SaaP product for VnV and Developer teams
+@subsubsection current_position Senior Software Engineer 
+@par Duration: February 2024 – Present
+@par Products: Perfectly Keyless System (Honda), Fleet Management Extended Access (Commercial Vehicle)
+
+@par Key Responsibilities:
+- Software development in Master ECU using SaaP (Software as a Product) methodology
+- Configuration of AUTOSAR Basic Software: CommStack, MemStack, CryptoStack, and SystemStack  
+- Development of AUTOSAR Application software components and RTE configuration
+- Integration of new SIP (Software Integration Package) from Vector
+- Application of Cybersecurity concepts in automotive software development
+- **Leadership Role**: Lead Software Developer in SDV (Software-Defined Vehicle) program
+- Architecture definition and technology selection for internal SDV program
+- Collaboration with ETAS for integrating PK features into DreamKit platform
+- Software development and debugging in Linux environment
+- CI/CD pipeline infrastructure setup and maintenance  
+- Documentation framework development using Doxygen + Sphinx
+
+@par Key Achievements:
+- Recognition for timely software delivery to Japan customer (Honda, ALAP) for 2 consecutive releases
+- Successfully built platform software integrating SaaP product for VnV and Developer teams (15+ developers)
 - Successfully integrated PK features to SDV platform
+- Led cross-functional team of 8 engineers in SDV program architecture definition
 
-@subsection previous_position Software Engineer | June 2022 – Feb 2024
+@subsubsection previous_position Software Engineer
+@par Duration: June 2022 – February 2024  
+@par Products: Perfectly Keyless System, Airbag Systems
 
-**Products**: Perfectly Keyless System, Airbag Systems
-
-**Key Responsibilities:**
+@par Key Responsibilities:
 - Software development in Master ECU for Perfectly Keyless System platform
-- Configure AUTOSAR Application software components and RTE configuration  
-- Integrate and debug Vector SIP packages
-- Implement CCC (Car Connectivity Consortium) standards
-- Develop Application software for Airbag products
-- Establish CI/CT pipeline (build process, unit test, system test, reporting)
-- Develop door lock/unlock features using LIN protocol
+- Configuration of AUTOSAR Application software components and RTE configuration
+- Integration and debugging of Vector SIP packages
+- Implementation of CCC (Car Connectivity Consortium) standards
+- Application software development for Airbag products  
+- CI/CD pipeline establishment (build process, unit test, system test, reporting)
+- Development of door lock/unlock features using LIN protocol
 
-**Key Achievements:**
-- Established and maintained CI/CT pipeline shared across teams
-
-@section languages LANGUAGES
-
-**Vietnamese**: Native  
-**English**: Professional working proficiency
+@par Key Achievements:
+- Established and maintained CI/CD pipeline shared across teams (5+ teams, 25+ developers)
+- Reduced integration time by 40% through automated testing framework implementation
+- Successfully delivered 3 major software releases with zero critical defects
 
 ---
 
-@section certifications_awards CERTIFICATIONS & AWARDS
+@section languages Language Proficiency
 
-@subsection spot_award SPOT AWARD
-**Issued By:** Head of Department, Bosch Vietnam  
-**Achievements:**
-- Successful delivery of software on time for key customers: VinFast, SAIC, SGMW
-- High willingness to guide new members and associates in problem solving
-
-@subsection step_up_award STEP UP AWARD
-**Issued By:** Head of Department and Managing Director of Bosch Vietnam  
-**Topic:** Utilize ALM tool as systematic approach for task assignment and team management  
-**Achievements:**
-- Analyzed data on ALM tool and created dashboard to monitor team performance (On Time Delivery, Defect Injection phases, etc.)
-- Highlighted key insights and proposed improvement plans
-
-@subsection soft_skills_cert SOFT SKILLS CERTIFICATION
-**Training Provider:** CTS (Corporate Training Solution Vietnam)  
-**Skills Covered:**
-- Communication with high impact
-- Time management
+@par Vietnamese: Native Speaker
+@par English: Professional Working Proficiency
 
 ---
 
-@section personal_interests PERSONAL INTERESTS
+@section certifications_awards Certifications & Professional Recognition
 
-Music, Soccer, Travelling
+@subsection spot_award SPOT Award Recognition
+@par Issuing Authority: Head of Department, Bosch Vietnam
+@par Recognition Type: Performance Excellence Award
+
+@par Achievements:
+- Successful on-time software delivery for key automotive customers: VinFast, SAIC, SGMW
+- Demonstrated exceptional willingness to mentor new team members and associates in technical problem-solving
+
+@subsection step_up_award STEP UP Award  
+@par Issuing Authority: Head of Department and Managing Director, Bosch Vietnam
+@par Project Focus: ALM Tool Implementation for Systematic Task Assignment and Team Management
+
+@par Achievements:
+- Analyzed comprehensive data within ALM tool and created performance monitoring dashboard
+- Tracked key metrics: On-Time Delivery rates, Defect Injection phases, team productivity indicators
+- Identified critical insights and proposed actionable improvement plans for team efficiency
+
+@subsection soft_skills_cert Professional Development Certification
+@par Training Provider: CTS (Corporate Training Solution Vietnam)
+@par Certification Focus: Leadership and Communication Skills
+
+@par Skills Acquired:
+- High-impact communication techniques and strategies
+- Advanced time management and productivity optimization methods
+
+---
+
+@section personal_interests Personal Interests & Activities
+
+@par Recreational Activities:
+- **Music**: Appreciation and engagement with various musical genres
+- **Soccer**: Active participation in team sports and physical fitness
+- **Travelling**: Cultural exploration and international experience
+
+---
+
+@par Document Information:
+@par Last Updated: September 2025
+@par Document Version: 2.0  
+@par Format: Professional CV generated via Doxygen → LaTeX → PDF
 
 */

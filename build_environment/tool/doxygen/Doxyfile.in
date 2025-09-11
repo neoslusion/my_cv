@@ -1,9 +1,9 @@
-# Doxygen Configuration for CV Generation
+# Doxygen Configuration for Professional CV Generation
 
 # --- Project Info ---
-PROJECT_NAME            = ""
-PROJECT_NUMBER          = ""
-PROJECT_BRIEF           = ""
+PROJECT_NAME            = "Le Phuc Duc - Professional CV"
+PROJECT_NUMBER          = "v2.0"
+PROJECT_BRIEF           = "Software Engineer - Automotive Embedded Systems"
 
 # --- Inputs ---
 OUTPUT_DIRECTORY        = @CMAKE_BINARY_DIR@/docs
@@ -20,6 +20,10 @@ GENERATE_RTF            = NO
 GENERATE_MAN            = NO
 GENERATE_XML            = NO
 GENERATE_TREEVIEW       = NO
+QUIET                   = YES
+WARNINGS                = NO
+WARN_IF_UNDOCUMENTED    = NO
+WARN_IF_DOC_ERROR       = NO
 
 # --- LaTeX / PDF Configuration ---
 LATEX_OUTPUT            = latex
@@ -31,10 +35,11 @@ LATEX_BATCHMODE         = YES
 LATEX_SOURCE_CODE       = NO
 COMPACT_LATEX           = YES
 PAPER_TYPE              = a4
-EXTRA_PACKAGES          = times geometry titlesec
+EXTRA_PACKAGES          = times geometry titlesec enumitem microtype
 LATEX_HEADER            = @CMAKE_CURRENT_SOURCE_DIR@/build_environment/tool/doxygen/latex_header.tex
 LATEX_FOOTER            = 
 LATEX_HIDE_INDICES      = YES
+LATEX_TIMESTAMP         = NO
 MAKEINDEX_CMD_NAME      = true
 
 # --- Remove auto-generated content ---

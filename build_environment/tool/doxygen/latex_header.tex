@@ -1,11 +1,15 @@
-% Minimal LaTeX header for clean CV output
+% Professional LaTeX header for CV generation via Doxygen
+% Author: Le Phuc Duc
+% Version: 2.0 - Enhanced for professional documentation standards
+
 \documentclass[10pt,a4paper]{article}
 
-% Set smaller font size globally
+% Set optimized font sizes for professional CV
 \renewcommand{\normalsize}{\fontsize{9pt}{10.8pt}\selectfont}
 \renewcommand{\small}{\fontsize{8pt}{9.6pt}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{7pt}{8.4pt}\selectfont}
 \renewcommand{\large}{\fontsize{11pt}{13.2pt}\selectfont}
+\renewcommand{\Large}{\fontsize{14pt}{16.8pt}\selectfont}
 
 % Essential packages
 \usepackage[utf8]{inputenc}
@@ -51,6 +55,11 @@
 {\normalfont\normalsize\bfseries}
 {}{0em}{}
 [\vspace{-0.2em}]
+
+\titleformat{\subsubsection}
+{\normalfont\small\bfseries}
+{}{0em}{}
+[\vspace{-0.1em}]
 
 % Ultra-compact custom commands
 \newcommand{\cvheader}[1]{
@@ -124,13 +133,13 @@
 % Slightly tighter character spacing for more content
 \SetTracking{encoding=*}{-10}
 
-% Define all Doxygen commands with ultra-tight section spacing
-\newcommand{\doxysection}[1]{\vspace{0.05em}\begin{center}{\fontsize{13pt}{14pt}\selectfont\textbf{#1}}\end{center}\vspace{0.02em}}
-\newcommand{\doxysubsection}[1]{\vspace{0.08em}\begin{center}\textbf{\normalsize #1}\end{center}\vspace{0.02em}}
-\newcommand{\doxysubsubsection}[1]{\vspace{0.08em}\textbf{#1}\vspace{0.02em}}
-\newcommand{\DoxyHorRuler}[1]{\vspace{-0.02em}\noindent\rule{\textwidth}{0.4pt}\vspace{-0.02em}}
-\newenvironment{DoxyEnumerate}{\begin{enumerate}}{\end{enumerate}}
-\newenvironment{DoxyItemize}{\begin{itemize}}{\end{itemize}}
+% Define all Doxygen commands with professional spacing
+\newcommand{\doxysection}[1]{\vspace{0.1em}\begin{center}{\fontsize{13pt}{14pt}\selectfont\textbf{#1}}\end{center}\vspace{0.05em}}
+\newcommand{\doxysubsection}[1]{\vspace{0.1em}\textbf{\normalsize #1}\vspace{0.03em}}
+\newcommand{\doxysubsubsection}[1]{\vspace{0.08em}\textbf{\small #1}\vspace{0.02em}}
+\newcommand{\DoxyHorRuler}[1]{\vspace{0.1em}\noindent\rule{\textwidth}{0.4pt}\vspace{0.1em}}
+\newenvironment{DoxyEnumerate}{\begin{enumerate}[topsep=2pt,itemsep=1pt]}{\end{enumerate}}
+\newenvironment{DoxyItemize}{\begin{itemize}[topsep=2pt,itemsep=1pt]}{\end{itemize}}
 
 % Define Doxygen line break command
 \newcommand{\+}{}
@@ -139,12 +148,17 @@
 \providecommand{\printindex}{}
 \providecommand{\clearemptydoublepage}{\clearpage}
 
-% Override Doxygen document structure commands to remove front matter
+% Override Doxygen document structure commands for clean CV output
 \renewcommand{\tableofcontents}{}
 \renewcommand{\listoffigures}{}
 \renewcommand{\listoftables}{}
 \renewcommand{\printindex}{}
 \renewcommand{\clearemptydoublepage}{}
+
+% Custom commands for professional CV formatting
+\newcommand{\cvname}[1]{\begin{center}{\Large\textbf{#1}}\end{center}\vspace{0.2em}}
+\newcommand{\cvtitle}[1]{\begin{center}{\large\textit{#1}}\end{center}\vspace{0.3em}}
+\newcommand{\cvcontact}[1]{\begin{center}{\small #1}\end{center}\vspace{0.3em}}
 
 % Start document immediately with content
 \begin{document}
