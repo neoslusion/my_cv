@@ -1,26 +1,32 @@
 /**
-@mainpage Le Phuc Duc - Professional CV
+@mainpage Le Phuc Duc
 
-@section contact_info Contact Information
-**LE PHUC DUC**
 Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://www.linkedin.com/in/duc-le-phuc-7784b8228) | [Online CV](https://your-online-cv-link.com)
+
+---
 
 @section skills SKILLS
 
-**Programming Languages:** C, C++, Python
-**Automotive Industry:** AUTOSAR Classic, CAN Protocol
+- **Programming Languages**: C, C++, Python
+- **Automotive Industry**: AUTOSAR Classic, CAN Protocol
+
+---
 
 @section education EDUCATION
 
 @subsection edu_msc Ho Chi Minh City University of Technology, Ho Chi Minh City
 
 **Master's Degree in Computer Science** | *2024 – Present*
+
 GPA: 7.7/10
 
 @subsection edu_bsc Ho Chi Minh City University of Technology, Ho Chi Minh City
 
 **Bachelor's Degree in Automation and Control Engineering** | *2018 – 2022*
+
 GPA: 7.8/10
+
+---
 
 @section work_experience WORK EXPERIENCE
 

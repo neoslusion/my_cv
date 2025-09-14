@@ -95,13 +95,13 @@
 
 % Ultra-compact list formatting
 \setlist[itemize]{
-    leftmargin=0.6em,
-    itemsep=0pt,
+    leftmargin=1.2em,
+    itemsep=1pt,
     parsep=0pt,
-    topsep=1pt,
+    topsep=2pt,
     partopsep=0pt,
     before=\vspace{-0.2em},
-    after=\vspace{-0.1em}
+    after=\vspace{-0.2em}
 }
 
 % Minimized paragraph settings for compactness
@@ -127,12 +127,12 @@
 \SetTracking{encoding=*}{-10}
 
 % Define all Doxygen commands with professional spacing
-\newcommand{\doxysection}[1]{\vspace{0.1em}\begin{center}{\fontsize{13pt}{14pt}\selectfont\textbf{#1}}\end{center}\vspace{0.05em}}
-\newcommand{\doxysubsection}[1]{\vspace{0.1em}\textbf{\normalsize #1}\vspace{0.03em}}
-\newcommand{\doxysubsubsection}[1]{\vspace{0.08em}\textbf{\small #1}\vspace{0.02em}}
-% Doxygen can emit paragraph-level headings; define to prevent undefined control seq
-\newcommand{\doxyparagraph}[1]{\vspace{0.08em}\textbf{\small #1}\par\vspace{0.2em}}
-\newcommand{\doxysubparagraph}[1]{\vspace{0.06em}\textbf{\small #1}\par\vspace{0.15em}}
+\newcommand{\doxysection}[1]{\par\addvspace{0.6em}\begin{center}{\fontsize{13pt}{14pt}\selectfont\textbf{#1}}\end{center}\par\addvspace{0.2em}}
+\newcommand{\doxysubsection}[1]{\par\addvspace{0.4em}\begin{center}\textbf{\normalsize #1}\end{center}\par\addvspace{0.15em}}
+\newcommand{\doxysubsubsection}[1]{\par\addvspace{0.25em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
+% Doxygen paragraph levels
+\newcommand{\doxyparagraph}[1]{\par\addvspace{0.2em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
+\newcommand{\doxysubparagraph}[1]{\par\addvspace{0.15em}\noindent\textbf{\small #1}\par\addvspace{0.08em}}
 \newcommand{\DoxyHorRuler}[1]{\vspace{0.1em}\noindent\rule{\textwidth}{0.4pt}\vspace{0.1em}}
 \newenvironment{DoxyEnumerate}{\begin{enumerate}[topsep=2pt,itemsep=1pt]}{\end{enumerate}}
 \newenvironment{DoxyItemize}{\begin{itemize}[topsep=2pt,itemsep=1pt]}{\end{itemize}}
