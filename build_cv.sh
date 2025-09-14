@@ -34,15 +34,15 @@ make doc
 # Check if PDF was generated
 CV_PDF="$PROJECT_ROOT/LePhucDuc_CV.pdf"
 if [ -f "$CV_PDF" ]; then
-    echo "✅ CV PDF generated successfully!"
-    echo "📄 CV PDF location: $CV_PDF"
+    echo "CV PDF generated successfully!"
+    echo "CV PDF location: $CV_PDF"
     
     # Display file size and creation time
     file_size=$(du -h "$CV_PDF" | cut -f1)
-    echo "📊 File size: $file_size"
-    echo "🕒 Generated at: $(date)"
+    echo "File size: $file_size"
+    echo "Generated at: $(date)"
 else
-    echo "❌ Failed to generate CV PDF"
+    echo "Failed to generate CV PDF"
     exit 1
 fi
 
