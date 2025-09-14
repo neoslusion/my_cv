@@ -41,6 +41,10 @@ jobs:
           chmod +x build/build.sh
           sh build/build.sh
 
+      - name: Update HTML from DOX
+        run: |
+          python tool/update_html_from_dox.py
+
       - name: Publish to Release page
         uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -50,4 +54,4 @@ jobs:
           title: "Latest build"
           files: |
             LePhucDuc_CV.pdf
-      
+

@@ -105,3 +105,22 @@ To modify the build process:
 2. Update `docs/CMakeLists.txt` for build targets
 3. Update `build_environment/tool/doxygen/Doxyfile.in` for Doxygen configuration
 4. Modify `docs/LePhucDuc_CV.dox` to change CV content and structure
+
+## Deployment Options
+
+### PDF Generation (Local)
+```bash
+./build_cv.sh
+```
+
+### HTML CV Deployment (GitHub Pages)
+The project includes automatic deployment to GitHub Pages:
+- **HTML CV**: Available at `https://<username>.github.io/my_cv/`
+- **Auto-deployment**: Triggered on pushes to `main` branch that modify `docs/` folder
+- **Workflow**: See `.github/workflows/deploy-html-cv.yml`
+
+### Content Synchronization
+Use the sync script to maintain consistency between formats:
+```bash
+./sync_cv_content.sh
+```
