@@ -69,14 +69,7 @@
     \vspace{-0.6em}
 }
 
-\newcommand{\cvcontact}[1]{
-    \begin{center}
-        \rule{\textwidth}{0.4pt}\\
-        \vspace{-0.02em}
-        {\small #1}
-    \end{center}
-    \vspace{-0.1em}
-}
+% Removed duplicate cvcontact; keep single concise version defined later
 
 \newcommand{\cvsection}[1]{
     \vspace{0.05em}
@@ -137,6 +130,9 @@
 \newcommand{\doxysection}[1]{\vspace{0.1em}\begin{center}{\fontsize{13pt}{14pt}\selectfont\textbf{#1}}\end{center}\vspace{0.05em}}
 \newcommand{\doxysubsection}[1]{\vspace{0.1em}\textbf{\normalsize #1}\vspace{0.03em}}
 \newcommand{\doxysubsubsection}[1]{\vspace{0.08em}\textbf{\small #1}\vspace{0.02em}}
+% Doxygen can emit paragraph-level headings; define to prevent undefined control seq
+\newcommand{\doxyparagraph}[1]{\vspace{0.08em}\textbf{\small #1}\par\vspace{0.2em}}
+\newcommand{\doxysubparagraph}[1]{\vspace{0.06em}\textbf{\small #1}\par\vspace{0.15em}}
 \newcommand{\DoxyHorRuler}[1]{\vspace{0.1em}\noindent\rule{\textwidth}{0.4pt}\vspace{0.1em}}
 \newenvironment{DoxyEnumerate}{\begin{enumerate}[topsep=2pt,itemsep=1pt]}{\end{enumerate}}
 \newenvironment{DoxyItemize}{\begin{itemize}[topsep=2pt,itemsep=1pt]}{\end{itemize}}

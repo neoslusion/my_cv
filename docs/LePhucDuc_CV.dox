@@ -2,29 +2,31 @@
 @mainpage Le Phuc Duc - Professional CV
 
 @section contact_info Contact Information
-**LE PHUC DUC**  
-Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](www.linkedin.com/in/duc-le-phuc-7784b8228) | [Online CV](https://your-online-cv-link.com)
+**LE PHUC DUC**
+Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://www.linkedin.com/in/duc-le-phuc-7784b8228) | [Online CV](https://your-online-cv-link.com)
 
 @section skills SKILLS
 
-**Programming Languages:** C, C++, Python  
+**Programming Languages:** C, C++, Python
 **Automotive Industry:** AUTOSAR Classic, CAN Protocol
 
 @section education EDUCATION
 
-### Ho Chi Minh City University of Technology, Ho Chi Minh City
-**Master's Degree in Computer Science** | *2024 – Present*  
+@subsection edu_msc Ho Chi Minh City University of Technology, Ho Chi Minh City
+
+**Master's Degree in Computer Science** | *2024 – Present*
 GPA: 7.7/10
 
-### Ho Chi Minh City University of Technology, Ho Chi Minh City  
-**Bachelor's Degree in Automation and Control Engineering** | *2018 – 2022*  
+@subsection edu_bsc Ho Chi Minh City University of Technology, Ho Chi Minh City
+
+**Bachelor's Degree in Automation and Control Engineering** | *2018 – 2022*
 GPA: 7.8/10
 
 @section work_experience WORK EXPERIENCE
 
-### Bosch Global Software Technologies Company Limited | Ho Chi Minh City, Vietnam
+@subsection exp_bosch Bosch Global Software Technologies Company Limited | Ho Chi Minh City, Vietnam
 
-#### Software Engineer | *Feb 2024 – Present*
+@subsubsection exp_bosch_2024 Software Engineer | Feb 2024 - Present
 **Customer:** Honda
 
 **Responsibilities:**
@@ -51,7 +53,7 @@ GPA: 7.8/10
 
 **Product:** Perfectly Keyless System for Fleet Management Extended Access
 
-#### Software Engineer | *June 2022 – Feb 2024*  
+@subsubsection exp_bosch_2022 Software Engineer | June 2022 - Feb 2024
 **Customer:** PKCV (Commercial Vehicle)
 
 **Responsibilities:**
