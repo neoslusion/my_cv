@@ -17,7 +17,7 @@ Software Engineer with 3+ years of experience building CI/CD pipelines and autom
 - <b>DevOps & CI/CD</b>: Jenkins, Docker, Git, CMake, Linux, Azure Cloud. Azure DevOps
 - <b>Documentation & Automation</b>: Doxygen, Sphinx, Scripting Automation
 <!-- - <b>AI/ML</b>:  TODO: Add your AI/ML skills here, e.g., TensorFlow, PyTorch, Machine Learning, etc. -->
-- <b>Domain Experience</b>: Embedded Systems especially in AUTOSAR Classic (RTE, COM, Application), CAN protocol 
+- <b>Domain Experience</b>: Embedded Systems especially in AUTOSAR Classic, CAN protocol 
 - <b>Tools</b>: Vector Toolchain, Jira, Azure Portal
 - <b>Methodologies</b>: Agile/Scrum, ASPICE, CI/CD Pipeline Design
 - <b>Soft Skills</b>: Communication, Problem-solving, Adaptability, Time Management, Teamwork
@@ -30,7 +30,7 @@ Software Engineer with 3+ years of experience building CI/CD pipelines and autom
 
 <b>Master's Degree in Computer Science</b> | <em>2024 – Present</em>
 
-GPA: 3.4/4
+GPA: 3.2/4
 
 @subsection edu_bsc Ho Chi Minh City University of Technology, Ho Chi Minh City
 
@@ -52,7 +52,7 @@ GPA: 7.8/10
   - Configured and optimized AUTOSAR Basic Software modules including RTE, OS, and COM for production deployment
   - Architected and developed platform software to integrate Master library product, enabling seamless validation workflows
   - Integrated new Software Integration Packages (SIP) from Vector, ensuring compatibility with existing codebase
-  - Supported customer for the integration process of the product into their platform
+  - Supported customer for the integration process of the product into their platform including debugging and providing hotfixes
 
 - <b>DevOps Engineering:</b>
   - Designed and maintained CI/CD pipelines using Jenkins, reducing build and integration time
