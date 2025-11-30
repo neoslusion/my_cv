@@ -7,18 +7,20 @@ Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedI
 
 @section summary PROFESSIONAL SUMMARY
 
-Software Engineer with 3+ years of experience in Automotive Embedded Systems at Bosch, specializing in AUTOSAR Classic platform development and DevOps. Proven track record delivering production software for Honda and commercial vehicle platforms. Currently pursuing Master's in Computer Science while leading Software-Defined Vehicle (SDV) initiatives.
+Software Engineer with 3+ years of experience building CI/CD pipelines and automation frameworks in Automotive Embedded Systems at Bosch. Skilled in DevOps practices, Python automation, and documentation systems. Proven track record delivering production software for Honda and commercial vehicle platforms. Currently pursuing Master's in Computer Science with focus on AI/ML applications.
 
 ---
 
 @section skills SKILLS
 
-- <b>Programming Languages</b>: C, C++, Python, Shell Scripting
-- <b>Automotive Standards</b>: AUTOSAR Classic (RTE, OS, COM), CAN, LIN, UDS, CCC Digital Key
-- <b>Tools & Platforms</b>: Vector Toolchain, CANoe, Git, Jenkins, Jira, Linux
-- <b>DevOps</b>: CI/CD Pipeline Development, Docker, CMake, Doxygen, Sphinx
-- <b>Methodologies</b>: Agile/Scrum, ASPICE, Functional Safety (ISO 26262 awareness)
-- <b>Soft Skills</b>: Cross-functional Collaboration, Technical Documentation, Mentoring
+- <b>Programming Languages</b>: Python, C, C++, Shell Scripting
+- <b>DevOps & CI/CD</b>: Jenkins, Docker, Git, CMake, Linux, Azure Cloud. Azure DevOps
+- <b>Documentation & Automation</b>: Doxygen, Sphinx, Scripting Automation
+<!-- - <b>AI/ML</b>:  TODO: Add your AI/ML skills here, e.g., TensorFlow, PyTorch, Machine Learning, etc. -->
+- <b>Domain Experience</b>: Embedded Systems especially in AUTOSAR Classic (RTE, COM, Application), CAN protocol 
+- <b>Tools</b>: Vector Toolchain, Jira, Azure Portal
+- <b>Methodologies</b>: Agile/Scrum, ASPICE, CI/CD Pipeline Design
+- <b>Soft Skills</b>: Communication, Problem-solving, Adaptability, Time Management, Teamwork
 
 ---
 
@@ -28,7 +30,7 @@ Software Engineer with 3+ years of experience in Automotive Embedded Systems at 
 
 <b>Master's Degree in Computer Science</b> | <em>2024 – Present</em>
 
-GPA: 7.7/10
+GPA: 3.4/4
 
 @subsection edu_bsc Ho Chi Minh City University of Technology, Ho Chi Minh City
 
@@ -50,20 +52,20 @@ GPA: 7.8/10
   - Configured and optimized AUTOSAR Basic Software modules including RTE, OS, and COM for production deployment
   - Architected and developed platform software to integrate Master library product, enabling seamless validation workflows
   - Integrated new Software Integration Packages (SIP) from Vector, ensuring compatibility with existing codebase
-  - Implemented cybersecurity measures following automotive security standards
+  - Supported customer for the integration process of the product into their platform
 
 - <b>DevOps Engineering:</b>
   - Designed and maintained CI/CD pipelines using Jenkins, reducing build and integration time
   - Developed automated documentation framework using Doxygen and Sphinx, improving code documentation coverage
 
-- <b>Software-Defined Vehicle (SDV) Program:</b>
+- <b>Software-Defined Vehicle (SDV) Development:</b>
   - Defined technical approach, architecture, and technology stack for internal SDV initiatives
-  - Collaborated with cross-functional teams to port Perfectly Keyless (PK) features to DreamKit platform (Ranging/Localization)
+  - Collaborated with cross-functional teams to bring up Perfectly Keyless (PK) features to DreamKit platform
   - Developed and debugged embedded Linux applications for SDV platform
-  - Established CI/CD pipeline and documentation framework for SDV development
+  - Established CI/CD pipeline and documentation framework for SDV development using Azure DevOps
 
 <b>Achievements:</b>
-- <b>Top Performer Award (2024):</b> Recognized for delivering software to Honda and ALAP customers across 2 consecutive releases on schedule
+- <b>Top Performer Award (2024 and 2025):</b> Recognized for delivering software to Honda and ALAP customers across 2 consecutive releases for 2 generations
 - Developed platform software adopted by both Verification & Validation (VnV) and Developer teams for SaaP product integration
 - Successfully delivered PK features migration to SDV platform, enabling new product capabilities
 
@@ -88,7 +90,7 @@ GPA: 7.8/10
 @section certifications CERTIFICATIONS
 
 - AUTOSAR Classic Platform Training (Bosch Internal)
-- Functional Safety Awareness (ISO 26262)
+- Azure for Developers Training (Bosch Internal)
 
 ---
 
