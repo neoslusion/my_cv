@@ -21,7 +21,10 @@ SECTION_PATTERN = re.compile(r'@section\s+(\w+)\s+[^\n]+\n(.*?)(?=@section|\*/)'
 
 MARKERS = {
     'contact_info': ('<!-- CONTACT_INFO_START -->', '<!-- CONTACT_INFO_END -->'),
+    'summary': ('<!-- SUMMARY_START -->', '<!-- SUMMARY_END -->'),
     'skills': ('<!-- SKILLS_START -->', '<!-- SKILLS_END -->'),
+    'certifications': ('<!-- CERTIFICATIONS_START -->', '<!-- CERTIFICATIONS_END -->'),
+    'languages': ('<!-- LANGUAGES_START -->', '<!-- LANGUAGES_END -->'),
     'education': ('<!-- EDUCATION_START -->', '<!-- EDUCATION_END -->'),
     'work_experience': ('<!-- WORK_EXPERIENCE_START -->', '<!-- WORK_EXPERIENCE_END -->'),
 }
@@ -131,6 +134,40 @@ def build_skills(raw: str) -> str:
     if not blocks:
         return f'<div class="item"><em>{raw}</em></div>'
     return '\n'.join(blocks)
+
+
+def build_summary(raw: str) -> str:
+    """Build summary HTML from DOX format - just extract the paragraph text."""
+    # Remove any leading/trailing whitespace and return as paragraph
+    text = raw.strip()
+    return f'<p class="mb-0">{text}</p>'
+
+
+def build_certifications(raw: str) -> str:
+    """Build certifications HTML from DOX format with list items."""
+    lines = [l.strip() for l in raw.splitlines() if l.strip() and l.strip().startswith('-')]
+    items = []
+    for ln in lines:
+        # Remove leading dash
+        cert = re.sub(r'^-\s*', '', ln).strip()
+        items.append(f'<li class="mb-2"><i class="fas fa-certificate mr-2 text-primary"></i>{cert}</li>')
+    return '\n'.join(items) if items else '<li>No certifications listed</li>'
+
+
+def build_languages(raw: str) -> str:
+    """Build languages HTML from DOX format with <b>Language</b>: Level."""
+    lines = [l.strip() for l in raw.splitlines() if l.strip() and l.strip().startswith('-')]
+    items = []
+    for ln in lines:
+        # Remove leading dash and parse <b>Language</b>: Level
+        ln = re.sub(r'^-\s*', '', ln)
+        m = re.match(r'<b>([^<]+)</b>:\s*(.*)', ln)
+        if m:
+            lang, level = m.groups()
+            items.append(f'<li class="mb-2"><strong>{lang.strip()}:</strong> {level.strip()}</li>')
+        else:
+            items.append(f'<li class="mb-2">{ln}</li>')
+    return '\n'.join(items) if items else '<li>No languages listed</li>'
 
 
 def build_education(raw: str) -> str:
@@ -337,9 +374,21 @@ def main():
     if contact_raw:
         html = replace_block(html, *MARKERS['contact_info'], build_contact_info(contact_raw))
     
+    # Professional Summary
+    if 'summary' in sections:
+        html = replace_block(html, *MARKERS['summary'], build_summary(sections['summary']))
+    
     # Skills
     if 'skills' in sections:
         html = replace_block(html, *MARKERS['skills'], build_skills(sections['skills']))
+    
+    # Certifications
+    if 'certifications' in sections:
+        html = replace_block(html, *MARKERS['certifications'], build_certifications(sections['certifications']))
+    
+    # Languages
+    if 'languages' in sections:
+        html = replace_block(html, *MARKERS['languages'], build_languages(sections['languages']))
     
     # Education
     if 'education' in sections:

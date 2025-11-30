@@ -21,6 +21,11 @@ permissions:
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -53,6 +58,24 @@ jobs:
         run: |
           python tool/update_html_from_dox.py
 
+      - name: Copy PDF to docs folder for deployment
+        run: |
+          cp LePhucDuc_CV.pdf docs/
+
+      - name: Upload docs artifact for Pages deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-site
+          path: ./docs
+          retention-days: 1
+
+      - name: Upload PDF artifact for release
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdf
+          path: LePhucDuc_CV.pdf
+          retention-days: 1
+
       - name: Publish PDF to Release page
         uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -72,13 +95,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Download docs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-site
+          path: ./docs
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact
+      - name: Upload artifact to Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: './docs'
