@@ -117,7 +117,7 @@ To modify the build process:
 The project includes automatic deployment to GitHub Pages:
 - **HTML CV**: Available at `https://<username>.github.io/my_cv/`
 - **Auto-deployment**: Triggered on pushes to `main` branch that modify `docs/` folder
-- **Workflow**: See `.github/workflows/deploy-html-cv.yml`
+- **Workflow**: See `.github/workflows/python-app.yml`
 
 ### Content Synchronization
 Use the sync script to maintain consistency between formats:

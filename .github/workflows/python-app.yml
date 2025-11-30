@@ -1,57 +1,88 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# CV Build and Deploy Workflow
+# Builds PDF from Doxygen, updates HTML, and deploys to GitHub Pages
 
-name: Deploy PDF file to Release
+name: Build CV and Deploy
 
 on:
   push:
     branches: [main]
     paths:
       - "docs/**"
-      - "build/**"
+      - "build_cv.sh"
+      - "tool/**"
+      - "build_environment/**"
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: "3.11"
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Install Ngrok
+      - name: Install Doxygen and LaTeX
         run: |
-          wget "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz"
-          tar -xvzf ngrok-v3-stable-linux-amd64.tgz
-          ./ngrok config add-authtoken ${{ secrets.ngrok_token }}
-
-      # - name: Install Libreoffice
-      #   run: | 
-      #     sudo apt install libreoffice
+          sudo apt-get update
+          sudo apt-get install -y doxygen texlive-xetex texlive-fonts-recommended texlive-fonts-extra
 
       - name: Build PDF file
         run: |
-          chmod +x build/build.sh
-          sh build/build.sh
+          chmod +x build_cv.sh
+          ./build_cv.sh
 
       - name: Update HTML from DOX
         run: |
           python tool/update_html_from_dox.py
 
-      - name: Publish to Release page
+      - name: Publish PDF to Release page
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
-          title: "Latest build"
+          title: "Latest CV Build"
           files: |
             LePhucDuc_CV.pdf
 
+  deploy-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

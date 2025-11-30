@@ -47,6 +47,11 @@ def build_contact_info(raw: str) -> str:
             if not url.startswith('http'):  # add protocol if missing
                 url = 'https://' + url
             items.append('<li class="mb-2"><i class="fab fa-linkedin fa-fw fa-lg mr-2"></i><a class="resume-link" href="{0}" target="_blank">LinkedIn</a></li>'.format(url))
+        elif 'GitHub' in p or 'github' in p:
+            url = re.sub(r'^\[GitHub\]\((.*?)\).*', r'\1', p)
+            if not url.startswith('http'):
+                url = 'https://' + url
+            items.append('<li class="mb-2"><i class="fab fa-github fa-fw fa-lg mr-2"></i><a class="resume-link" href="{0}" target="_blank">GitHub</a></li>'.format(url))
         elif 'Online CV' in p:
             url = re.sub(r'^\[Online CV\]\((.*?)\).*', r'\1', p)
             if not url.startswith('http'):
