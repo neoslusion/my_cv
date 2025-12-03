@@ -202,7 +202,7 @@ def build_education(raw: str) -> str:
                 item_html = f'''<li class="mb-3">
 \t<h4 class="mb-1">{university}</h4>
 \t<strong>{degree.strip()}</strong> | <em>{dates.strip()}</em><br>
-\t{gpa_line} (Good - equivalent to 3.1/4.0)
+\t{gpa_line}
 </li>'''
                 items.append(item_html)
     
