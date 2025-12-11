@@ -40,10 +40,20 @@ SKILL_BADGE_COLORS = {
 }
 
 
+def strip_internal_tags(text: str) -> str:
+    """Remove @internal and @endinternal tags (but keep content) from text."""
+    text = re.sub(r'@internal\b\s*', '', text)
+    text = re.sub(r'@endinternal\b\s*', '', text)
+    return text
+
+
 def extract_sections(text: str):
+    """Extract sections, cleaning up @internal/@endinternal tags from content."""
     sections = {}
     for name, body in SECTION_PATTERN.findall(text):
-        sections[name.strip()] = body.strip().strip('\n')
+        # Clean up any @internal/@endinternal tags from the body content
+        clean_body = strip_internal_tags(body.strip().strip('\n'))
+        sections[name.strip()] = clean_body
     return sections
 
 
@@ -138,8 +148,10 @@ def build_skills(raw: str) -> str:
 
 def build_summary(raw: str) -> str:
     """Build summary HTML from DOX format - just extract the paragraph text."""
-    # Remove any leading/trailing whitespace and return as paragraph
+    # Remove any leading/trailing whitespace and horizontal rules
     text = raw.strip()
+    text = re.sub(r'\n*---\n*', '', text)  # Remove horizontal rules
+    text = text.strip()
     return f'<p class="mb-0">{text}</p>'
 
 

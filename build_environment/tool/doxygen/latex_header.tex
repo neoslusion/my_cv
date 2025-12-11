@@ -45,11 +45,11 @@
     pdfborder={0 0 0}
 }
 
-% Section formatting to match centered bold headers
+% Section formatting - left aligned with underline (matching reference CV)
 \titleformat{\section}
-{\centering\normalfont\large\bfseries}
+{\normalfont\Large\bfseries}
 {}{0em}{}
-[\vspace{-0.5em}]
+[\vspace{-0.3em}\titlerule]
 
 \titleformat{\subsection}
 {\normalfont\normalsize\bfseries}
@@ -127,8 +127,9 @@
 \SetTracking{encoding=*}{-10}
 
 % Define all Doxygen commands with professional spacing
-\newcommand{\doxysection}[1]{\par\addvspace{0.6em}\begin{center}{\fontsize{13pt}{14pt}\selectfont\textbf{#1}}\end{center}\par\addvspace{0.2em}}
-\newcommand{\doxysubsection}[1]{\par\addvspace{0.4em}\begin{center}\textbf{\normalsize #1}\end{center}\par\addvspace{0.15em}}
+% Section headers: left-aligned, bold, with underline
+\newcommand{\doxysection}[1]{\par\addvspace{0.8em}{\Large\bfseries #1}\par\vspace{-0.3em}\rule{\textwidth}{0.5pt}\par\vspace{0.3em}}
+\newcommand{\doxysubsection}[1]{\par\addvspace{0.4em}\noindent{\normalsize\bfseries #1}\par\addvspace{0.15em}}
 \newcommand{\doxysubsubsection}[1]{\par\addvspace{0.25em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
 % Doxygen paragraph levels
 \newcommand{\doxyparagraph}[1]{\par\addvspace{0.2em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}

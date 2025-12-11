@@ -5,11 +5,13 @@ Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedI
 
 ---
 
+@internal
 @section summary PROFESSIONAL SUMMARY
 
 Software Engineer with 3+ years of experience building CI/CD pipelines and automation frameworks in Automotive Embedded Systems at Bosch. Skilled in DevOps practices, Python automation, and documentation systems. Proven track record delivering production software for Honda and commercial vehicle platforms. Currently pursuing Master's in Computer Science with focus on AI/ML applications.
 
 ---
+@endinternal
 
 @section skills SKILLS
 
