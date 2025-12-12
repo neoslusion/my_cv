@@ -1,7 +1,7 @@
 /**
 @mainpage LE PHUC DUC
 
-<center>Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://www.linkedin.com/in/duc-le-phuc-7784b8228) | [GitHub](https://github.com/neoslusion)</center>
+<center>(+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://www.linkedin.com/in/duc-le-phuc-7784b8228) | [GitHub](https://github.com/neoslusion)</center>
 
 ---
 
@@ -12,33 +12,6 @@ Software Engineer with 3+ years of experience building CI/CD pipelines and autom
 
 ---
 @endinternal
-
-@section skills SKILLS
-
-- <b>Programming Languages</b>: Python, C, C++, Shell Scripting
-- <b>DevOps & CI/CD</b>: Jenkins, Docker, Git, CMake, Linux, Azure Cloud. Azure DevOps
-- <b>Documentation & Automation</b>: Doxygen, Sphinx, Scripting Automation
-<!-- - <b>AI/ML</b>:  TODO: Add your AI/ML skills here, e.g., TensorFlow, PyTorch, Machine Learning, etc. -->
-- <b>Domain Experience</b>: Embedded Systems especially in AUTOSAR Classic, CAN protocol 
-- <b>Tools</b>: Vector Toolchain, Jira, Azure Portal
-- <b>Methodologies</b>: Agile/Scrum, ASPICE, CI/CD Pipeline Design
-- <b>Soft Skills</b>: Communication, Problem-solving, Adaptability, Time Management, Teamwork
-
----
-
-@section education EDUCATION
-
-@subsection edu_msc Ho Chi Minh City University of Technology, Ho Chi Minh City
-
-<b>Master's Degree in Computer Science</b> @fill <em>2024 – Present</em>
-
-GPA: 3.2/4
-
-<b>Bachelor's Degree in Automation and Control Engineering</b> @fill <em>2018 – 2022</em>
-
-GPA: 7.8/10
-
----
 
 @section work_experience WORK EXPERIENCE
 
@@ -85,6 +58,33 @@ GPA: 7.8/10
 <b>Achievements:</b>
 - Contributed to successful product delivery for commercial vehicle platform
 - Gained deep expertise in AUTOSAR Classic architecture and automotive communication protocols
+
+---
+
+@section skills SKILLS
+
+- <b>Programming Languages</b>: Python, C, C++, Shell Scripting
+- <b>DevOps & CI/CD</b>: Jenkins, Docker, Git, CMake, Linux, Azure Cloud. Azure DevOps
+- <b>Documentation & Automation</b>: Doxygen, Sphinx, Scripting Automation
+<!-- - <b>AI/ML</b>:  TODO: Add your AI/ML skills here, e.g., TensorFlow, PyTorch, Machine Learning, etc. -->
+- <b>Domain Experience</b>: Embedded Systems especially in AUTOSAR Classic, CAN protocol 
+- <b>Tools</b>: Vector Toolchain, Jira, Azure Portal
+- <b>Methodologies</b>: Agile/Scrum, ASPICE, CI/CD Pipeline Design
+- <b>Soft Skills</b>: Communication, Problem-solving, Adaptability, Time Management, Teamwork
+
+---
+
+@section education EDUCATION
+
+@subsection edu_msc Ho Chi Minh City University of Technology, Ho Chi Minh City
+
+<b>Master's Degree in Computer Science</b> @fill <em>2024 – Present</em>
+
+GPA: 3.2/4
+
+<b>Bachelor's Degree in Automation and Control Engineering</b> @fill <em>2018 – 2022</em>
+
+GPA: 7.8/10
 
 ---
 
