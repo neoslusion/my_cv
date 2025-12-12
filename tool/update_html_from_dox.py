@@ -183,7 +183,10 @@ def build_languages(raw: str) -> str:
 
 
 def build_education(raw: str) -> str:
-    """Build education HTML from DOX format with @subsection."""
+    """Build education HTML from DOX format with @subsection.
+    
+    Supports multiple degrees under a single university subsection.
+    """
     # Split by @subsection
     parts = re.split(r'@subsection\s+\w+\s+', raw)
     parts = [p.strip() for p in parts if p.strip()]
@@ -197,24 +200,41 @@ def build_education(raw: str) -> str:
         # First line is university name
         university = lines[0]
         
-        # Find degree line with <b> and <em>
-        degree_line = ''
-        gpa_line = ''
+        # Find all degree entries (each has a degree line followed by GPA)
+        degrees = []
+        current_degree = None
+        current_gpa = None
+        
         for line in lines[1:]:
             if '<b>' in line and '<em>' in line:
-                degree_line = line
+                # Save previous degree if exists
+                if current_degree:
+                    degrees.append((current_degree, current_gpa or ''))
+                current_degree = line
+                current_gpa = None
             elif line.startswith('GPA:'):
-                gpa_line = line
+                current_gpa = line
         
-        if degree_line:
-            # Extract degree and dates
-            degree_match = re.search(r'<b>([^<]+)</b>\s*\|\s*<em>([^<]+)</em>', degree_line)
-            if degree_match:
-                degree, dates = degree_match.groups()
+        # Don't forget the last degree
+        if current_degree:
+            degrees.append((current_degree, current_gpa or ''))
+        
+        if degrees:
+            # Build HTML with university header and all degrees
+            degree_entries = []
+            for degree_line, gpa_line in degrees:
+                degree_match = re.search(r'<b>([^<]+)</b>\s*\|\s*<em>([^<]+)</em>', degree_line)
+                if degree_match:
+                    degree, dates = degree_match.groups()
+                    entry = f'\t<strong>{degree.strip()}</strong> | <em>{dates.strip()}</em>'
+                    if gpa_line:
+                        entry += f'<br>\n\t{gpa_line}<br>'
+                    degree_entries.append(entry)
+            
+            if degree_entries:
                 item_html = f'''<li class="mb-3">
 \t<h4 class="mb-1">{university}</h4>
-\t<strong>{degree.strip()}</strong> | <em>{dates.strip()}</em><br>
-\t{gpa_line}
+{chr(10).join(degree_entries)}
 </li>'''
                 items.append(item_html)
     

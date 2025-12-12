@@ -127,8 +127,23 @@
 \SetTracking{encoding=*}{-10}
 
 % Define all Doxygen commands with professional spacing
-% Section headers: left-aligned, bold, with underline
-\newcommand{\doxysection}[1]{\par\addvspace{0.8em}{\Large\bfseries #1}\par\vspace{-0.3em}\rule{\textwidth}{0.5pt}\par\vspace{0.3em}}
+% Counter to track if this is the first section (mainpage title)
+\newcounter{doxymainsection}
+\setcounter{doxymainsection}{0}
+
+% Section headers: first one (name) is centered, others left-aligned with underline
+\newcommand{\doxysection}[1]{%
+    \ifnum\value{doxymainsection}=0%
+        % First section is the mainpage title (name) - centered, larger
+        \par\addvspace{0.2em}%
+        \begin{center}{\fontsize{18pt}{22pt}\selectfont\bfseries #1}\end{center}%
+        \par\addvspace{0.1em}%
+        \stepcounter{doxymainsection}%
+    \else%
+        % Subsequent sections - left-aligned, bold, with underline
+        \par\addvspace{0.8em}{\Large\bfseries #1}\par\vspace{-0.3em}\rule{\textwidth}{0.5pt}\par\vspace{0.3em}%
+    \fi%
+}
 \newcommand{\doxysubsection}[1]{\par\addvspace{0.4em}\noindent{\normalsize\bfseries #1}\par\addvspace{0.15em}}
 \newcommand{\doxysubsubsection}[1]{\par\addvspace{0.25em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
 % Doxygen paragraph levels
