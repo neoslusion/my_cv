@@ -223,10 +223,10 @@ def build_education(raw: str) -> str:
             # Build HTML with university header and all degrees
             degree_entries = []
             for degree_line, gpa_line in degrees:
-                degree_match = re.search(r'<b>([^<]+)</b>\s*\|\s*<em>([^<]+)</em>', degree_line)
+                degree_match = re.search(r'<b>([^<]+)</b>\s*(?:\||@fill)\s*<em>([^<]+)</em>', degree_line)
                 if degree_match:
                     degree, dates = degree_match.groups()
-                    entry = f'\t<strong>{degree.strip()}</strong> | <em>{dates.strip()}</em>'
+                    entry = f'\t<div class="d-flex justify-content-between"><strong>{degree.strip()}</strong><em class="text-muted">{dates.strip()}</em></div>'
                     if gpa_line:
                         entry += f'<br>\n\t{gpa_line}<br>'
                     degree_entries.append(entry)
@@ -246,6 +246,7 @@ def build_work(raw: str) -> str:
     # First, get the company info from @subsection
     company_match = re.search(r'@subsection\s+\w+\s+(.+?)(?=\n)', raw)
     company = company_match.group(1).strip() if company_match else 'Company'
+    company = company.replace('@fill', '|')
     
     # Split by @subsubsection for each position
     positions = re.split(r'@subsubsection\s+\w+\s+', raw)
@@ -260,7 +261,7 @@ def build_work(raw: str) -> str:
         # First line has position title and dates
         title_line = lines[0].strip()
         # Parse "Software Engineer | Feb 2024 - Present"
-        title_match = re.match(r'(.+?)\s*\|\s*(.+)', title_line)
+        title_match = re.match(r'(.+?)\s*(?:\||@fill)\s*(.+)', title_line)
         if title_match:
             position_title, dates = title_match.groups()
         else:
@@ -332,7 +333,7 @@ def build_work(raw: str) -> str:
             html_parts.append(f'<div class="item mb-3">')
         
         html_parts.append(f'\t')
-        html_parts.append(f'\t<div class="resume-position-time text-muted mb-2">{position_title.strip()} | <em>{dates.strip()}</em></div>')
+        html_parts.append(f'\t<div class="resume-position-time d-flex justify-content-between mb-2"><span>{position_title.strip()}</span><em class="text-muted">{dates.strip()}</em></div>')
         
         # Process each section
         for section_name, items in sections:

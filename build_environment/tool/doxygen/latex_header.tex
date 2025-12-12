@@ -4,12 +4,12 @@
 
 \documentclass[10pt,a4paper]{article}
 
-% Set optimized font sizes for professional CV
-\renewcommand{\normalsize}{\fontsize{9pt}{10.8pt}\selectfont}
-\renewcommand{\small}{\fontsize{8pt}{9.6pt}\selectfont}
-\renewcommand{\footnotesize}{\fontsize{7pt}{8.4pt}\selectfont}
-\renewcommand{\large}{\fontsize{11pt}{13.2pt}\selectfont}
-\renewcommand{\Large}{\fontsize{14pt}{16.8pt}\selectfont}
+% Set optimized font sizes for professional CV - improved readability
+\renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont}
+\renewcommand{\small}{\fontsize{9pt}{11pt}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{8pt}{10pt}\selectfont}
+\renewcommand{\large}{\fontsize{12pt}{14pt}\selectfont}
+\renewcommand{\Large}{\fontsize{16pt}{19pt}\selectfont}
 
 % Essential packages
 \usepackage[utf8]{inputenc}
@@ -93,23 +93,23 @@
     \textbf{#1}: #2\\
 }
 
-% Ultra-compact list formatting
+% List formatting with improved spacing
 \setlist[itemize]{
-    leftmargin=1.2em,
-    itemsep=1pt,
-    parsep=0pt,
-    topsep=2pt,
-    partopsep=0pt,
-    before=\vspace{-0.2em},
-    after=\vspace{-0.2em}
+    leftmargin=1.4em,
+    itemsep=2pt,
+    parsep=1pt,
+    topsep=4pt,
+    partopsep=1pt,
+    before=\vspace{0em},
+    after=\vspace{0em}
 }
 
-% Minimized paragraph settings for compactness
+% Paragraph settings with comfortable spacing
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{2pt}
+\setlength{\parskip}{3pt}
 
-% Tighter line spacing for maximum density
-\renewcommand{\baselinestretch}{0.85}
+% Comfortable line spacing for readability
+\renewcommand{\baselinestretch}{0.95}
 \tolerance=1000
 \emergencystretch=1em
 \hyphenpenalty=10000
@@ -135,17 +135,17 @@
 \newcommand{\doxysection}[1]{%
     \ifnum\value{doxymainsection}=0%
         % First section is the mainpage title (name) - centered, larger
-        \par\addvspace{0.2em}%
-        \begin{center}{\fontsize{18pt}{22pt}\selectfont\bfseries #1}\end{center}%
-        \par\addvspace{0.1em}%
+        \par\addvspace{0.4em}%
+        \begin{center}{\fontsize{20pt}{24pt}\selectfont\bfseries #1}\end{center}%
+        \par\addvspace{0.3em}%
         \stepcounter{doxymainsection}%
     \else%
         % Subsequent sections - left-aligned, bold, with underline
-        \par\addvspace{0.8em}{\Large\bfseries #1}\par\vspace{-0.3em}\rule{\textwidth}{0.5pt}\par\vspace{0.3em}%
+        \par\addvspace{1.0em}{\Large\bfseries #1}\par\vspace{-0.2em}\rule{\textwidth}{0.5pt}\par\vspace{0.4em}%
     \fi%
 }
-\newcommand{\doxysubsection}[1]{\par\addvspace{0.4em}\noindent{\normalsize\bfseries #1}\par\addvspace{0.15em}}
-\newcommand{\doxysubsubsection}[1]{\par\addvspace{0.25em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
+\newcommand{\doxysubsection}[1]{\par\addvspace{0.6em}\noindent{\large\bfseries #1}\par\addvspace{0.25em}}
+\newcommand{\doxysubsubsection}[1]{\par\addvspace{0.4em}\noindent{\normalsize\bfseries #1}\par\addvspace{0.15em}}
 % Doxygen paragraph levels
 \newcommand{\doxyparagraph}[1]{\par\addvspace{0.2em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
 \newcommand{\doxysubparagraph}[1]{\par\addvspace{0.15em}\noindent\textbf{\small #1}\par\addvspace{0.08em}}

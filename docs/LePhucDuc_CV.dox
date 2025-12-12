@@ -30,11 +30,11 @@ Software Engineer with 3+ years of experience building CI/CD pipelines and autom
 
 @subsection edu_msc Ho Chi Minh City University of Technology, Ho Chi Minh City
 
-<b>Master's Degree in Computer Science</b> | <em>2024 – Present</em>
+<b>Master's Degree in Computer Science</b> @fill <em>2024 – Present</em>
 
 GPA: 3.2/4
 
-<b>Bachelor's Degree in Automation and Control Engineering</b> | <em>2018 – 2022</em>
+<b>Bachelor's Degree in Automation and Control Engineering</b> @fill <em>2018 – 2022</em>
 
 GPA: 7.8/10
 
@@ -44,8 +44,10 @@ GPA: 7.8/10
 
 @subsection exp_bosch Bosch Global Software Technologies Company Limited | Ho Chi Minh City, Vietnam
 
-@subsubsection exp_bosch_2024 Software Engineer | Feb 2024 - Present
-<b>Customer:</b> Honda
+@subsubsection exp_bosch_2024 Software Engineer
+<b>Customer:</b> Honda @fill <em>Feb 2024 - Present</em>
+
+<b>Product:</b> Master Software Library and Anchor Product
 
 <b>Responsibilities:</b>
 - <b>Software Development with Software-as-a-Product (SaaP) approach:</b>
@@ -65,14 +67,13 @@ GPA: 7.8/10
   - Established CI/CD pipeline and documentation framework for SDV development using Azure DevOps
 
 <b>Achievements:</b>
-- <b>Top Performer Award (2024 and 2025):</b> Recognized for delivering software to Honda and ALAP customers across 2 consecutive releases for 2 generations
+- <b>Top Performer Award (2025):</b> Recognized for delivering software to Honda and ALAP customers across 2 consecutive releases for 2 generations
 - Developed platform software adopted by both Verification & Validation (VnV) and Developer teams for SaaP product integration
 - Successfully delivered PK features migration to SDV platform, enabling new product capabilities
 
-<b>Product:</b> Perfectly Keyless System for Fleet Management Extended Access
+<b>Customer:</b> Perfectly Keyless Commercial Vehicle (PKCV) @fill <em>June 2022 - Feb 2024</em>
 
-@subsubsection exp_bosch_2022 Software Engineer | June 2022 - Feb 2024
-<b>Customer:</b> Perfectly Keyless Commercial Vehicle (PKCV)
+<b>Product:</b> Perfectly Keyless System for Fleet Management Extended Access
 
 <b>Responsibilities:</b>
 - <b>Master ECU Software Development for Perfectly Keyless System:</b>
@@ -84,13 +85,6 @@ GPA: 7.8/10
 <b>Achievements:</b>
 - Contributed to successful product delivery for commercial vehicle platform
 - Gained deep expertise in AUTOSAR Classic architecture and automotive communication protocols
-
----
-
-@section certifications CERTIFICATIONS
-
-- AUTOSAR Classic Platform Training (Bosch Internal)
-- Azure for Developers Training (Bosch Internal)
 
 ---
 
