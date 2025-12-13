@@ -3,8 +3,6 @@
 
 <center>(+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://www.linkedin.com/in/duc-le-phuc-7784b8228) | [GitHub](https://github.com/neoslusion)</center>
 
----
-
 @internal
 @section summary PROFESSIONAL SUMMARY
 
@@ -15,42 +13,42 @@ Software Engineer with 3+ years of experience building CI/CD pipelines and autom
 
 @section work_experience WORK EXPERIENCE
 
-@subsection exp_bosch Bosch Global Software Technologies Company Limited | Ho Chi Minh City, Vietnam
+---
 
-@subsubsection exp_bosch_2024 Software Engineer
-<b>Customer:</b> Honda @fill <em>Feb 2024 - Present</em>
+<b>Bosch Global Software Technologies Company Limited</b> @fill <em>Ho Chi Minh City, Vietnam</em>
 
-<b>Product:</b> Master Software Library and Anchor Product
+<b>Software Engineer</b>
+
+<i>Customer: Honda - Product: Master Software Library</i> @fill <em>Feb 2024 - Present</em>
 
 <b>Responsibilities:</b>
-- <b>Software Development with Software-as-a-Product (SaaP) approach:</b>
-  - Configured and optimized AUTOSAR Basic Software modules including RTE, OS, and COM for production deployment
-  - Architected and developed platform software to integrate Master library product, enabling seamless validation workflows
-  - Integrated new Software Integration Packages (SIP) from Vector, ensuring compatibility with existing codebase
-  - Supported customer for the integration process of the product into their platform including debugging and providing hotfixes
+- <b>Software Development with Software-as-a-Product (SaaP)</b>
+  - Architected and developed platform software to integrate software library product, enabling the testability of the product for both VnV and Development team
+  - Configured core software modules (RTE, OS, COM) to closely align with the customer’s target system configuration and ensure the correct software behavior during testing and development
+  - Integrated new Software Integration Packages (SIP) from Vector, ensuring compatibility with existing codebase and customer's needs
+  - Developed new features and supported other feature teams to develop and integrate their features into software library product
+  - Supported customer for the integration process of the product into their platform by providing integration manual, debugging and hotfixes
 
-- <b>DevOps Engineering:</b>
-  - Designed and maintained CI/CD pipelines using Jenkins, reducing build and integration time
-  - Developed automated documentation framework using Doxygen and Sphinx, improving code documentation coverage
+- <b>DevOps Engineering</b>
+  - Designed and maintained CI/CD pipelines using Jenkins, reducing build time and improving release quality by expanding feature-level automated testing
+  - Developed documentation framework using Doxygen and Sphinx, created a comprehensive documentation system for project
 
-- <b>Software-Defined Vehicle (SDV) Development:</b>
+- <b>Software-Defined Vehicle (SDV) Development</b>
   - Defined technical approach, architecture, and technology stack for internal SDV initiatives
   - Collaborated with cross-functional teams to bring up Perfectly Keyless (PK) features to DreamKit platform
-  - Developed and debugged embedded Linux applications for SDV platform
-  - Established CI/CD pipeline and documentation framework for SDV development using Azure DevOps
+  - Developed new Linux applications for SDV platform in multiple languages that communicate with each other using gRPC
+  - Established CI/CD pipeline and documentation framework for SDV using Azure DevOps
 
 <b>Achievements:</b>
-- <b>Top Performer Award (2025):</b> Recognized for delivering software to Honda and ALAP customers across 2 consecutive releases for 2 generations
-- Developed platform software adopted by both Verification & Validation (VnV) and Developer teams for SaaP product integration
-- Successfully delivered PK features migration to SDV platform, enabling new product capabilities
+- <b>Top Performer Award (2025):</b> Recognized for the contribution on supporting to deliver software to customers for 2 consecutive releases and the first release of the third product generation
+- Recognized for the contribution on developing platform software adopted by both Verification & Validation (VnV) and Developer teams for SaaP product integration, help speeding up the development and testing process
+- Successfully delivered PK features migration to SDV platform and demonstrated to Toyota, enabling new product capabilities
 
-<b>Customer:</b> Perfectly Keyless Commercial Vehicle (PKCV) @fill <em>June 2022 - Feb 2024</em>
-
-<b>Product:</b> Perfectly Keyless System for Fleet Management Extended Access
+<i>Customer: Commercial Vehicle (PKCV) - Product: Fleet Management Extended Access</i> @fill <em>June 2022 - Feb 2024</em>
 
 <b>Responsibilities:</b>
-- <b>Master ECU Software Development for Perfectly Keyless System:</b>
-  - Configured AUTOSAR Application Software Components (SWCs) and Runtime Environment (RTE) for production ECU
+- <b>Master ECU Software Development:</b>
+  - Configured AUTOSAR Application Software Components (SWCs), Runtime Environment (RTE)
   - Integrated Software Integration Packages (SIP) from Vector and resolved integration issues
   - Implemented features compliant with Car Connectivity Consortium (CCC) Digital Key standards
   - Developed and tested door control functionality using LIN protocol communication
@@ -61,36 +59,29 @@ Software Engineer with 3+ years of experience building CI/CD pipelines and autom
 
 ---
 
-@section skills SKILLS
-
-- <b>Programming Languages</b>: Python, C, C++, Shell Scripting
-- <b>DevOps & CI/CD</b>: Jenkins, Docker, Git, CMake, Linux, Azure Cloud. Azure DevOps
-- <b>Documentation & Automation</b>: Doxygen, Sphinx, Scripting Automation
-<!-- - <b>AI/ML</b>:  TODO: Add your AI/ML skills here, e.g., TensorFlow, PyTorch, Machine Learning, etc. -->
-- <b>Domain Experience</b>: Embedded Systems especially in AUTOSAR Classic, CAN protocol 
-- <b>Tools</b>: Vector Toolchain, Jira, Azure Portal
-- <b>Methodologies</b>: Agile/Scrum, ASPICE, CI/CD Pipeline Design
-- <b>Soft Skills</b>: Communication, Problem-solving, Adaptability, Time Management, Teamwork
-
----
-
 @section education EDUCATION
 
-@subsection edu_msc Ho Chi Minh City University of Technology, Ho Chi Minh City
+<b>Ho Chi Minh City University of Technology</b> @fill <em>Ho Chi Minh City</em>
 
 <b>Master's Degree in Computer Science</b> @fill <em>2024 – Present</em>
 
-GPA: 3.2/4
+- GPA: 3.2/4
 
 <b>Bachelor's Degree in Automation and Control Engineering</b> @fill <em>2018 – 2022</em>
 
-GPA: 7.8/10
+- GPA: 7.8/10
 
 ---
 
-@section languages LANGUAGES
+@section skills ADDITIONAL INFORMATION
 
-- <b>Vietnamese</b>: Native
-- <b>English</b>: Professional Working Proficiency
+- <b>Programming Languages</b>: Python, C, C++, Shell Scripting
+- <b>DevOps & CI/CD</b>: Jenkins, Docker, Git, CMake, Linux, Azure Cloud, Azure DevOps
+- <b>Documentation & Automation</b>: Doxygen, Sphinx, Scripting Automation
+- <b>AI/ML</b>: Machine Learning, BigData, NLP, Computer Vision, Deep Learning, Jupyter Notebook, PyTorch, TensorFlow
+- <b>Domain Experience</b>: Embedded Systems especially in AUTOSAR Classic, CAN protocol 
+- <b>Tools</b>: Vector Toolchain, Jira, Azure Portal
+- <b>Methodologies</b>: Agile/Scrum, ASPICE, CI/CD Pipeline Design
+- <b>Languages</b>: Vietnamese (Native), English (Professional Working Proficiency)
 
 */
