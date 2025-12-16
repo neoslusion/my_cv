@@ -67,6 +67,8 @@ def extract_contact_from_mainpage(text: str) -> str:
 
 def build_contact_info(raw: str) -> str:
     """Build contact info HTML from pipe-separated line."""
+    # Strip HTML tags like <center>, </center> from the raw string
+    raw = re.sub(r'<[^>]+>', '', raw)
     parts = [p.strip() for p in raw.split('|') if p.strip()]
     items = []
     for p in parts:
