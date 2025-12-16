@@ -40,10 +40,20 @@ SKILL_BADGE_COLORS = {
 }
 
 
+def strip_internal_tags(text: str) -> str:
+    """Remove @internal and @endinternal tags (but keep content) from text."""
+    text = re.sub(r'@internal\b\s*', '', text)
+    text = re.sub(r'@endinternal\b\s*', '', text)
+    return text
+
+
 def extract_sections(text: str):
+    """Extract sections, cleaning up @internal/@endinternal tags from content."""
     sections = {}
     for name, body in SECTION_PATTERN.findall(text):
-        sections[name.strip()] = body.strip().strip('\n')
+        # Clean up any @internal/@endinternal tags from the body content
+        clean_body = strip_internal_tags(body.strip().strip('\n'))
+        sections[name.strip()] = clean_body
     return sections
 
 
@@ -57,6 +67,8 @@ def extract_contact_from_mainpage(text: str) -> str:
 
 def build_contact_info(raw: str) -> str:
     """Build contact info HTML from pipe-separated line."""
+    # Strip HTML tags like <center>, </center> from the raw string
+    raw = re.sub(r'<[^>]+>', '', raw)
     parts = [p.strip() for p in raw.split('|') if p.strip()]
     items = []
     for p in parts:
@@ -138,8 +150,10 @@ def build_skills(raw: str) -> str:
 
 def build_summary(raw: str) -> str:
     """Build summary HTML from DOX format - just extract the paragraph text."""
-    # Remove any leading/trailing whitespace and return as paragraph
+    # Remove any leading/trailing whitespace and horizontal rules
     text = raw.strip()
+    text = re.sub(r'\n*---\n*', '', text)  # Remove horizontal rules
+    text = text.strip()
     return f'<p class="mb-0">{text}</p>'
 
 
@@ -171,176 +185,242 @@ def build_languages(raw: str) -> str:
 
 
 def build_education(raw: str) -> str:
-    """Build education HTML from DOX format with @subsection."""
-    # Split by @subsection
-    parts = re.split(r'@subsection\s+\w+\s+', raw)
-    parts = [p.strip() for p in parts if p.strip()]
+    """Build education HTML from DOX format with inline HTML tags and @fill.
     
-    items = []
-    for part in parts:
-        lines = [l.strip() for l in part.splitlines() if l.strip() and not l.strip().startswith('---')]
-        if not lines:
+    The DOX format uses:
+    - <b>University</b> @fill <em>Location</em> for university header (no digits in location)
+    - <b>Degree</b> @fill <em>Dates</em> for each degree (has digits like 2024)
+    - - GPA: X/Y for GPA info
+    """
+    lines = raw.strip().splitlines()
+    
+    # State tracking
+    university_name = ''
+    university_location = ''
+    degrees = []  # List of (degree, dates, gpa)
+    current_degree = None
+    current_dates = None
+    current_gpa = None
+    
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped == '---':
             continue
         
-        # First line is university name
-        university = lines[0]
+        # Check for <b>...</b> @fill <em>...</em> pattern
+        match = re.match(r'^<b>([^<]+)</b>\s*@fill\s*<em>([^<]+)</em>$', stripped)
+        if match:
+            left_part = match.group(1).strip()
+            right_part = match.group(2).strip()
+            
+            # If right part contains digits, it's a degree line (dates like "2024 – Present")
+            # Otherwise it's the university line (location like "Ho Chi Minh City")
+            if re.search(r'\d', right_part):
+                # This is a degree line
+                if current_degree:
+                    degrees.append((current_degree, current_dates, current_gpa))
+                current_degree = left_part
+                current_dates = right_part
+                current_gpa = None
+            else:
+                # This is the university line
+                university_name = left_part
+                university_location = right_part
+            continue
         
-        # Find degree line with <b> and <em>
-        degree_line = ''
-        gpa_line = ''
-        for line in lines[1:]:
-            if '<b>' in line and '<em>' in line:
-                degree_line = line
-            elif line.startswith('GPA:'):
-                gpa_line = line
-        
-        if degree_line:
-            # Extract degree and dates
-            degree_match = re.search(r'<b>([^<]+)</b>\s*\|\s*<em>([^<]+)</em>', degree_line)
-            if degree_match:
-                degree, dates = degree_match.groups()
-                item_html = f'''<li class="mb-3">
-\t<h4 class="mb-1">{university}</h4>
-\t<strong>{degree.strip()}</strong> | <em>{dates.strip()}</em><br>
-\t{gpa_line}
-</li>'''
-                items.append(item_html)
+        # Check for GPA line: - GPA: X/Y
+        if stripped.startswith('- '):
+            gpa_text = stripped[2:].strip()
+            if gpa_text.startswith('GPA:'):
+                current_gpa = gpa_text
     
-    return '<ul class="list-unstyled resume-education-list">\n' + '\n'.join(items) + '\n</ul>'
+    # Save last degree
+    if current_degree:
+        degrees.append((current_degree, current_dates, current_gpa))
+    
+    # Build HTML
+    if not degrees:
+        return '<ul class="list-unstyled resume-education-list">\n<li>No education info</li>\n</ul>'
+    
+    degree_entries = []
+    for degree, dates, gpa in degrees:
+        entry = f'\t<div class="d-flex justify-content-between mb-2"><strong>{degree}</strong><em class="text-muted">{dates}</em></div>'
+        if gpa:
+            entry += f'\n\t<p class="mb-3 ml-2">{gpa}</p>'
+        degree_entries.append(entry)
+    
+    item_html = f'''<li class="mb-4">
+\t<h4 class="mb-3">{university_name}, {university_location}</h4>
+{chr(10).join(degree_entries)}
+</li>'''
+    
+    return '<ul class="list-unstyled resume-education-list">\n' + item_html + '\n</ul>'
 
 
 def build_work(raw: str) -> str:
-    """Build work experience HTML from DOX format with @subsection and @subsubsection."""
-    # First, get the company info from @subsection
-    company_match = re.search(r'@subsection\s+\w+\s+(.+?)(?=\n)', raw)
-    company = company_match.group(1).strip() if company_match else 'Company'
+    """Build work experience HTML from DOX format with inline HTML tags and @fill.
     
-    # Split by @subsubsection for each position
-    positions = re.split(r'@subsubsection\s+\w+\s+', raw)
-    positions = [p.strip() for p in positions[1:] if p.strip()]  # Skip first empty part
+    The DOX format uses:
+    - <b>Company</b> @fill <em>Location</em> for company header
+    - <b>Position</b> for position title
+    - <i>Customer: X - Product: Y</i> @fill <em>Dates</em> for project info
+    - <b>Responsibilities:</b> / <b>Achievements:</b> for sections
+    - Nested bullet points for details
+    """
+    lines = raw.strip().splitlines()
     
-    divs = []
-    for i, pos in enumerate(positions):
-        lines = pos.splitlines()
-        if not lines:
+    # State tracking
+    company_name = ''
+    company_location = ''
+    current_position = ''
+    projects = []  # List of project dicts
+    current_project = None
+    current_section = None  # 'Responsibilities' or 'Achievements'
+    current_category = None  # e.g., 'Software Development with SaaP'
+    
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped == '---':
             continue
         
-        # First line has position title and dates
-        title_line = lines[0].strip()
-        # Parse "Software Engineer | Feb 2024 - Present"
-        title_match = re.match(r'(.+?)\s*\|\s*(.+)', title_line)
-        if title_match:
-            position_title, dates = title_match.groups()
-        else:
-            position_title, dates = title_line, ''
+        # Check for company line: <b>Company</b> @fill <em>Location</em>
+        company_match = re.match(r'^<b>([^<]+)</b>\s*@fill\s*<em>([^<]+)</em>$', stripped)
+        if company_match:
+            company_name = company_match.group(1).strip()
+            company_location = company_match.group(2).strip()
+            continue
         
-        # Rest of the content
-        content_lines = lines[1:]
+        # Check for position title: <b>Position</b> (standalone)
+        position_match = re.match(r'^<b>([^<]+)</b>$', stripped)
+        if position_match and 'Responsibilities' not in stripped and 'Achievements' not in stripped:
+            current_position = position_match.group(1).strip()
+            continue
         
-        # Parse the content into sections
-        sections = []
-        current_section = None
-        current_items = []
+        # Check for project line: <i>Customer: X - Product: Y</i> @fill <em>Dates</em>
+        project_match = re.match(r'^<i>([^<]+)</i>\s*@fill\s*<em>([^<]+)</em>$', stripped)
+        if project_match:
+            # Save previous project
+            if current_project:
+                projects.append(current_project)
+            current_project = {
+                'info': project_match.group(1).strip(),
+                'dates': project_match.group(2).strip(),
+                'position': current_position,
+                'responsibilities': [],
+                'achievements': []
+            }
+            current_section = None
+            current_category = None
+            continue
         
-        for line in content_lines:
-            line = line.rstrip()
-            if not line or line.strip() == '---':
+        # Check for section headers: <b>Responsibilities:</b> or <b>Achievements:</b>
+        section_match = re.match(r'^<b>(Responsibilities|Achievements):</b>$', stripped)
+        if section_match:
+            current_section = section_match.group(1)
+            current_category = None
+            continue
+        
+        # Check for category bullet or regular bullet
+        if stripped.startswith('- '):
+            item_text = re.sub(r'^-\s*', '', stripped)
+            
+            # Check for category with colon: - <b>Category:</b> (nothing after)
+            cat_match_colon = re.match(r'^<b>([^<]+):</b>\s*$', item_text)
+            if cat_match_colon and current_section == 'Responsibilities':
+                current_category = cat_match_colon.group(1).strip()
+                if current_project:
+                    current_project['responsibilities'].append(('category', current_category))
                 continue
             
-            stripped = line.strip()
+            # Check for category WITHOUT colon: - <b>Category</b> (just bold text, no colon inside)
+            cat_match_no_colon = re.match(r'^<b>([^<:]+)</b>\s*$', item_text)
+            if cat_match_no_colon and current_section == 'Responsibilities':
+                current_category = cat_match_no_colon.group(1).strip()
+                if current_project:
+                    current_project['responsibilities'].append(('category', current_category))
+                continue
             
-            # Check for section header like <b>Customer:</b> or <b>Responsibilities:</b>
-            header_match = re.match(r'^<b>([^<]+):</b>\s*(.*)', stripped)
-            if header_match:
-                # Save previous section
-                if current_section:
-                    sections.append((current_section, current_items))
-                current_section = header_match.group(1).strip()
-                remaining = header_match.group(2).strip()
-                current_items = [remaining] if remaining else []
-            elif stripped.startswith('- '):
-                # List item (top level or nested)
-                if line.startswith('  - ') or line.startswith('  -'):
-                    # Nested item (sub-bullet)
-                    item_text = re.sub(r'^\s*-\s*', '', stripped)
-                    current_items.append(('sub', item_text))
-                else:
-                    # Top level item - could be a category header
-                    item_text = re.sub(r'^-\s*', '', stripped)
-                    # Check if it's a category header like <b>Category:</b> (with nothing after or only sub-items following)
-                    cat_match = re.match(r'<b>([^<]+):</b>\s*(.*)', item_text)
-                    if cat_match:
-                        cat_name = cat_match.group(1).strip()
-                        cat_rest = cat_match.group(2).strip()
-                        if cat_rest:
-                            # This is a bold-prefixed item (like an achievement with description)
-                            current_items.append(('bold_item', cat_name, cat_rest))
-                        else:
-                            # This is a category header (only bold text, sub-items follow)
-                            current_items.append(('category', cat_name))
+            # Check for bold-prefixed item (achievement with description like "Award: description")
+            bold_item_match = re.match(r'^<b>([^<]+):</b>\s*(.+)$', item_text)
+            if bold_item_match:
+                if current_project and current_section == 'Achievements':
+                    current_project['achievements'].append(('bold_item', bold_item_match.group(1).strip(), bold_item_match.group(2).strip()))
+                continue
+            
+            # Regular list item
+            if current_project:
+                if current_section == 'Responsibilities':
+                    # Could be a sub-item if line starts with two spaces
+                    if line.startswith('  - ') or line.startswith('  -'):
+                        current_project['responsibilities'].append(('sub', item_text))
                     else:
-                        current_items.append(('item', item_text))
-            else:
-                # Plain text line
-                if current_items or not current_section:
-                    current_items.append(('text', stripped))
+                        current_project['responsibilities'].append(('item', item_text))
+                elif current_section == 'Achievements':
+                    current_project['achievements'].append(('item', item_text))
+            continue
         
-        # Save last section
-        if current_section:
-            sections.append((current_section, current_items))
-        
-        # Build HTML for this position
+        # Check for nested sub-bullet: starts with spaces then -
+        if line.startswith('  - ') or line.startswith('  -'):
+            sub_text = re.sub(r'^\s*-\s*', '', stripped)
+            if current_project and current_section == 'Responsibilities':
+                current_project['responsibilities'].append(('sub', sub_text))
+    
+    # Save last project
+    if current_project:
+        projects.append(current_project)
+    
+    # Build HTML
+    divs = []
+    for i, proj in enumerate(projects):
         html_parts = []
         
-        # Add company header only for first position
+        # Add company header only for first project
         if i == 0:
-            html_parts.append(f'<div class="item mb-4">')
-            html_parts.append(f'\t<h4 class="resume-position-title font-weight-bold mb-1">{company}</h4>')
+            html_parts.append('<div class="item mb-5">')
+            html_parts.append(f'\t<h4 class="resume-position-title font-weight-bold mb-2">{company_name} | {company_location}</h4>')
         else:
-            html_parts.append(f'<div class="item mb-3">')
+            html_parts.append('<div class="item mb-4">')
         
-        html_parts.append(f'\t')
-        html_parts.append(f'\t<div class="resume-position-time text-muted mb-2">{position_title.strip()} | <em>{dates.strip()}</em></div>')
+        # Position and dates
+        html_parts.append(f'\t<div class="resume-position-time d-flex justify-content-between mb-3"><span class="font-weight-bold">{proj.get("position", "Software Engineer")}</span><em class="text-muted">{proj["dates"]}</em></div>')
         
-        # Process each section
-        for section_name, items in sections:
-            if section_name == 'Customer':
-                # Simple paragraph
-                value = items[0] if items else ''
-                html_parts.append(f'\t<p><strong>Customer:</strong> {value}</p>')
-            elif section_name == 'Product':
-                value = items[0] if items else ''
-                html_parts.append(f'\t<p><strong>Product:</strong> {value}</p>')
-            elif section_name == 'Responsibilities':
-                # This section has categories with sub-bullets
-                current_category = None
-                for item in items:
-                    if item[0] == 'category':
-                        # Close previous list if any
-                        if current_category:
-                            html_parts.append('\t</ul>')
-                        html_parts.append(f'\t')
-                        html_parts.append(f'\t<p class="mb-2"><strong>{item[1]}:</strong></p>')
-                        html_parts.append('\t<ul class="resume-list">')
-                        current_category = item[1]
-                    elif item[0] == 'sub':
-                        html_parts.append(f'\t\t<li>{item[1]}</li>')
-                if current_category:
-                    html_parts.append('\t</ul>')
-            elif section_name == 'Achievements':
-                html_parts.append(f'\t')
-                html_parts.append(f'\t<p class="mb-2"><strong>Achievements:</strong></p>')
-                html_parts.append('\t<ul class="resume-list">')
-                for item in items:
-                    if item[0] == 'bold_item':
-                        # Bold-prefixed item like "Top Performer Award (2024): description"
-                        text = f'<strong>{item[1]}:</strong> {item[2]}'
-                        html_parts.append(f'\t\t<li>{text}</li>')
-                    elif item[0] == 'item':
-                        # Regular item - convert <b> to <strong>
-                        text = re.sub(r'<b>([^<]+)</b>', r'<strong>\1</strong>', item[1])
-                        html_parts.append(f'\t\t<li>{text}</li>')
+        # Project info (Customer/Product)
+        if proj['info']:
+            html_parts.append(f'\t<p class="mb-3"><em>{proj["info"]}</em></p>')
+        
+        # Responsibilities
+        if proj['responsibilities']:
+            html_parts.append('\t<p class="mb-2 mt-3"><strong>Responsibilities:</strong></p>')
+            current_cat = None
+            for item in proj['responsibilities']:
+                if item[0] == 'category':
+                    if current_cat:
+                        html_parts.append('\t</ul>')
+                    html_parts.append(f'\t<p class="mb-2 ml-2"><strong>{item[1]}:</strong></p>')
+                    html_parts.append('\t<ul class="resume-list mb-3">')
+                    current_cat = item[1]
+                elif item[0] == 'sub':
+                    html_parts.append(f'\t\t<li class="mb-2">{item[1]}</li>')
+                elif item[0] == 'item':
+                    if not current_cat:
+                        html_parts.append('\t<ul class="resume-list mb-3">')
+                        current_cat = 'default'
+                    html_parts.append(f'\t\t<li class="mb-2">{item[1]}</li>')
+            if current_cat:
                 html_parts.append('\t</ul>')
+        
+        # Achievements
+        if proj['achievements']:
+            html_parts.append('\t<p class="mb-2 mt-3"><strong>Achievements:</strong></p>')
+            html_parts.append('\t<ul class="resume-list mb-3">')
+            for item in proj['achievements']:
+                if item[0] == 'bold_item':
+                    text = f'<strong>{item[1]}:</strong> {item[2]}'
+                    html_parts.append(f'\t\t<li class="mb-2">{text}</li>')
+                elif item[0] == 'item':
+                    text = re.sub(r'<b>([^<]+)</b>', r'<strong>\1</strong>', item[1])
+                    html_parts.append(f'\t\t<li class="mb-2">{text}</li>')
+            html_parts.append('\t</ul>')
         
         html_parts.append('</div>')
         divs.append('\n'.join(html_parts))
