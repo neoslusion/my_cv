@@ -4,12 +4,13 @@
 
 \documentclass[10pt,a4paper]{article}
 
-% Set optimized font sizes for professional CV
-\renewcommand{\normalsize}{\fontsize{9pt}{10.8pt}\selectfont}
-\renewcommand{\small}{\fontsize{8pt}{9.6pt}\selectfont}
-\renewcommand{\footnotesize}{\fontsize{7pt}{8.4pt}\selectfont}
-\renewcommand{\large}{\fontsize{11pt}{13.2pt}\selectfont}
-\renewcommand{\Large}{\fontsize{14pt}{16.8pt}\selectfont}
+% Set optimized font sizes for professional CV - improved readability
+\renewcommand{\normalsize}{\fontsize{10pt}{11.5pt}\selectfont}
+\renewcommand{\small}{\fontsize{9pt}{10.5pt}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{8pt}{9.5pt}\selectfont}
+\renewcommand{\large}{\fontsize{13pt}{15pt}\selectfont}
+\renewcommand{\Large}{\fontsize{18pt}{21pt}\selectfont}
+\renewcommand{\LARGE}{\fontsize{20pt}{23pt}\selectfont}
 
 % Essential packages
 \usepackage[utf8]{inputenc}
@@ -27,8 +28,8 @@
 % Ultra-compact page geometry
 \geometry{
     a4paper,
-    top=0.8cm,
-    bottom=0.6cm,
+    top=0.6cm,
+    bottom=0.5cm,
     left=1.0cm,
     right=1.0cm,
     headheight=0cm,
@@ -45,11 +46,11 @@
     pdfborder={0 0 0}
 }
 
-% Section formatting to match centered bold headers
+% Section formatting - centered with underline
 \titleformat{\section}
-{\centering\normalfont\large\bfseries}
+{\centering\normalfont\Large\bfseries}
 {}{0em}{}
-[\vspace{-0.5em}]
+[\vspace{-0.3em}\titlerule]
 
 \titleformat{\subsection}
 {\normalfont\normalsize\bfseries}
@@ -93,23 +94,23 @@
     \textbf{#1}: #2\\
 }
 
-% Ultra-compact list formatting
+% List formatting with improved spacing for better readability
 \setlist[itemize]{
-    leftmargin=1.2em,
+    leftmargin=1.4em,
     itemsep=1pt,
     parsep=0pt,
     topsep=2pt,
     partopsep=0pt,
-    before=\vspace{-0.2em},
-    after=\vspace{-0.2em}
+    before=\vspace{0.1em},
+    after=\vspace{0.1em}
 }
 
-% Minimized paragraph settings for compactness
+% Paragraph settings with comfortable spacing
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2pt}
 
-% Tighter line spacing for maximum density
-\renewcommand{\baselinestretch}{0.85}
+% Comfortable line spacing for readability
+\renewcommand{\baselinestretch}{1.0}
 \tolerance=1000
 \emergencystretch=1em
 \hyphenpenalty=10000
@@ -127,13 +128,33 @@
 \SetTracking{encoding=*}{-10}
 
 % Define all Doxygen commands with professional spacing
-\newcommand{\doxysection}[1]{\par\addvspace{0.6em}\begin{center}{\fontsize{13pt}{14pt}\selectfont\textbf{#1}}\end{center}\par\addvspace{0.2em}}
-\newcommand{\doxysubsection}[1]{\par\addvspace{0.4em}\begin{center}\textbf{\normalsize #1}\end{center}\par\addvspace{0.15em}}
-\newcommand{\doxysubsubsection}[1]{\par\addvspace{0.25em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
+% Counter to track if this is the first section (mainpage title)
+\newcounter{doxymainsection}
+\setcounter{doxymainsection}{0}
+
+% Section headers: first one (name) is centered, others left-aligned with underline
+\newcommand{\doxysection}[1]{%
+    \ifnum\value{doxymainsection}=0%
+        % First section is the mainpage title (name) - centered, larger, more prominent
+        \par\addvspace{0.1em}%
+        {\centering{\fontsize{20pt}{22pt}\selectfont\bfseries #1}\par}%
+        \vspace{0.1em}%
+        \stepcounter{doxymainsection}%
+    \else%
+        % Subsequent sections - centered, bold, with underline - MORE VISIBLE
+        \par\addvspace{0.3em}\begin{center}{\LARGE\bfseries #1}\end{center}\par\vspace{-0.6em}\rule{\textwidth}{0.6pt}\par\vspace{0.4em}%
+    \fi%
+}
+\newcommand{\doxysubsection}[1]{%
+    \par\addvspace{0.5em}%
+    \begin{center}{\large\bfseries #1}\end{center}%
+    \par\vspace{-0.7em}\rule{\textwidth}{0.5pt}\par\addvspace{0.2em}%
+}
+\newcommand{\doxysubsubsection}[1]{\par\addvspace{0.3em}\begin{center}{\normalsize\bfseries #1}\end{center}\par\addvspace{0.1em}}
 % Doxygen paragraph levels
-\newcommand{\doxyparagraph}[1]{\par\addvspace{0.2em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
-\newcommand{\doxysubparagraph}[1]{\par\addvspace{0.15em}\noindent\textbf{\small #1}\par\addvspace{0.08em}}
-\newcommand{\DoxyHorRuler}[1]{\vspace{0.1em}\noindent\rule{\textwidth}{0.4pt}\vspace{0.1em}}
+\newcommand{\doxyparagraph}[1]{\par\addvspace{0.15em}\noindent\textbf{\small #1}\par\addvspace{0.05em}}
+\newcommand{\doxysubparagraph}[1]{\par\addvspace{0.1em}\noindent\textbf{\small #1}\par\addvspace{0.05em}}
+\newcommand{\DoxyHorRuler}[1]{\vspace{0.2em}\noindent\rule{\textwidth}{0.4pt}\vspace{0.2em}}
 \newenvironment{DoxyEnumerate}{\begin{enumerate}[topsep=2pt,itemsep=1pt]}{\end{enumerate}}
 \newenvironment{DoxyItemize}{\begin{itemize}[topsep=2pt,itemsep=1pt]}{\end{itemize}}
 
