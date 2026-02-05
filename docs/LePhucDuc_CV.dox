@@ -36,7 +36,7 @@ Software Engineer with 3+ years of experience building production software, CI/C
 - Developed cross-platform Linux applications in Python and C++ with gRPC-based inter-service communication
 - Collaborated with cross-functional teams to deliver Perfectly Keyless features to DreamKit platform
 - Established CI/CD pipelines using Azure DevOps for automated build, test, and deployment workflows
-- Built comprehensive documentation framework using Sphinx for SDV platform
+- Built comprehensive code documentation framework using Doxygen and Sphinx for SDV platform
 
 <i>Customer: Commercial Vehicle - Fleet Management Extended Access</i> @fill <em>June 2022 - Feb 2024</em>
 
