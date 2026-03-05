@@ -1,102 +1,65 @@
 /**
-@mainpage Le Phuc Duc
+@mainpage LE PHUC DUC
 
-Ho Chi Minh City, Vietnam | (+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://www.linkedin.com/in/duc-le-phuc-7784b8228) | [GitHub](https://github.com/neoslusion)
+<center>(+84) 373304824 | lephucduc2000@gmail.com | [LinkedIn](https://www.linkedin.com/in/duc-le-phuc-7784b8228) | [GitHub](https://github.com/neoslusion)</center>
 
----
-
+@internal
 @section summary PROFESSIONAL SUMMARY
 
-Software Engineer with 3+ years of experience building CI/CD pipelines and automation frameworks in Automotive Embedded Systems at Bosch. Skilled in DevOps practices, Python automation, and documentation systems. Proven track record delivering production software for Honda and commercial vehicle platforms. Currently pursuing Master's in Computer Science with focus on AI/ML applications.
+Results-driven Software Engineer with 3+ years of experience at **Bosch Global Software Technologies**, specializing in **Automotive Embedded Systems** and **Software-Defined Vehicles (SDV)**. Proven expertise in **AUTOSAR Classic** configuration, **Vector Toolchain** integration, and architecting platform software for global OEMs like **Honda** and **Toyota**. **Top Performer Award (2025)** recipient for excellence in software delivery and product generation transitions.
 
 ---
-
-@section skills SKILLS
-
-- <b>Programming Languages</b>: Python, C, C++, Shell Scripting
-- <b>DevOps & CI/CD</b>: Jenkins, Docker, Git, CMake, Linux, Azure Cloud. Azure DevOps
-- <b>Documentation & Automation</b>: Doxygen, Sphinx, Scripting Automation
-<!-- - <b>AI/ML</b>:  TODO: Add your AI/ML skills here, e.g., TensorFlow, PyTorch, Machine Learning, etc. -->
-- <b>Domain Experience</b>: Embedded Systems especially in AUTOSAR Classic, CAN protocol 
-- <b>Tools</b>: Vector Toolchain, Jira, Azure Portal
-- <b>Methodologies</b>: Agile/Scrum, ASPICE, CI/CD Pipeline Design
-- <b>Soft Skills</b>: Communication, Problem-solving, Adaptability, Time Management, Teamwork
-
----
-
-@section education EDUCATION
-
-@subsection edu_msc Ho Chi Minh City University of Technology, Ho Chi Minh City
-
-<b>Master's Degree in Computer Science</b> | <em>2024 – Present</em>
-
-GPA: 3.2/4
-
-@subsection edu_bsc Ho Chi Minh City University of Technology, Ho Chi Minh City
-
-<b>Bachelor's Degree in Automation and Control Engineering</b> | <em>2018 – 2022</em>
-
-GPA: 7.8/10
-
----
+@endinternal
 
 @section work_experience WORK EXPERIENCE
 
-@subsection exp_bosch Bosch Global Software Technologies Company Limited | Ho Chi Minh City, Vietnam
+<b>Bosch Global Software Technologies Company Limited</b> @fill <em>Ho Chi Minh City, Vietnam</em>
 
-@subsubsection exp_bosch_2024 Software Engineer | Feb 2024 - Present
-<b>Customer:</b> Honda
+<b>Software Engineer</b> @fill <em>June 2022 - Present</em>
 
-<b>Responsibilities:</b>
-- <b>Software Development with Software-as-a-Product (SaaP) approach:</b>
-  - Configured and optimized AUTOSAR Basic Software modules including RTE, OS, and COM for production deployment
-  - Architected and developed platform software to integrate Master library product, enabling seamless validation workflows
-  - Integrated new Software Integration Packages (SIP) from Vector, ensuring compatibility with existing codebase
-  - Supported customer for the integration process of the product into their platform including debugging and providing hotfixes
+<i>Customer: Honda - Product: Master Software Library (SaaP)</i> @fill <em>Feb 2024 - Present</em>
 
-- <b>DevOps Engineering:</b>
-  - Designed and maintained CI/CD pipelines using Jenkins, reducing build and integration time
-  - Developed automated documentation framework using Doxygen and Sphinx, improving code documentation coverage
+<b>AUTOSAR & Platform Integration</b>
+- Participated in the development of algorithms for Child Present Detection and Kick Sensors, along with machine learning algorithm development for Perfectly Keyless (PK) localization.
+- Participated in the development of Car Connectivity Consortium (CCC) compliance applications for software library products.
+- Architected and developed platform software to integrate software library products (SaaP), enabling unified testability for VnV and Development teams.
+- Configured core AUTOSAR modules (RTE, OS, COM) to align with target system behavior and ensure functional safety/compatibility.
+- Integrated **Vector SIP (Software Integration Packages)** and resolved complex integration issues within the existing codebase.
+- Provided direct technical support to customers, including integration manuals, debugging, and production-level hotfixes.
 
-- <b>Software-Defined Vehicle (SDV) Development:</b>
-  - Defined technical approach, architecture, and technology stack for internal SDV initiatives
-  - Collaborated with cross-functional teams to bring up Perfectly Keyless (PK) features to DreamKit platform
-  - Developed and debugged embedded Linux applications for SDV platform
-  - Established CI/CD pipeline and documentation framework for SDV development using Azure DevOps
+<b>SDV & Modern Architectures</b>
+- **Acted as Technical Lead**, defining the technical approach, architecture, and technology stack for internal **Software-Defined Vehicle (SDV)** initiatives.
+- Successfully deployed **Perfectly Keyless (PK)** features to a standard SDV platform, proving multi-platform deployment capabilities.
+- Developed cross-platform Linux applications using **gRPC** for efficient inter-service communication.
+- Built DevOps infrastructure using GitHub Actions for continuous integration, testing, and deployment.
 
-<b>Achievements:</b>
-- <b>Top Performer Award (2024 and 2025):</b> Recognized for delivering software to Honda and ALAP customers across 2 consecutive releases for 2 generations
-- Developed platform software adopted by both Verification & Validation (VnV) and Developer teams for SaaP product integration
-- Successfully delivered PK features migration to SDV platform, enabling new product capabilities
+<b>Automation & DevOps</b>
+- Optimized **Jenkins CI/CD pipelines**, reducing build time and improving release quality through automated feature-level testing.
+- Introduced another approach for HIL testing without license by utilizing RobotFramework.
 
-<b>Product:</b> Perfectly Keyless System for Fleet Management Extended Access
+<i>Customer: Commercial Vehicle (PKCV) - Fleet Management</i> @fill <em>June 2022 - Feb 2024</em>
 
-@subsubsection exp_bosch_2022 Software Engineer | June 2022 - Feb 2024
-<b>Customer:</b> Perfectly Keyless Commercial Vehicle (PKCV)
+<b>Embedded Software Development</b>
+- Developed and configured AUTOSAR Application SWCs and Runtime Environment (RTE).
+- Implemented connectivity features compliant with **CCC (Car Connectivity Consortium) Digital Key** standards.
+- Engineered door control functionality using **LIN/CAN** protocols.
+- Gained deep expertise in **ASPICE** methodologies and standard automotive V-Model lifecycles.
 
-<b>Responsibilities:</b>
-- <b>Master ECU Software Development for Perfectly Keyless System:</b>
-  - Configured AUTOSAR Application Software Components (SWCs) and Runtime Environment (RTE) for production ECU
-  - Integrated Software Integration Packages (SIP) from Vector and resolved integration issues
-  - Implemented features compliant with Car Connectivity Consortium (CCC) Digital Key standards
-  - Developed and tested door control functionality using LIN protocol communication
+<b>Key Achievement: Bosch Top Performer Award (2025)</b> - Recognized for critical contributions to three consecutive product releases of PK and seamless generational transitions.
 
-<b>Achievements:</b>
-- Contributed to successful product delivery for commercial vehicle platform
-- Gained deep expertise in AUTOSAR Classic architecture and automotive communication protocols
+@section education EDUCATION
 
----
+<b>Ho Chi Minh City University of Technology</b>
+- **Master's Degree in Computer Science** (AI/ML Focus) @fill <em>2024 – Present</em>
+- **Bachelor's Degree in Automation and Control Engineering** @fill <em>2018 – 2022</em>
 
-@section certifications CERTIFICATIONS
+@section skills TECHNICAL TOOLKIT
 
-- AUTOSAR Classic Platform Training (Bosch Internal)
-- Azure for Developers Training (Bosch Internal)
-
----
-
-@section languages LANGUAGES
-
-- <b>Vietnamese</b>: Native
-- <b>English</b>: Professional Working Proficiency
+- **Domain Expertise**: AUTOSAR Classic, SDV Architecture, ASPICE, CCC Digital Key.
+- **Protocols & Communication**: CAN, LIN, gRPC.
+- **Tools**: Vector Toolchain (CANoe, DaVinci), Jenkins, Azure DevOps, Jira.
+- **Languages**: Python, C, C++, Shell Scripting.
+- **Soft Skills**: Customer Support, Cross-functional Collaboration, Agile/Scrum.
+- **Languages**: Vietnamese (Native), English (Professional Working Proficiency).
 
 */

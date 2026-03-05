@@ -22,13 +22,16 @@
 
 % Center main section titles, left-align subsections
 \titleformat{\section}{\centering\normalfont\large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{6pt plus 2pt}{3pt plus 1pt}
+
 \titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\normalfont\small\bfseries}{\thesubsubsection}{0.5em}{}
 
 % Optimized paragraph and list spacing
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{2pt plus 1pt}
+\setlength{\parskip}{1pt plus 1pt}
 
 % Professional list formatting
-\setlist[itemize]{leftmargin=1em, itemsep=1pt, parsep=0pt, topsep=2pt}
-\setlist[enumerate]{leftmargin=1em, itemsep=1pt, parsep=0pt, topsep=2pt}
+\setlist[itemize]{leftmargin=1em, itemsep=0.5pt, parsep=0pt, topsep=1pt}
+\setlist[enumerate]{leftmargin=1em, itemsep=0.5pt, parsep=0pt, topsep=1pt}
+
