@@ -92,27 +92,27 @@ def build_contact_info(raw: str) -> str:
     items = []
     for p in parts:
         if '@' in p and '.' in p:  # basic email check
-            items.append('<li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2"></i><a class="resume-link" href="mailto:{0}">{0}</a></li>'.format(p))
+            items.append('<li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="mailto:{0}">{0}</a></li>'.format(p))
         elif 'linkedin.com' in p.lower() or '[LinkedIn]' in p:
             url = re.sub(r'.*?\[LinkedIn\]\((.*?)\).*', r'\1', p)
             if not url.startswith('http'):
                 url = 'https://' + url
-            items.append('<li class="mb-2"><i class="fab fa-linkedin fa-fw fa-lg mr-2"></i><a class="resume-link" href="{0}" target="_blank">LinkedIn</a></li>'.format(url))
+            items.append('<li class="mb-2"><i class="fab fa-linkedin fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="{0}" target="_blank">LinkedIn</a></li>'.format(url))
         elif 'github.com' in p.lower() or '[GitHub]' in p:
             url = re.sub(r'.*?\[GitHub\]\((.*?)\).*', r'\1', p)
             if not url.startswith('http'):
                 url = 'https://' + url
-            items.append('<li class="mb-2"><i class="fab fa-github fa-fw fa-lg mr-2"></i><a class="resume-link" href="{0}" target="_blank">GitHub</a></li>'.format(url))
+            items.append('<li class="mb-2"><i class="fab fa-github fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="{0}" target="_blank">GitHub</a></li>'.format(url))
         elif 'Online CV' in p:
             url = re.sub(r'.*?\[Online CV\]\((.*?)\).*', r'\1', p)
             if not url.startswith('http'):
                 url = 'https://' + url
-            items.append('<li class="mb-2"><i class="fas fa-external-link-alt fa-fw fa-lg mr-2"></i><a class="resume-link" href="{0}" target="_blank">Online CV</a></li>'.format(url))
+            items.append('<li class="mb-2"><i class="fas fa-external-link-alt fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="{0}" target="_blank">Online CV</a></li>'.format(url))
         elif re.search(r'\(\+?\d', p):  # phone
             phone_digits = re.sub(r'[^0-9+]', '', p)
-            items.append('<li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2"></i><a class="resume-link" href="tel:{0}">{1}</a></li>'.format(phone_digits, p))
+            items.append('<li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="tel:{0}">{1}</a></li>'.format(phone_digits, p))
         else:  # location or other
-            items.append('<li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg mr-2"></i>{0}</li>'.format(p))
+            items.append('<li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg mr-2" aria-hidden="true"></i>{0}</li>'.format(p))
     # Sort: phone, email, linkedin, github, location last
     order = {'fa-phone-square': 0, 'fa-envelope-square': 1, 'fa-linkedin': 2, 'fa-github': 3, 'fa-external-link-alt': 4, 'fa-map-marker-alt': 5}
     items.sort(key=lambda x: next((v for k, v in order.items() if k in x), 99))
@@ -156,6 +156,8 @@ def build_skills(raw: str) -> str:
             cat = cat.strip()
             badge_color = SKILL_BADGE_COLORS.get(cat, 'primary')
             vals_list = split_skills(vals)
+            # Clean up trailing dots and spaces from each skill
+            vals_list = [v.strip().rstrip('.') for v in vals_list if v.strip()]
             vals_html = '\n\t\t'.join([f'<span class="badge badge-{badge_color} mr-1 mb-1">{v}</span>' for v in vals_list])
             blocks.append(f'''<div class="item mb-3">
 \t<h4 class="item-title">{cat}</h4>
@@ -188,7 +190,7 @@ def build_certifications(raw: str) -> str:
         cert = re.sub(r'^-\s*', '', ln).strip()
         # Convert Markdown bolding to HTML
         cert = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', cert)
-        items.append(f'<li class="mb-2"><i class="fas fa-certificate mr-2 text-primary"></i>{cert}</li>')
+        items.append(f'<li class="mb-2"><i class="fas fa-certificate mr-2 text-primary" aria-hidden="true"></i>{cert}</li>')
     return '\n'.join(items) if items else '<li>No certifications listed</li>'
 
 
@@ -315,8 +317,15 @@ def build_work(raw: str) -> str:
             item_text = stripped[2:].strip()
             # Clean up leading punctuation or bullet markers
             item_text = re.sub(r'^[,\s:-]+', '', item_text)
-            # Convert bolding
-            item_text = re.sub(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*):?\s*', r'<strong>\1</strong>: ', item_text)
+            
+            # Check if the line starts with bold text followed by punctuation
+            # If it has punctuation right after bold, don't add another colon
+            if re.match(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)[,\.:]', item_text):
+                item_text = re.sub(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)', r'<strong>\1</strong>', item_text)
+            else:
+                # Otherwise add a colon for clarity
+                item_text = re.sub(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)\s*', r'<strong>\1</strong>: ', item_text)
+            
             item_text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', item_text)
             # Strip @fill
             item_text = item_text.replace('@fill', '').strip()

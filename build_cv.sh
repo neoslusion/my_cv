@@ -7,7 +7,7 @@ set -e
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUILD_DIR="$PROJECT_ROOT/build"
-CV_PDF="$PROJECT_ROOT/LePhucDuc_CV.pdf"
+CV_PDF="$PROJECT_ROOT/LePhucDuc_CV_Automotive.pdf"
 
 echo "=== CV PDF Generation Script ==="
 
