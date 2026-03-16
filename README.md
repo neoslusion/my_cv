@@ -6,7 +6,7 @@ This project generates a professional CV in multiple formats: **PDF** (via Doxyg
 The system is centralized around the **Automotive & SDV Specialist** profile, highlighting senior experience in Embedded Systems, AUTOSAR, ASPICE, and Software-Defined Vehicles.
 
 - **Web CV**: [index.html](https://neoslusion.github.io/my_cv/)
-- **PDF CV**: `LePhucDuc_CV.pdf`
+- **PDF CV**: `LePhucDuc_CV_Automotive.pdf`
 
 ## Project Structure
 

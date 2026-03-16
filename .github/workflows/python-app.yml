@@ -57,7 +57,7 @@ jobs:
 
       - name: Copy PDF to docs folder for deployment
         run: |
-          cp LePhucDuc_CV.pdf docs/
+          cp LePhucDuc_CV_Automotive.pdf docs/
 
       - name: Upload docs artifact for Pages deployment
         uses: actions/upload-artifact@v4
@@ -74,7 +74,7 @@ jobs:
           prerelease: false
           title: "Latest CV Build"
           files: |
-            LePhucDuc_CV.pdf
+            LePhucDuc_CV_Automotive.pdf
 
   deploy-pages:
     needs: build
