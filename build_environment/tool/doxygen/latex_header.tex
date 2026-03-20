@@ -25,16 +25,16 @@
 \usepackage{array}
 \usepackage{microtype}                % Better typography and spacing
 
-% Balanced page geometry
+% Tight page geometry
 \geometry{
     a4paper,
-    top=1.2cm,
-    bottom=1.2cm,
-    left=1.5cm,
-    right=1.5cm,
+    top=0.8cm,
+    bottom=0.8cm,
+    left=1.2cm,
+    right=1.2cm,
     headheight=0cm,
     headsep=0cm,
-    footskip=0.5cm
+    footskip=0.4cm
 }
 
 % Remove headers and footers
@@ -50,34 +50,34 @@
 \titleformat{\section}
 {\centering\normalfont\Large\bfseries}
 {}{0em}{}
-[\vspace{-0.2em}\titlerule]
+[\vspace{-0.4em}\titlerule]
 
 \titleformat{\subsection}
 {\normalfont\normalsize\bfseries}
 {}{0em}{}
-[\vspace{-0.1em}]
+[\vspace{-0.2em}]
 
 \titleformat{\subsubsection}
 {\normalfont\small\bfseries}
 {}{0em}{}
-[\vspace{-0.05em}]
+[\vspace{-0.1em}]
 
 % Ultra-compact custom commands
 \newcommand{\cvheader}[1]{
     \begin{center}
         {\fontsize{14pt}{16pt}\selectfont\textbf{#1}}
     \end{center}
-    \vspace{-0.4em}
+    \vspace{-0.6em}
 }
 
 % Removed duplicate cvcontact; keep single concise version defined later
 
 \newcommand{\cvsection}[1]{
-    \vspace{0.1em}
+    \vspace{0.05em}
     \begin{center}
         \textbf{\normalsize #1}
     \end{center}
-    \vspace{-0.1em}
+    \vspace{-0.05em}
 }
 
 \newcommand{\cventry}[4]{
@@ -87,7 +87,7 @@
         {#3} & \\
     \end{tabularx}
     {#4}
-    \vspace{0.1em}
+    \vspace{0.05em}
 }
 
 \newcommand{\cvskill}[2]{
@@ -96,21 +96,21 @@
 
 % List formatting with improved spacing for better readability
 \setlist[itemize]{
-    leftmargin=1.4em,
-    itemsep=2pt,
+    leftmargin=1.2em,
+    itemsep=0.5pt,
     parsep=0pt,
-    topsep=3pt,
+    topsep=1pt,
     partopsep=0pt,
-    before=\vspace{0.1em},
-    after=\vspace{0.1em}
+    before=\vspace{-0.1em},
+    after=\vspace{-0.1em}
 }
 
 % Paragraph settings with comfortable spacing
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
+\setlength{\parskip}{1pt}
 
 % Comfortable line spacing for readability
-\renewcommand{\baselinestretch}{1.05}
+\renewcommand{\baselinestretch}{1.0}
 \tolerance=1000
 \emergencystretch=1em
 \hyphenpenalty=10000
