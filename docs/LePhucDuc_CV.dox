@@ -22,17 +22,17 @@
 <i>Customer: Honda - Product: Master Software Library (SaaP)</i> @fill <em>Feb 2024 - Present</em>
 
 - **Algorithm & ML Engineering**
-  - **Engineered and Optimized** real-time sensor algorithms for Child Present Detection and Kick Sensors, using **Machine Learning** for high-precision Perfectly Keyless (PK) localization.
+  - **Engineered and optimized** real-time sensor algorithms for Child Present Detection and Kick Sensors, using **Machine Learning** for high-precision Perfectly Keyless (PK) localization.
   - Refining **Deep Learning models** to improve localization algorithm accuracy for next-generation PK systems.
 
 - **Embedded Systems**
-  - **Designed and Developed** platform integration for software (SaaP), enabling unified cross-team testability and debugging.
-  - **Configured and Integrated** core AUTOSAR stack (RTE, OS, COM) and Vector SIPs, ensuring target system alignment to mimic customer requirements.
-  - **Developed and Validated** UWB based connectivity applications compliant with **CCC (Car Connectivity Consortium)** standards.
+  - **Designed and developed** platform integration for software (SaaP), enabling unified cross-team testability and debugging.
+  - **Configured and integrated** core AUTOSAR stack (RTE, OS, COM) and Vector SIPs, ensuring target system alignment to mimic customer requirements.
+  - **Developed and validated** UWB based connectivity applications compliant with **CCC (Car Connectivity Consortium)** standards.
   - **Provided on-site technical support** during system integration with Tier 1 partner (Alps Alpine), resolving software issues in real-time and coordinating defect tracking.
 
 - **SDV Architecture & Technical Leadership**
-  - **Technical Lead** for internal **Software-Defined Vehicle (SDV)** initiatives with a team of 8 engineers, defining cross-platform architecture and tech stacks.
+  - **Technical lead** for internal **Software-Defined Vehicle (SDV)** initiatives with a team of 8 engineers, defining cross-platform architecture and tech stacks on Linux.
   - **Deployed** PK features onto standard SDV platforms with service-oriented architecture, proving multi-platform portability and delivering technical demonstrations to Toyota leadership.
   - **Collaborated** with other domains (ADAS, Infotainment, etc.) to integrate PK features into their platforms.
 
@@ -56,7 +56,7 @@
 
 @section skills TECHNICAL TOOLKIT
 
-- **Automotive & Systems**: AUTOSAR Classic, SDV Architecture, ASPICE, CCC Standards, Vector Toolchain (CANoe, DaVinci).
+- **Automotive & Systems**: AUTOSAR Classic, SDV Architecture, ASPICE, CCC Standards, Vector Toolchain (CANoe, DaVinci), Linux.
 - **AI/ML & Data**: PyTorch, TensorFlow, Scikit-learn, Computer Vision.
 - **Communication & Protocols**: gRPC (Protobuf), CAN, LIN, REST APIs.
 - **DevOps & Tools**: Jenkins, GitHub Actions, Docker, CMake, RobotFramework, Jira, Git, Qt.
