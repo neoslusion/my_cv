@@ -6,7 +6,7 @@
 @internal
 @section summary PROFESSIONAL SUMMARY
 
-**Senior Software Engineer** with 3+ years of experience at **Bosch Global Software Technologies** architecting high-availability systems for the next generation of **Software-Defined Vehicles (SDV)**. Expert in **AUTOSAR Classic**, **CI/CD automation**, and high-performance **Linux IPC**. Recipient of the **Bosch Top Performer Award (2025)** for technical leadership in delivering mission-critical software for **Honda** and **Toyota**. Currently completing a **Master’s in Computer Science** specializing in **Deep Learning and Computer Vision**.
+**Software Engineer** with 3+ years of experience at **Bosch Global Software Technologies** designing high-availability systems for the next generation of **Software-Defined Vehicles (SDV)**. Proficient in **AUTOSAR Classic**, **CI/CD** and **Machine Learning**. Recipient of the **Bosch Top Performer Award (2025)** for technical support in delivering mission-critical software for **Honda**. Currently completing a **Master’s in Computer Science** specializing in **Deep Learning and Computer Vision**.
 
 ---
 @endinternal
@@ -17,35 +17,35 @@
 
 <b>Senior Software Engineer</b> @fill <em>June 2022 - Present</em>
 
-- **Key Achievement: Bosch Top Performer Award (2025)** – Recognized for technical leadership across 3 consecutive product generations, ensuring 100% on-time delivery for high-stakes OEM releases.
+- **Key Achievement: Bosch Top Performer Award (2025)** – Recognized for technical support across 3 consecutive product releases, ensuring on-time delivery for OEM.
 
 <i>Customer: Honda - Product: Master Software Library (SaaP)</i> @fill <em>Feb 2024 - Present</em>
 
 - **Algorithm & ML Engineering**
   - **Engineered and Optimized** real-time sensor algorithms for Child Present Detection and Kick Sensors, using **Machine Learning** for high-precision Perfectly Keyless (PK) localization.
-  - Currently implementing **Deep Learning models** to improve edge-device localization accuracy.
+  - Refining **Deep Learning models** to improve localization algorithm accuracy for next-generation PK systems.
 
-- **Embedded Systems & AUTOSAR**
-  - **Architected and Developed** platform integration software (SaaP), enabling unified cross-team testability and debugging.
-  - **Configured and Integrated** core AUTOSAR stack (RTE, OS, COM) and Vector SIPs, ensuring target system alignment and functional safety.
-  - **Developed and Validated** security-critical connectivity applications compliant with **CCC (Car Connectivity Consortium)** standards.
-  - Provided expert technical support to international customers, including integration manuals and rapid hotfix delivery.
+- **Embedded Systems**
+  - **Designed and Developed** platform integration for software (SaaP), enabling unified cross-team testability and debugging.
+  - **Configured and Integrated** core AUTOSAR stack (RTE, OS, COM) and Vector SIPs, ensuring target system alignment to mimic customer requirements.
+  - **Developed and Validated** UWB based connectivity applications compliant with **CCC (Car Connectivity Consortium)** standards.
 
 - **SDV Architecture & Technical Leadership**
-  - **Technical Lead** for internal **Software-Defined Vehicle (SDV)** initiatives, defining cross-platform architecture and selecting the C++/Python/Linux tech stack.
-  - **Architected** high-performance communication layers using **gRPC**, optimizing IPC latency and managing complex concurrency/race conditions.
-  - **Successfully Deployed** PK features onto standard SDV platforms, proving multi-platform portability and delivering high-level technical demonstrations to **Toyota** leadership.
+  - **Technical Lead** for internal **Software-Defined Vehicle (SDV)** initiatives with a team of 8 engineers, defining cross-platform architecture and tech stacks.
+  - **Deployed** PK features onto standard SDV platforms with services oriented architecture, proving multi-platform portability and delivering technical demonstrations to Toyota leadership.
+  - **Cooperated** with other domain (ADAS, Infotainment, etc.) to integrate PK features into their platforms.
 
-- **DevOps & Infrastructure Automation**
-  - **Overhauled Jenkins CI/CD pipelines**, reducing cycle times and increasing release frequency.
-  - **Engineered** a custom HIL testing framework using **RobotFramework**, eliminating expensive licensing bottlenecks and reducing project tooling costs.
+- **DevOps & Infrastructure**
+  - **Overhauled Jenkins CI/CD pipelines**, reducing build cycle times by caching and parallelizing builds.
+  - **Engineered** a custom HIL testing framework using **RobotFramework**, saving licensing costs.
 
 <i>Customer: Commercial Vehicle (PKCV) - Fleet Management</i> @fill <em>June 2022 - Feb 2024</em>
 
-- **Embedded Systems & AUTOSAR**
-  - **Engineered and Configured** complex AUTOSAR stack (RTE, OS, COM) and resolved high-priority SIP (Vector) integration blockers and timing conflicts on CAN/LIN bus.
+- **Embedded Systems**
+  - **Engineered and Configured** AUTOSAR stack (RTE, OS, COM) and resolved SIP (Vector) integration issues.
+  - **Cooperated** with Vector to debugging new SIP version issues.
+  - **Implemented** LIN features for actuator control.
   - **Implemented** digital key features compliant with global **CCC** security standards for robust vehicle access control.
-  - Gained deep expertise in **ASPICE** methodologies and automotive V-Model lifecycles.
 
 @section education EDUCATION
 
@@ -56,9 +56,9 @@
 @section skills TECHNICAL TOOLKIT
 
 - **Automotive & Systems**: AUTOSAR Classic, SDV Architecture, ASPICE, CCC Standards, Vector Toolchain (CANoe, DaVinci).
-- **AI/ML & Data**: PyTorch, TensorFlow, Scikit-learn, Computer Vision, NLP, Big Data.
-- **Communication & Protocols**: gRPC (Protobuf), CAN, LIN, REST APIs, Linux IPC.
-- **DevOps & Tools**: Jenkins, GitHub Actions, Docker, CMake, RobotFramework, Jira, Git.
+- **AI/ML & Data**: PyTorch, TensorFlow, Scikit-learn, Computer Vision.
+- **Communication & Protocols**: gRPC (Protobuf), CAN, LIN, REST APIs.
+- **DevOps & Tools**: Jenkins, GitHub Actions, Docker, CMake, RobotFramework, Jira, Git, Qt.
 - **Programming Languages**: Python, C, C++, Shell Scripting.
 
 
