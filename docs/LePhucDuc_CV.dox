@@ -6,7 +6,7 @@
 @internal
 @section summary PROFESSIONAL SUMMARY
 
-**Software Engineer** with 3+ years of experience at **Bosch Global Software Technologies** designing high-availability systems for the next generation of **Software-Defined Vehicles (SDV)**. Proficient in **AUTOSAR Classic**, **CI/CD** and **Machine Learning**. Recipient of the **Bosch Top Performer Award (2025)** for technical support in delivering mission-critical software for **Honda**. Currently completing a **Master’s in Computer Science** specializing in **Deep Learning and Computer Vision**.
+**Software Engineer** with 3+ years of experience at **Bosch Global Software Technologies** designing high-availability systems for the next generation of **Software-Defined Vehicles (SDV)**. Proficient in **AUTOSAR Classic**, **CI/CD** and **Machine Learning**. Recipient of the **Bosch Top Performer Award (2025)** for consistent delivery of mission-critical software for **Honda**. Currently completing a **Master’s in Computer Science** specializing in **Deep Learning and NLP**.
 
 ---
 @endinternal
@@ -17,7 +17,7 @@
 
 <b>Senior Software Engineer</b> @fill <em>June 2022 - Present</em>
 
-- **Key Achievement: Bosch Top Performer Award (2025)** – Recognized for technical support across 3 consecutive product releases, ensuring on-time delivery for OEM.
+- **Key Achievement: Bosch Top Performer Award (2025)** – Recognized for consistent delivery across 3 consecutive product releases, ensuring on-time integration for OEM.
 
 <i>Customer: Honda - Product: Master Software Library (SaaP)</i> @fill <em>Feb 2024 - Present</em>
 
@@ -29,11 +29,12 @@
   - **Designed and Developed** platform integration for software (SaaP), enabling unified cross-team testability and debugging.
   - **Configured and Integrated** core AUTOSAR stack (RTE, OS, COM) and Vector SIPs, ensuring target system alignment to mimic customer requirements.
   - **Developed and Validated** UWB based connectivity applications compliant with **CCC (Car Connectivity Consortium)** standards.
+  - **Provided on-site technical support** during system integration with Tier 1 partner (Alps Alpine), resolving software issues in real-time and coordinating defect tracking.
 
 - **SDV Architecture & Technical Leadership**
   - **Technical Lead** for internal **Software-Defined Vehicle (SDV)** initiatives with a team of 8 engineers, defining cross-platform architecture and tech stacks.
-  - **Deployed** PK features onto standard SDV platforms with services oriented architecture, proving multi-platform portability and delivering technical demonstrations to Toyota leadership.
-  - **Cooperated** with other domain (ADAS, Infotainment, etc.) to integrate PK features into their platforms.
+  - **Deployed** PK features onto standard SDV platforms with service-oriented architecture, proving multi-platform portability and delivering technical demonstrations to Toyota leadership.
+  - **Collaborated** with other domains (ADAS, Infotainment, etc.) to integrate PK features into their platforms.
 
 - **DevOps & Infrastructure**
   - **Overhauled Jenkins CI/CD pipelines**, reducing build cycle times by caching and parallelizing builds.
@@ -43,7 +44,7 @@
 
 - **Embedded Systems**
   - **Engineered and Configured** AUTOSAR stack (RTE, OS, COM) and resolved SIP (Vector) integration issues.
-  - **Cooperated** with Vector to debugging new SIP version issues.
+  - **Partnered** with Vector to debug and resolve new SIP version issues.
   - **Implemented** LIN features for actuator control.
   - **Implemented** digital key features compliant with global **CCC** security standards for robust vehicle access control.
 
