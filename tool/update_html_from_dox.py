@@ -211,71 +211,68 @@ def build_languages(raw: str) -> str:
 
 
 def build_education(raw: str) -> str:
-    """Build education HTML from DOX format.
-
-    Handles:
-    - <b>University</b> (with or without location/@fill)
-    - - <b>Degree</b> @fill <em>Dates</em>
-    - - Bullet points for details
-    """
+    """Build education HTML from DOX format."""
     lines = raw.strip().splitlines()
     html_parts = ['<ul class="list-unstyled resume-education-list">']
-
+    
+    current_university = None
+    
     for line in lines:
         stripped = line.strip()
         if not stripped or stripped == '---':
             continue
-
-        # Check for Degree line: - <b>Degree</b> @fill <em>Dates</em>
-        degree_match = re.match(r'^(?:-\s*)?<b>([^<]+)</b>\s*@fill\s*<em>([^<]+)</em>$', stripped)
-        if degree_match:
-            title = degree_match.group(1).strip()
-            dates = degree_match.group(2).strip()
-            html_parts.append(f'\t<div class="d-flex justify-content-between mb-2"><strong>{title}</strong><em class="text-muted">{dates}</em></div>')
+            
+        # Check for <b>...</b> @fill <em>...</em> pattern (University or Degree)
+        match = re.match(r'^(?:-\s*)?(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)\s*@fill\s*<em>([^<]+)</em>$', stripped)
+        if match:
+            title = match.group(1).strip()
+            right_side = match.group(2).strip()
+            
+            # If right side has digits, it's a degree/date line
+            if re.search(r'\d', right_side):
+                html_parts.append(f'\t<div class="d-flex justify-content-between mb-2"><strong>{title}</strong><em class="text-muted">{right_side}</em></div>')
+            else:
+                # If we had a previous university, close its block if needed
+                if current_university:
+                    html_parts.append('</li>')
+                html_parts.append(f'<li class="mb-4">')
+                html_parts.append(f'\t<h4 class="mb-3">{title}, {right_side}</h4>')
+                current_university = title
             continue
-
-        # Check for University line: <b>University</b>
-        univ_match = re.match(r'^<b>([^<]+)</b>(?:\s*@fill\s*<em>([^<]+)</em>)?$', stripped)
-        if univ_match:
-            name = univ_match.group(1).strip()
-            loc = univ_match.group(2).strip() if univ_match.group(2) else ""
-            html_parts.append(f'<li class="mb-4">')
-            header = f"{name}, {loc}" if loc else name
-            html_parts.append(f'\t<h4 class="mb-3">{header}</h4>')
-            continue
-
-        # Check for regular detail bullets
+            
+        # Check for regular detail bullets under a degree
         if stripped.startswith('- '):
             detail = stripped[2:].strip()
-            # Clean up leading punctuation or bullet markers
-            detail = re.sub(r'^[,\s:-]+', '', detail)
+            # Convert bolding
             detail = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', detail)
             # Strip @fill
             detail = detail.replace('@fill', '').strip()
             html_parts.append(f'\t<p class="mb-2 ml-3">{detail}</p>')
 
-    html_parts.append('</li>')
+    if current_university:
+        html_parts.append('</li>')
     html_parts.append('</ul>')
-
+    
     return '\n'.join(html_parts)
 
 
 def build_work(raw: str) -> str:
-    """Build work experience HTML from DOX format."""
+    """Build work experience HTML from DOX format with nested bullet support."""
     lines = raw.strip().splitlines()
-
-    # State tracking
+    
     company_name, company_location = '', ''
     position_title, position_dates = '', ''
     projects = []
     current_project = None
-    current_section = None
-
-    for line in lines:
+    
+    # Process the raw text line-by-line using original line indent info
+    raw_lines = raw.splitlines()
+    
+    for line in raw_lines:
         stripped = line.strip()
         if not stripped or stripped == '---':
             continue
-
+        
         # 1. Company/Position line
         company_match = re.match(r'^<b>([^<]+)</b>\s*@fill\s*<em>([^<]+)</em>$', stripped)
         if company_match:
@@ -285,76 +282,95 @@ def build_work(raw: str) -> str:
             else:
                 company_name, company_location = left, right
             continue
-
+        
         # 2. Project line
         project_match = re.match(r'^<i>([^<]+)</i>\s*@fill\s*<em>([^<]+)</em>$', stripped)
         if project_match:
             if current_project: projects.append(current_project)
-            current_project = {'info': project_match.group(1).strip(), 'dates': project_match.group(2).strip(), 'sections': []}
-            current_section = None
+            current_project = {'info': project_match.group(1).strip(), 'dates': project_match.group(2).strip(), 'items': []}
             continue
-
-        # 3. Section Header or Achievement
-        header_match = re.match(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*):?\s*(.*)', stripped)
-        if header_match and not stripped.startswith('- '):
-            name, rest = header_match.group(1).strip(), header_match.group(2).strip()
-            # If it's "Key Achievement", treat it as a special section that might have content on the same line
-            if "Achievement" in name:
-                if current_project:
-                    current_project['sections'].append((name, [rest] if rest else []))
-                else:
-                    # Global achievement if no project
-                    projects.append({'info': '', 'dates': '', 'sections': [(name, [rest] if rest else [])]})
-                current_section = name
-            else:
-                if current_project:
-                    current_project['sections'].append((name, []))
-                    current_section = name
-            continue
-
-        # 4. Bullet items
+        
+        # 3. Handle Bullets (Level 1 and Level 2)
         if stripped.startswith('- '):
+            # Check for indentation: if line starts with enough spaces, it's nested
+            is_sub_bullet = line.startswith('  ') or line.startswith('\t')
             item_text = stripped[2:].strip()
-            # Clean up leading punctuation or bullet markers
+            
+            # Punctuation cleanup for Technical Lead line
             item_text = re.sub(r'^[,\s:-]+', '', item_text)
             
-            # Check if the line starts with bold text followed by punctuation
-            # If it has punctuation right after bold, don't add another colon
-            if re.match(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)[,\.:]', item_text):
-                item_text = re.sub(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)', r'<strong>\1</strong>', item_text)
-            else:
-                # Otherwise add a colon for clarity
+            # Convert bolding at start of line
+            has_colon_after = bool(re.match(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)\s*:', item_text))
+            is_category = item_text.endswith(':') or (not is_sub_bullet and ('**' in stripped or '<b>' in stripped))
+            
+            if is_category and not has_colon_after:
+                # Add colon for category headers, consume trailing space to normalize
                 item_text = re.sub(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)\s*', r'<strong>\1</strong>: ', item_text)
+            else:
+                # Just replace tags, PRESERVE existing whitespace/punctuation
+                item_text = re.sub(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*)', r'<strong>\1</strong>', item_text)
             
             item_text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', item_text)
-            # Strip @fill
             item_text = item_text.replace('@fill', '').strip()
-
-            if current_project and current_project['sections']:
-                current_project['sections'][-1][1].append(item_text)
-            elif current_project:
-                current_project['sections'].append((None, [item_text]))
+            # Final check for trailing colons on bold parts that shouldn't have them
+            item_text = re.sub(r'</strong>:\s*:', r'</strong>:', item_text)
+            if not item_text.endswith(':'):
+                item_text = re.sub(r'</strong>:\s*$', r'</strong>', item_text)
+            
+            if current_project:
+                # If it's a sub-bullet and we have a previous item that is a category
+                if is_sub_bullet and current_project['items'] and isinstance(current_project['items'][-1], dict):
+                    current_project['items'][-1]['sub'].append(item_text)
+                elif item_text.endswith(':') or '**' in stripped or '<b>' in stripped:
+                    # Treat as a header bullet if it looks like a category or has bolding
+                    current_project['items'].append({'head': item_text, 'sub': []})
+                else:
+                    current_project['items'].append(item_text)
+            elif stripped.startswith('Key Achievement'):
+                # Handle Bosch Top Performer Award case if outside a project
+                projects.append({'info': '', 'dates': '', 'items': [item_text]})
+            continue
+            
+        # 4. Handle standalone bold headers (like "Key Achievement")
+        header_match = re.match(r'^(?:<b>|\*\*)([^*<]+)(?:</b>|\*\*):?\s*(.*)', stripped)
+        if header_match:
+            name, rest = header_match.group(1).strip(), header_match.group(2).strip()
+            if "Achievement" in name:
+                text = f"<strong>{name}</strong>: {rest}" if rest else f"<strong>{name}</strong>"
+                if current_project:
+                    current_project['items'].append(text)
+                else:
+                    projects.append({'info': '', 'dates': '', 'items': [text]})
             continue
 
     if current_project: projects.append(current_project)
-
+    
     # Build HTML
     html_parts = ['<div class="item mb-5">']
     html_parts.append(f'\t<h4 class="resume-position-title font-weight-bold mb-2">{company_name} | {company_location}</h4>')
     html_parts.append(f'\t<div class="resume-position-time d-flex justify-content-between mb-3"><span class="font-weight-bold">{position_title}</span><em class="text-muted">{position_dates}</em></div>')
-
+    
     for proj in projects:
         if proj['info']:
-            html_parts.append(f'\t<div class="d-flex justify-content-between mb-3"><em>{proj["info"]}</em><em class="text-muted">{proj["dates"]}</em></div>')
-        for sec_name, items in proj['sections']:
-            if sec_name:
-                html_parts.append(f'\t<p class="mb-2 ml-2"><strong>{sec_name}:</strong></p>')
-            html_parts.append('\t<ul class="resume-list mb-3">')
-            for item in items:
-                if item: html_parts.append(f'\t\t<li class="mb-2">{item}</li>')
-            html_parts.append('\t</ul>')
+            html_parts.append(f'\t<p class="mb-3"><em>{proj["info"]}</em> <span class="text-muted">({proj["dates"]})</span></p>')
+        
+        html_parts.append('\t<ul class="resume-list mb-3">')
+        for item in proj['items']:
+            if isinstance(item, dict):
+                html_parts.append(f'\t\t<li class="mb-2">{item["head"]}')
+                if item['sub']:
+                    html_parts.append('\t\t\t<ul class="resume-list my-2">')
+                    for s in item['sub']:
+                        html_parts.append(f'\t\t\t\t<li class="mb-1">{s}</li>')
+                    html_parts.append('\t\t\t</ul>')
+                html_parts.append('\t\t</li>')
+            else:
+                html_parts.append(f'\t\t<li class="mb-2">{item}</li>')
+        html_parts.append('\t</ul>')
+    
     html_parts.append('</div>')
     return '\n'.join(html_parts)
+
 
 def replace_block(html: str, start: str, end: str, new_inner: str) -> str:
     pattern = re.compile(re.escape(start) + r'.*?' + re.escape(end), re.DOTALL)
