@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>LE PHUC DUC - Professional CV</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Le Phuc Duc - Senior Software Engineer CV">
+	<meta name="author" content="Le Phuc Duc">
+
+	<!-- Open Graph / Social Media -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Le Phuc Duc - Automotive & SDV Specialist">
+	<meta property="og:description"
+		content="Senior Software Engineer at Bosch specializing in Automotive Embedded Systems and Software-Defined Vehicles.">
+	<meta property="og:url" content="https://neoslusion.github.io/my_cv/">
+	<meta name="twitter:card" content="summary">
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+	<!-- Theme CSS -->
+	<link id="theme-style" rel="stylesheet" href="assets/css/devresume.css">
+
+	<style>
+		:root {
+			--primary-color: #0F172A; /* Deep Slate - Trust */
+			--accent-color: #3B82F6;  /* Electric Blue - Tech */
+			--success-color: #10B981; /* Emerald - Awards */
+			--bg-light: #F1F5F9;
+		}
+		body { background-color: var(--bg-light); font-family: 'Inter', sans-serif; padding-top: 70px; }
+		@media (max-width: 991.98px) { body { padding-top: 110px; } }
+
+		.resume-wrapper { border-radius: 16px; overflow: hidden; border: none; background: white !important; }
+		.resume-header { background: var(--primary-color); color: white; padding: 3.5rem !important; }
+		.resume-name { letter-spacing: 0.05em; font-weight: 900; color: white !important; }
+		.resume-tagline { color: #94A3B8; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin-top: 0.5rem; }
+		
+		/* Award Badge */
+		.award-badge {
+			background: rgba(16, 185, 129, 0.15);
+			border: 1px solid var(--success-color);
+			color: var(--success-color);
+			padding: 0.5rem 1.2rem;
+			border-radius: 50px;
+			font-size: 0.8rem;
+			font-weight: 800;
+			text-transform: uppercase;
+			display: inline-flex;
+			align-items: center;
+			margin-top: 1.5rem;
+			box-shadow: 0 2px 4px rgba(16, 185, 129, 0.1);
+		}
+
+		/* Section Headings */
+		.resume-section-heading {
+			color: var(--primary-color);
+			border-left: 5px solid var(--accent-color);
+			padding-left: 1.2rem;
+			font-weight: 900;
+			font-size: 1.2rem;
+			margin-bottom: 2rem !important;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		/* Project/Item Cards */
+		.item {
+			background: #ffffff;
+			padding: 2rem;
+			border-radius: 12px;
+			box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+			border: 1px solid #E2E8F0;
+			margin-bottom: 2rem !important;
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+		.item:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-color: var(--accent-color); }
+		
+		.resume-position-title { color: var(--primary-color); font-weight: 800; font-size: 1.15rem; }
+		.resume-position-time { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+		
+		/* Nested Lists */
+		.resume-list { list-style: none; padding-left: 0; }
+		.resume-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: #475569; }
+		.resume-list li::before {
+			content: "→";
+			position: absolute;
+			left: 0;
+			color: var(--accent-color);
+			font-weight: bold;
+		}
+		
+		/* Sub-lists */
+		.resume-list .resume-list {
+			margin-top: 0.5rem;
+			border-left: 2px solid #F1F5F9;
+			padding-left: 1.5rem;
+			margin-left: 0.5rem;
+		}
+		.resume-list .resume-list li::before { content: "•"; color: #94A3B8; }
+
+		/* Skills Badges */
+		.badge-primary { 
+			background-color: #EFF6FF !important; 
+			color: var(--accent-color) !important;
+			border: 1px solid #DBEAFE;
+			padding: 0.6rem 1rem; 
+			border-radius: 8px;
+			font-weight: 600;
+			font-size: 0.8rem;
+		}
+		.item-title { color: #64748B; font-size: 0.75rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+
+		.resume-link { color: var(--accent-color); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+		.resume-link:hover { border-bottom-color: var(--accent-color); opacity: 0.8; }
+
+		#banner { backdrop-filter: blur(8px); background: rgba(15, 23, 42, 0.9) !important; border-bottom: 1px solid rgba(255,255,255,0.1); }
+		.demo-btn-on-bg { background: var(--accent-color) !important; border: none !important; border-radius: 6px; }
+	</style>
+
+</head>
+
+<body>
+	<div id="banner" class="fixed-top demo-banner px-2 py-3 text-white text-center font-weight-bold">
+		<a class="btn demo-btn-on-bg text-white font-weight-bold ml-3 px-4"
+			href="https://github.com/neoslusion/my_cv/releases/download/latest/LePhucDuc_CV.pdf" target="_blank">
+			<i class="fas fa-file-pdf mr-2"></i>Download PDF
+		</a>
+	</div>
+	<div class="main-wrapper">
+		<div class="container px-3 px-lg-5">
+			<article class="resume-wrapper mx-auto mb-5 my-5 shadow-2xl">
+
+				<div class="resume-header">
+					<div class="row align-items-center">
+						<div class="resume-title col-12 col-md-7 col-lg-8">
+							<h2 class="resume-name mb-0 text-uppercase">LE PHUC DUC</h2>
+							<div class="resume-tagline"><!-- TAGLINE_START -->
+Software Engineer
+<!-- TAGLINE_END --></div>
+						</div>
+						<!--//resume-title-->
+						<div class="resume-contact col-12 col-md-5 col-lg-4">
+							<ul class="list-unstyled mb-0 text-white-50" style="font-size: 0.85rem;">
+								<!-- CONTACT_INFO_START -->
+<li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="tel:+84373304824">(+84) 373304824</a></li>
+<li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="mailto:lephucduc2000@gmail.com">lephucduc2000@gmail.com</a></li>
+<li class="mb-2"><i class="fab fa-linkedin fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="https://www.linkedin.com/in/duc-le-phuc-7784b8228" target="_blank">LinkedIn</a></li>
+<li class="mb-2"><i class="fab fa-github fa-fw fa-lg mr-2" aria-hidden="true"></i><a class="resume-link" href="https://github.com/neoslusion" target="_blank">GitHub</a></li>
+<!-- CONTACT_INFO_END -->
+							</ul>
+						</div>
+						<!--//resume-contact-->
+					</div>
+					<!--//row-->
+
+				</div>
+				<!--//resume-header-->
+				
+				<div class="resume-intro py-5 px-5" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
+					<div class="media flex-column flex-md-row align-items-center">
+						<div class="media-body text-left">
+							<h3 class="text-uppercase mb-3" style="font-size: 0.8rem; font-weight: 800; color: var(--accent-color); letter-spacing: 0.2em;">Professional Summary</h3>
+							<div style="font-size: 1.1rem; line-height: 1.8; color: #334155;">
+								<!-- SUMMARY_START -->
+<p class="mb-0"><strong>Software Engineer</strong> with 3+ years of experience at <strong>Bosch Global Software Technologies</strong> designing high-availability systems for the next generation of <strong>Software-Defined Vehicles (SDV)</strong>. Proficient in <strong>AUTOSAR Classic</strong>, <strong>CI/CD</strong> and <strong>Machine Learning</strong>. Recipient of the <strong>Bosch Top Performer Award (2025)</strong> for consistent delivery of mission-critical software for <strong>Honda</strong>. Currently completing a <strong>Master’s in Computer Science</strong> specializing in <strong>Deep Learning and NLP</strong>.</p>
+<!-- SUMMARY_END -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="resume-body p-5">
+					<div class="row">
+						<!-- LEFT SIDEBAR -->
+						<aside class="resume-aside col-12 col-lg-4 col-xl-3 pr-0 pr-lg-4">
+
+							<section class="skills-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Technical Toolkit</h3>
+								<!-- SKILLS_START -->
+<div class="item mb-3">
+	<h4 class="item-title">Automotive & Systems</h4>
+	<div class="item-content">
+		<span class="badge badge-primary mr-1 mb-1">AUTOSAR Classic</span>
+		<span class="badge badge-primary mr-1 mb-1">SDV Architecture</span>
+		<span class="badge badge-primary mr-1 mb-1">ASPICE</span>
+		<span class="badge badge-primary mr-1 mb-1">CCC Standards</span>
+		<span class="badge badge-primary mr-1 mb-1">Vector Toolchain (CANoe, DaVinci)</span>
+		<span class="badge badge-primary mr-1 mb-1">Linux</span>
+	</div>
+</div>
+<div class="item mb-3">
+	<h4 class="item-title">AI/ML & Data</h4>
+	<div class="item-content">
+		<span class="badge badge-primary mr-1 mb-1">PyTorch</span>
+		<span class="badge badge-primary mr-1 mb-1">TensorFlow</span>
+		<span class="badge badge-primary mr-1 mb-1">Scikit-learn</span>
+		<span class="badge badge-primary mr-1 mb-1">Computer Vision</span>
+	</div>
+</div>
+<div class="item mb-3">
+	<h4 class="item-title">Communication & Protocols</h4>
+	<div class="item-content">
+		<span class="badge badge-primary mr-1 mb-1">gRPC (Protobuf)</span>
+		<span class="badge badge-primary mr-1 mb-1">CAN</span>
+		<span class="badge badge-primary mr-1 mb-1">LIN</span>
+		<span class="badge badge-primary mr-1 mb-1">REST APIs</span>
+	</div>
+</div>
+<div class="item mb-3">
+	<h4 class="item-title">DevOps & Tools</h4>
+	<div class="item-content">
+		<span class="badge badge-primary mr-1 mb-1">Jenkins</span>
+		<span class="badge badge-primary mr-1 mb-1">GitHub Actions</span>
+		<span class="badge badge-primary mr-1 mb-1">Docker</span>
+		<span class="badge badge-primary mr-1 mb-1">CMake</span>
+		<span class="badge badge-primary mr-1 mb-1">RobotFramework</span>
+		<span class="badge badge-primary mr-1 mb-1">Jira</span>
+		<span class="badge badge-primary mr-1 mb-1">Git</span>
+		<span class="badge badge-primary mr-1 mb-1">Qt</span>
+	</div>
+</div>
+<div class="item mb-3">
+	<h4 class="item-title">Programming Languages</h4>
+	<div class="item-content">
+		<span class="badge badge-primary mr-1 mb-1">Python</span>
+		<span class="badge badge-primary mr-1 mb-1">C</span>
+		<span class="badge badge-primary mr-1 mb-1">C++</span>
+		<span class="badge badge-primary mr-1 mb-1">Shell Scripting</span>
+	</div>
+</div>
+<!-- SKILLS_END -->
+							</section>
+						</aside>
+						<!--//resume-aside-->
+
+						<!-- MAIN CONTENT -->
+						<div class="resume-main col-12 col-lg-8 col-xl-9 pl-0 pl-lg-5">
+							<section class="work-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Professional Experience</h3>
+								<!-- WORK_EXPERIENCE_START -->
+<div class="item mb-5">
+	<h4 class="resume-position-title font-weight-bold mb-2">Bosch Global Software Technologies Company Limited | Ho Chi Minh City, Vietnam</h4>
+	<div class="resume-position-time d-flex justify-content-between mb-3"><span class="font-weight-bold">Senior Software Engineer</span><em class="text-muted">June 2022 - Present</em></div>
+	<p class="mb-3"><em>Customer: Honda - Product: Master Software Library (SaaP)</em> <span class="text-muted">(Feb 2024 - Present)</span></p>
+	<ul class="resume-list mb-3">
+		<li class="mb-2"><strong>Algorithm & ML Engineering</strong>:
+			<ul class="resume-list my-2">
+				<li class="mb-1"><strong>Engineered and optimized</strong> real-time sensor algorithms for Child Present Detection and Kick Sensors, using <strong>Machine Learning</strong> for high-precision Perfectly Keyless (PK) localization.</li>
+				<li class="mb-1">Refining <strong>Deep Learning models</strong> to improve localization algorithm accuracy for next-generation PK systems.</li>
+			</ul>
+		</li>
+		<li class="mb-2"><strong>Embedded Systems</strong>:
+			<ul class="resume-list my-2">
+				<li class="mb-1"><strong>Designed and developed</strong> platform integration for software (SaaP), enabling unified cross-team testability and debugging.</li>
+				<li class="mb-1"><strong>Configured and integrated</strong> core AUTOSAR stack (RTE, OS, COM) and Vector SIPs, ensuring target system alignment to mimic customer requirements.</li>
+				<li class="mb-1"><strong>Developed and validated</strong> UWB based connectivity applications compliant with <strong>CCC (Car Connectivity Consortium)</strong> standards.</li>
+				<li class="mb-1"><strong>Provided on-site technical support</strong> during system integration with Tier 1 partner (Alps Alpine), resolving software issues in real-time and coordinating defect tracking.</li>
+			</ul>
+		</li>
+		<li class="mb-2"><strong>SDV Architecture & Technical Leadership</strong>:
+			<ul class="resume-list my-2">
+				<li class="mb-1"><strong>Technical lead</strong> for internal <strong>Software-Defined Vehicle (SDV)</strong> initiatives with a team of 8 engineers, defining cross-platform architecture and tech stacks on Linux.</li>
+				<li class="mb-1"><strong>Deployed</strong> PK features onto standard SDV platforms with service-oriented architecture, proving multi-platform portability and delivering technical demonstrations to Toyota leadership.</li>
+				<li class="mb-1"><strong>Collaborated</strong> with other domains (ADAS, Infotainment, etc.) to integrate PK features into their platforms.</li>
+			</ul>
+		</li>
+		<li class="mb-2"><strong>DevOps & Infrastructure</strong>:
+			<ul class="resume-list my-2">
+				<li class="mb-1"><strong>Overhauled Jenkins CI/CD pipelines</strong>, reducing build cycle times by caching and parallelizing builds.</li>
+				<li class="mb-1"><strong>Engineered</strong> a custom HIL testing framework using <strong>RobotFramework</strong>, saving licensing costs.</li>
+			</ul>
+		</li>
+	</ul>
+	<p class="mb-3"><em>Customer: Commercial Vehicle (PKCV) - Fleet Management</em> <span class="text-muted">(June 2022 - Feb 2024)</span></p>
+	<ul class="resume-list mb-3">
+		<li class="mb-2"><strong>Embedded Systems</strong>:
+			<ul class="resume-list my-2">
+				<li class="mb-1"><strong>Engineered and Configured</strong> AUTOSAR stack (RTE, OS, COM) and resolved SIP (Vector) integration issues.</li>
+				<li class="mb-1"><strong>Partnered</strong> with Vector to debug and resolve new SIP version issues.</li>
+				<li class="mb-1"><strong>Implemented</strong> LIN features for actuator control.</li>
+				<li class="mb-1"><strong>Implemented</strong> digital key features compliant with global <strong>CCC</strong> security standards for robust vehicle access control.</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<!-- WORK_EXPERIENCE_END -->
+							</section>
+							<!--//work-section-->
+
+							<section class="education-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Academic Background</h3>
+								<!-- EDUCATION_START -->
+<ul class="list-unstyled resume-education-list">
+<li class="mb-4">
+	<h4 class="mb-3">Ho Chi Minh City University of Technology, Ho Chi Minh City, Vietnam</h4>
+	<div class="d-flex justify-content-between mb-2"><strong>Master's Degree in Computer Science</strong><em class="text-muted">2024 – Present</em></div>
+	<div class="d-flex justify-content-between mb-2"><strong>Bachelor's Degree in Automation and Control Engineering</strong><em class="text-muted">2018 – 2022</em></div>
+</li>
+</ul>
+<!-- EDUCATION_END -->
+							</section>
+							<!--//education-section-->
+						</div>
+						<!--//resume-main-->
+
+					</div>
+					<!--//row-->
+				</div>
+				<!--//resume-body-->
+
+			</article>
+
+		</div>
+		<!--//container-->
+
+	</div>
+	<!--//main-wrapper-->
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			console.log("Premium Portfolio Loaded");
+		});
+	</script>
+
+</body>
+
+</html>
