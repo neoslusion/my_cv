@@ -345,7 +345,7 @@ def build_work(raw: str) -> str:
 
     for proj in projects:
         if proj['info']:
-            html_parts.append(f'\t<p class="mb-3"><em>{proj["info"]}</em> <span class="text-muted">({proj["dates"]})</span></p>')
+            html_parts.append(f'\t<div class="d-flex justify-content-between mb-3"><em>{proj["info"]}</em><em class="text-muted">{proj["dates"]}</em></div>')
         for sec_name, items in proj['sections']:
             if sec_name:
                 html_parts.append(f'\t<p class="mb-2 ml-2"><strong>{sec_name}:</strong></p>')
