@@ -2,15 +2,15 @@
 % Author: Le Phuc Duc
 % Version: 2.0 - Enhanced for professional documentation standards
 
-\documentclass[10pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 % Set optimized font sizes for professional CV - improved readability
-\renewcommand{\normalsize}{\fontsize{10pt}{11.5pt}\selectfont}
-\renewcommand{\small}{\fontsize{9pt}{10.5pt}\selectfont}
-\renewcommand{\footnotesize}{\fontsize{8pt}{9.5pt}\selectfont}
-\renewcommand{\large}{\fontsize{13pt}{15pt}\selectfont}
-\renewcommand{\Large}{\fontsize{18pt}{21pt}\selectfont}
-\renewcommand{\LARGE}{\fontsize{20pt}{23pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{10.5pt}{12.5pt}\selectfont}
+\renewcommand{\small}{\fontsize{9.5pt}{11.5pt}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{8.5pt}{10.5pt}\selectfont}
+\renewcommand{\large}{\fontsize{13.5pt}{15.5pt}\selectfont}
+\renewcommand{\Large}{\fontsize{18.5pt}{21.5pt}\selectfont}
+\renewcommand{\LARGE}{\fontsize{20.5pt}{23.5pt}\selectfont}
 
 % Essential packages
 \usepackage[utf8]{inputenc}
@@ -25,16 +25,16 @@
 \usepackage{array}
 \usepackage{microtype}                % Better typography and spacing
 
-% Balanced page geometry
+% Tight page geometry
 \geometry{
     a4paper,
-    top=1.2cm,
-    bottom=1.2cm,
-    left=1.5cm,
-    right=1.5cm,
+    top=0.9cm,
+    bottom=0.9cm,
+    left=1.3cm,
+    right=1.3cm,
     headheight=0cm,
     headsep=0cm,
-    footskip=0.5cm
+    footskip=0.4cm
 }
 
 % Remove headers and footers
@@ -50,34 +50,34 @@
 \titleformat{\section}
 {\centering\normalfont\Large\bfseries}
 {}{0em}{}
-[\vspace{-0.2em}\titlerule]
+[\vspace{-0.4em}\titlerule]
 
 \titleformat{\subsection}
 {\normalfont\normalsize\bfseries}
 {}{0em}{}
-[\vspace{-0.1em}]
+[\vspace{-0.2em}]
 
 \titleformat{\subsubsection}
 {\normalfont\small\bfseries}
 {}{0em}{}
-[\vspace{-0.05em}]
+[\vspace{-0.1em}]
 
 % Ultra-compact custom commands
 \newcommand{\cvheader}[1]{
     \begin{center}
         {\fontsize{14pt}{16pt}\selectfont\textbf{#1}}
     \end{center}
-    \vspace{-0.4em}
+    \vspace{-0.6em}
 }
 
 % Removed duplicate cvcontact; keep single concise version defined later
 
 \newcommand{\cvsection}[1]{
-    \vspace{0.1em}
+    \vspace{0.05em}
     \begin{center}
         \textbf{\normalsize #1}
     \end{center}
-    \vspace{-0.1em}
+    \vspace{-0.05em}
 }
 
 \newcommand{\cventry}[4]{
@@ -87,7 +87,7 @@
         {#3} & \\
     \end{tabularx}
     {#4}
-    \vspace{0.1em}
+    \vspace{0.05em}
 }
 
 \newcommand{\cvskill}[2]{
@@ -96,21 +96,21 @@
 
 % List formatting with improved spacing for better readability
 \setlist[itemize]{
-    leftmargin=1.4em,
-    itemsep=2pt,
-    parsep=0pt,
-    topsep=3pt,
+    leftmargin=1.2em,
+    itemsep=1pt,
+    parsep=0.3pt,
+    topsep=1.5pt,
     partopsep=0pt,
-    before=\vspace{0.1em},
-    after=\vspace{0.1em}
+    before=\vspace{0em},
+    after=\vspace{0em}
 }
 
 % Paragraph settings with comfortable spacing
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
+\setlength{\parskip}{1pt}
 
 % Comfortable line spacing for readability
-\renewcommand{\baselinestretch}{1.05}
+\renewcommand{\baselinestretch}{1.08}
 \tolerance=1000
 \emergencystretch=1em
 \hyphenpenalty=10000
@@ -125,7 +125,7 @@
 }
 
 % Slightly tighter character spacing for more content
-\SetTracking{encoding=*}{-10}
+\SetTracking{encoding=*}{-7}
 
 % Define all Doxygen commands with professional spacing
 % Counter to track if this is the first section (mainpage title)
@@ -142,7 +142,7 @@
         \stepcounter{doxymainsection}%
     \else%
         % Subsequent sections - centered, bold, with underline
-        \par\addvspace{0.6em}\begin{center}{\Large\bfseries #1}\end{center}\par\vspace{-0.6em}\rule{\textwidth}{0.6pt}\par\vspace{0.4em}%
+        \par\addvspace{0.7em}\begin{center}{\Large\bfseries #1}\end{center}\par\vspace{-0.55em}\rule{\textwidth}{0.6pt}\par\vspace{0.45em}%
     \fi%
 }
 \newcommand{\doxysubsection}[1]{%
@@ -155,8 +155,8 @@
 \newcommand{\doxyparagraph}[1]{\par\addvspace{0.2em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
 \newcommand{\doxysubparagraph}[1]{\par\addvspace{0.15em}\noindent\textbf{\small #1}\par\addvspace{0.1em}}
 \newcommand{\DoxyHorRuler}[1]{\vspace{0.3em}\noindent\rule{\textwidth}{0.4pt}\vspace{0.3em}}
-\newenvironment{DoxyEnumerate}{\begin{enumerate}[topsep=2pt,itemsep=1pt]}{\end{enumerate}}
-\newenvironment{DoxyItemize}{\begin{itemize}[topsep=2pt,itemsep=1pt]}{\end{itemize}}
+\newenvironment{DoxyEnumerate}{\begin{enumerate}[topsep=2.5pt,itemsep=1.2pt]}{\end{enumerate}}
+\newenvironment{DoxyItemize}{\begin{itemize}[topsep=2.5pt,itemsep=1.2pt]}{\end{itemize}}
 
 % Define Doxygen line break command
 \newcommand{\+}{}
